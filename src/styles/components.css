@@ -206,6 +206,7 @@
   letter-spacing: 0.09em;
   text-transform: uppercase;
   transform: rotate(-1deg);
+  background: var(--color-global-black-cherry);
 }
 .stamped-label--build {
   color: var(--color-build-accent);

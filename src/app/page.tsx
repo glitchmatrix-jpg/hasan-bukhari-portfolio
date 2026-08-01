@@ -183,6 +183,7 @@ export default function HomePage() {
               <div
                 className={`${styles.mediaPlate} ${styles.phonePlate}`}
                 data-label="HEARTLINE"
+                role="img"
                 aria-label="Abstract public-safe placeholder for the HEARTLINE mobile interface"
               />
             }
@@ -214,6 +215,7 @@ export default function HomePage() {
               <div
                 className={`${styles.mediaPlate} ${styles.researchPlate}`}
                 data-label="CancerShift"
+                role="img"
                 aria-label="Simplified study flow from development data to external microarray and RNA-seq evaluation"
               >
                 <div className={styles.researchFlow}>
@@ -267,6 +269,7 @@ export default function HomePage() {
               <div
                 className={`${styles.mediaPlate} ${styles.gamePlate}`}
                 data-label="To Ash Again"
+                role="img"
                 aria-label="Abstract pixel-art red landscape representing To Ash Again"
               >
                 <span className={styles.mountain} aria-hidden="true" />
@@ -302,6 +305,7 @@ export default function HomePage() {
               <div
                 className={`${styles.mediaPlate} ${styles.researchPlate}`}
                 data-label="A17"
+                role="img"
                 aria-label="Abstract contact-map comparison illustrating structure and scale"
               >
                 <div className={styles.researchFlow}>
@@ -343,6 +347,7 @@ export default function HomePage() {
               <div
                 className={styles.mediaPlate}
                 data-label="Flooded"
+                role="img"
                 aria-label="Abstract blue book-cover placeholder for Flooded"
               />
             }
@@ -378,6 +383,7 @@ export default function HomePage() {
               <h3>Taaqat</h3>
               <div
                 className={styles.productMock}
+                role="img"
                 aria-label="Public-safe placeholder for the Taaqat recovery dashboard"
               >
                 Recovery dashboard asset pending
@@ -396,6 +402,7 @@ export default function HomePage() {
               <h3>Nivala</h3>
               <div
                 className={styles.productMock}
+                role="img"
                 aria-label="Public-safe placeholder for the Nivala nutrition dashboard"
               >
                 Synthetic-data screenshot pending
@@ -455,6 +462,7 @@ export default function HomePage() {
         <div className={`${styles.inner} ${styles.humanGrid}`}>
           <div
             className={styles.photoFallback}
+            role="img"
             aria-label="Event photograph placeholder pending photographer and participant rights review"
           />
           <div className={styles.humanCopy}>

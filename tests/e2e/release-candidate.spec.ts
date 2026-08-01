@@ -27,7 +27,7 @@ test.describe("release-candidate navigation", () => {
       );
       await expect(page.locator('link[rel="canonical"]')).toHaveAttribute(
         "href",
-        new RegExp(`${route === "/" ? "/$" : route}$`),
+        route === "/" ? "https://hasanbukhari.dev" : new RegExp(`${route}$`),
       );
       await expect(page.getByRole("heading", { level: 1 })).toHaveCount(1);
     });
