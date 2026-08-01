@@ -1,16 +1,16 @@
 import { ResumeTile } from "@/components/projects/ResumeTile";
-import type { Metadata } from "next";
-export const metadata: Metadata = {
-  title: "Résumés",
-  description:
-    "Computational biology and software engineering résumé paths for Hasan Bukhari.",
-};
+import { pageMetadata } from "@/lib/metadata";
+export const metadata = pageMetadata(
+  "Résumés",
+  "Computational biology and software engineering résumé paths for Hasan Bukhari.",
+  "/resume",
+);
 export default function ResumePage() {
   return (
     <div className="utility-page utility-page--resume">
       <header>
         <p className="eyebrow">Documents / Two paths</p>
-        <h1>Résumés</h1>
+        <h1>RÃ©sumÃ©s</h1>
         <p className="utility-page__lead">
           Choose the document that matches the role. Both paths belong to the
           same systems-minded practice.
@@ -19,13 +19,13 @@ export default function ResumePage() {
       <div className="resume-portal">
         <ResumeTile
           description="For computational biology, bioinformatics, research engineering, data science, and scientific software roles."
-          title="Computational Biology / Bioinformatics Résumé"
+          title="Computational Biology / Bioinformatics RÃ©sumÃ©"
           tone="research"
           updatedAt="Pending file verification"
         />
         <ResumeTile
           description="For software engineering, mobile development, backend systems, product engineering, and interactive software roles."
-          title="Software Engineering Résumé"
+          title="Software Engineering RÃ©sumÃ©"
           tone="build"
           updatedAt="Pending file verification"
         />

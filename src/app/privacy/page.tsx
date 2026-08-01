@@ -1,8 +1,9 @@
-import type { Metadata } from "next";
-export const metadata: Metadata = {
-  title: "Privacy",
-  description: "Privacy information for Hasan Bukhari’s portfolio website.",
-};
+import { pageMetadata } from "@/lib/metadata";
+export const metadata = pageMetadata(
+  "Privacy",
+  "Privacy information for Hasan Bukhari’s portfolio website.",
+  "/privacy",
+);
 export default function PrivacyPage() {
   return (
     <article className="utility-page">

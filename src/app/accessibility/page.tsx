@@ -1,9 +1,9 @@
-import type { Metadata } from "next";
-export const metadata: Metadata = {
-  title: "Accessibility",
-  description:
-    "Accessibility approach and contact information for Hasan Bukhari’s portfolio.",
-};
+import { pageMetadata } from "@/lib/metadata";
+export const metadata = pageMetadata(
+  "Accessibility",
+  "Accessibility approach and contact information for Hasan Bukhari’s portfolio.",
+  "/accessibility",
+);
 export default function AccessibilityPage() {
   return (
     <article className="utility-page">

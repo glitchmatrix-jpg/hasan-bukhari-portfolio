@@ -20,7 +20,9 @@
     "test:a11y": "playwright test tests/e2e/accessibility.spec.ts",
     "validate:content": "tsx scripts/validate-content.ts",
     "validate:assets": "tsx scripts/validate-assets.ts",
-    "validate": "npm run typecheck && npm run lint && npm run format && npm run test && npm run validate:content && npm run validate:assets"
+    "validate": "npm run typecheck && npm run lint && npm run format && npm run test && npm run validate:content && npm run validate:assets && npm run audit:source",
+    "audit:source": "tsx scripts/audit-release.ts",
+    "release:gate": "tsx scripts/audit-release.ts --release"
   },
   "dependencies": {
     "@mdx-js/loader": "^3.1.1",

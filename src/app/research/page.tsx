@@ -1,10 +1,10 @@
 import { WorldPage } from "@/components/projects/WorldPage";
-import type { Metadata } from "next";
-export const metadata: Metadata = {
-  title: "Research",
-  description:
-    "Computational biology, genomics, scientific software, and strict evaluation by Hasan Bukhari.",
-};
+import { pageMetadata } from "@/lib/metadata";
+export const metadata = pageMetadata(
+  "Research",
+  "Computational biology, genomics, scientific software, and strict evaluation by Hasan Bukhari.",
+  "/research",
+);
 export default function ResearchPage() {
   return <WorldPage world="research" />;
 }

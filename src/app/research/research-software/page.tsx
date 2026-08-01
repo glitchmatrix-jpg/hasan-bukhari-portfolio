@@ -1,9 +1,10 @@
-import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/metadata";
 import Link from "next/link";
-export const metadata: Metadata = {
-  title: "Research Software",
-  description: "Scientific and educational software projects by Hasan Bukhari.",
-};
+export const metadata = pageMetadata(
+  "Research Software",
+  "Scientific and educational software projects by Hasan Bukhari.",
+  "/research/research-software",
+);
 export default function ResearchSoftwarePage() {
   return (
     <div className="utility-page">

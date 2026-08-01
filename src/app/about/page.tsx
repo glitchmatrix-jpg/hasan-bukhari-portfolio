@@ -1,10 +1,10 @@
 import { ButtonLink } from "@/components/ui/ButtonLink";
-import type { Metadata } from "next";
-export const metadata: Metadata = {
-  title: "About",
-  description:
-    "About Hasan Bukhari and the connection between software, computational biology, games, writing, and community.",
-};
+import { pageMetadata } from "@/lib/metadata";
+export const metadata = pageMetadata(
+  "About",
+  "About Hasan Bukhari and the connection between software, computational biology, games, writing, and community.",
+  "/about",
+);
 export default function AboutPage() {
   return (
     <article className="utility-page utility-page--about">

@@ -1,11 +1,12 @@
 import { CaseStudy } from "@/components/projects/CaseStudy";
 import { getProject } from "@/content/portfolio";
-import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/metadata";
 const project = getProject("cancershift");
-export const metadata: Metadata = {
-  title: project.title,
-  description: project.summary,
-};
+export const metadata = pageMetadata(
+  project.title,
+  project.summary,
+  "/research/cancershift",
+);
 export default function Page() {
   return <CaseStudy project={project} />;
 }

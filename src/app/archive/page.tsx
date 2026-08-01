@@ -1,9 +1,9 @@
-import type { Metadata } from "next";
-export const metadata: Metadata = {
-  title: "Archive",
-  description:
-    "A compact index of supporting software, game, and scientific-tool projects by Hasan Bukhari.",
-};
+import { pageMetadata } from "@/lib/metadata";
+export const metadata = pageMetadata(
+  "Archive",
+  "A compact index of supporting software, game, and scientific-tool projects by Hasan Bukhari.",
+  "/archive",
+);
 const items = [
   [
     "QTL Analysis Toolkit",

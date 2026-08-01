@@ -1,15 +1,16 @@
 import { ButtonLink } from "@/components/ui/ButtonLink";
-import type { Metadata } from "next";
-export const metadata: Metadata = {
-  title: "Contact",
-  description: "Contact Hasan Bukhari by email, LinkedIn, or GitHub.",
-};
+import { pageMetadata } from "@/lib/metadata";
+export const metadata = pageMetadata(
+  "Contact",
+  "Contact Hasan Bukhari by email, LinkedIn, or GitHub.",
+  "/contact",
+);
 export default function ContactPage() {
   return (
     <div className="utility-page utility-page--contact">
       <header>
         <p className="eyebrow">Act IV / What comes next</p>
-        <h1>Let’s make the next thing.</h1>
+        <h1>Letâ€™s make the next thing.</h1>
         <p className="utility-page__lead">
           For software, computational biology, research engineering, creative
           technology, and community collaboration.

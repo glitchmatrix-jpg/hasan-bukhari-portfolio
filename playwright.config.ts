@@ -1,4 +1,10 @@
 import { defineConfig, devices } from "@playwright/test";
+
+const chromiumExecutable = process.env.PLAYWRIGHT_CHROMIUM_PATH;
+const localChromium = chromiumExecutable
+  ? { executablePath: chromiumExecutable }
+  : {};
+
 export default defineConfig({
   testDir: "./tests/e2e",
   fullyParallel: true,
@@ -17,9 +23,12 @@ export default defineConfig({
     reuseExistingServer: !process.env.CI,
   },
   projects: [
-    { name: "chromium", use: { ...devices["Desktop Chrome"] } },
+    {
+      name: "chromium",
+      use: { ...devices["Desktop Chrome"], ...localChromium },
+    },
     { name: "firefox", use: { ...devices["Desktop Firefox"] } },
     { name: "webkit", use: { ...devices["Desktop Safari"] } },
-    { name: "mobile-chrome", use: { ...devices["Pixel 7"] } },
+    { name: "mobile-chrome", use: { ...devices["Pixel 7"], ...localChromium } },
   ],
 });
