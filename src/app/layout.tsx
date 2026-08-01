@@ -9,6 +9,9 @@ import "@/styles/tokens.css";
 import type { Metadata, Viewport } from "next";
 import type { ReactNode } from "react";
 
+const previewBasePath =
+  process.env.GITHUB_PAGES === "true" ? "/hasan-bukhari-portfolio" : "";
+
 export const metadata: Metadata = {
   metadataBase: new URL("https://hasanbukhari.dev"),
   title: {
@@ -21,10 +24,10 @@ export const metadata: Metadata = {
   authors: [{ name: "Hasan Bukhari", url: "https://hasanbukhari.dev" }],
   creator: "Hasan Bukhari",
   alternates: { canonical: "/" },
-  manifest: "/manifest.webmanifest",
+  manifest: `${previewBasePath}/manifest.webmanifest`,
   icons: {
-    icon: [{ url: "/icon.svg", type: "image/svg+xml" }],
-    shortcut: "/icon.svg",
+    icon: [{ url: `${previewBasePath}/icon.svg`, type: "image/svg+xml" }],
+    shortcut: `${previewBasePath}/icon.svg`,
   },
   openGraph: {
     type: "website",

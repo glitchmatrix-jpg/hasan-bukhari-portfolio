@@ -1,5 +1,6 @@
 import { projects } from "@/content/portfolio";
 import type { MetadataRoute } from "next";
+export const dynamic = "force-static";
 
 const base = "https://hasanbukhari.dev";
 const staticRoutes = [
