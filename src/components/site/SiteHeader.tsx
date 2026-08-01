@@ -1,32 +1,7 @@
 import Link from "next/link";
-
-const primaryLinks = [
-  ["Build", "/build"],
-  ["Research", "/research"],
-  ["Write", "/write"],
-  ["About", "/about"],
-  ["Résumés", "/resume"],
-  ["Contact", "/contact"],
-] as const;
+import { MobileMenu } from "@/components/navigation/MobileMenu";
+import { SiteNavigation } from "@/components/navigation/SiteNavigation";
 
 export function SiteHeader() {
-  return (
-    <header className="site-header">
-      <Link className="site-mark" href="/" aria-label="Hasan Bukhari, home">
-        HB / ISSUE 01
-      </Link>
-      <nav aria-label="Primary navigation">
-        <ul className="site-nav">
-          {primaryLinks.map(([label, href], index) => (
-            <li key={href}>
-              <Link href={href}>
-                <span aria-hidden="true">{String(index + 1).padStart(2, "0")} </span>
-                {label}
-              </Link>
-            </li>
-          ))}
-        </ul>
-      </nav>
-    </header>
-  );
+  return <header className="site-header"><div className="site-header__inner"><Link className="site-header__brand" href="/" aria-label="Hasan Bukhari home"><span aria-hidden="true" className="site-header__issue">ISSUE 01</span><span>Hasan Bukhari</span></Link><div className="site-header__desktop-nav"><SiteNavigation /></div><div className="site-header__mobile-nav"><MobileMenu /></div></div></header>;
 }
