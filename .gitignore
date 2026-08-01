@@ -1,0 +1,16 @@
+node_modules/
+.next/
+out/
+coverage/
+playwright-report/
+test-results/
+.env
+.env.local
+.env.*.local
+.vercel/
+.DS_Store
+*.log
+
+# Source and restricted production material never belongs in public builds.
+assets-source/**/restricted/
+assets-source/**/originals-private/
