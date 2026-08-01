@@ -12,8 +12,12 @@ describe("HomeActSelector", () => {
     await user.click(researchTab);
 
     expect(researchTab).toHaveAttribute("aria-selected", "true");
-    expect(screen.getByRole("tabpanel")).toHaveTextContent(/genomics, machine learning, chromatin/i);
-    expect(screen.getByRole("link", { name: /enter research/i })).toHaveAttribute("href", "/research");
+    expect(screen.getByRole("tabpanel")).toHaveTextContent(
+      /genomics, machine learning, chromatin/i,
+    );
+    expect(
+      screen.getByRole("link", { name: /enter research/i }),
+    ).toHaveAttribute("href", "/research");
   });
 
   it("supports arrow-key tab navigation", async () => {
@@ -25,6 +29,8 @@ describe("HomeActSelector", () => {
     await user.keyboard("{ArrowRight}");
 
     expect(screen.getByRole("tab", { name: /act ii research/i })).toHaveFocus();
-    expect(screen.getByRole("tab", { name: /act ii research/i })).toHaveAttribute("aria-selected", "true");
+    expect(
+      screen.getByRole("tab", { name: /act ii research/i }),
+    ).toHaveAttribute("aria-selected", "true");
   });
 });

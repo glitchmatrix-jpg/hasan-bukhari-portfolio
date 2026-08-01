@@ -60,7 +60,8 @@ a:hover {
 }
 
 .site-header {
-  border-bottom: var(--border-hairline) solid color-mix(in srgb, var(--color-dirty-cream) 28%, transparent);
+  border-bottom: var(--border-hairline) solid
+    color-mix(in srgb, var(--color-dirty-cream) 28%, transparent);
 }
 
 .site-mark {
@@ -128,7 +129,8 @@ a:hover {
 
 .site-footer {
   align-items: flex-start;
-  border-top: var(--border-hairline) solid color-mix(in srgb, var(--color-dirty-cream) 28%, transparent);
+  border-top: var(--border-hairline) solid
+    color-mix(in srgb, var(--color-dirty-cream) 28%, transparent);
 }
 
 @media (max-width: 50rem) {

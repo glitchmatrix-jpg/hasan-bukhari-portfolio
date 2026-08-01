@@ -1,5 +1,48 @@
-import type { ReactNode } from "react";
 import { ButtonLink } from "@/components/ui/ButtonLink";
 import { StampedLabel } from "@/components/zine/StampedLabel";
-interface Props { world: "build" | "research" | "write"; label: string; title: string; summary: string; href: string; linkLabel: string; media: ReactNode; metadata?: readonly string[]; metric?: ReactNode; }
-export function ProjectSpread({ href, label, linkLabel, media, metadata = [], metric, summary, title, world }: Props) { return <article className={`project-spread project-spread--${world}`}><div className="project-spread__copy"><StampedLabel tone={world}>{label}</StampedLabel><h2 className="project-spread__title">{title}</h2><p className="project-spread__summary">{summary}</p>{metadata.length ? <ul className="project-spread__metadata" aria-label={`${title} metadata`}>{metadata.map((item) => <li key={item}>{item}</li>)}</ul> : null}{metric ? <div>{metric}</div> : null}<ButtonLink href={href}>{linkLabel}</ButtonLink></div><div className="project-spread__media">{media}</div></article>; }
+import type { ReactNode } from "react";
+interface Props {
+  world: "build" | "research" | "write";
+  label: string;
+  title: string;
+  summary: string;
+  href: string;
+  linkLabel: string;
+  media: ReactNode;
+  metadata?: readonly string[];
+  metric?: ReactNode;
+}
+export function ProjectSpread({
+  href,
+  label,
+  linkLabel,
+  media,
+  metadata = [],
+  metric,
+  summary,
+  title,
+  world,
+}: Props) {
+  return (
+    <article className={`project-spread project-spread--${world}`}>
+      <div className="project-spread__copy">
+        <StampedLabel tone={world}>{label}</StampedLabel>
+        <h2 className="project-spread__title">{title}</h2>
+        <p className="project-spread__summary">{summary}</p>
+        {metadata.length ? (
+          <ul
+            className="project-spread__metadata"
+            aria-label={`${title} metadata`}
+          >
+            {metadata.map((item) => (
+              <li key={item}>{item}</li>
+            ))}
+          </ul>
+        ) : null}
+        {metric ? <div>{metric}</div> : null}
+        <ButtonLink href={href}>{linkLabel}</ButtonLink>
+      </div>
+      <div className="project-spread__media">{media}</div>
+    </article>
+  );
+}

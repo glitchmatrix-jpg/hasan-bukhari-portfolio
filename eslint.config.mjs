@@ -1,7 +1,7 @@
-import { defineConfig, globalIgnores } from "eslint/config";
 import nextVitals from "eslint-config-next/core-web-vitals";
 import nextTypescript from "eslint-config-next/typescript";
 import prettier from "eslint-config-prettier";
+import { defineConfig, globalIgnores } from "eslint/config";
 
 export default defineConfig([
   ...nextVitals,
@@ -12,6 +12,6 @@ export default defineConfig([
     "coverage/**",
     "playwright-report/**",
     "test-results/**",
-    "public/assets/**"
+    "public/assets/**",
   ]),
 ]);

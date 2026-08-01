@@ -12,7 +12,9 @@ export function PhaseNotice({ eyebrow, title, description }: PhaseNoticeProps) {
       <p className="eyebrow">{eyebrow}</p>
       <h1 id="phase-title">{title}</h1>
       <p>{description}</p>
-      <p><Link href="/">Return to Issue 01</Link></p>
+      <p>
+        <Link href="/">Return to Issue 01</Link>
+      </p>
     </section>
   );
 }

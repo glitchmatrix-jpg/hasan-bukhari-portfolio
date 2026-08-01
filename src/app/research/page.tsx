@@ -1,5 +1,10 @@
-import { PhaseNotice } from "@/components/site/PhaseNotice";
-
+import { WorldPage } from "@/components/projects/WorldPage";
+import type { Metadata } from "next";
+export const metadata: Metadata = {
+  title: "Research",
+  description:
+    "Computational biology, genomics, scientific software, and strict evaluation by Hasan Bukhari.",
+};
 export default function ResearchPage() {
-  return <PhaseNotice eyebrow="ACT II / RESEARCH" title="Research" description="Computational biology, genomics, scientific software, and strict evaluation. Only verified public claims will populate this route." />;
+  return <WorldPage world="research" />;
 }

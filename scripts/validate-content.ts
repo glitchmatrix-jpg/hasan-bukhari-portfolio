@@ -6,7 +6,9 @@ async function main() {
 
   try {
     await readdir(contentRoot);
-    console.log("Content directory detected. Schema validation will expand as approved MDX records are added.");
+    console.log(
+      "Content directory detected. Schema validation will expand as approved MDX records are added.",
+    );
   } catch {
     console.log("No content directory yet; scaffold contains schemas only.");
   }

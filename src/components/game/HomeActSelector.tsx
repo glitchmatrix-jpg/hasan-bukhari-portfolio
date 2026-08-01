@@ -1,5 +1,6 @@
 "use client";
 
+import type { Route } from "next";
 import Link from "next/link";
 import { useId, useState } from "react";
 
@@ -45,8 +46,8 @@ const worlds = [
     route: "/contact",
     action: "Continue",
     description:
-      "New systems, new research questions, new stories—and the people interested in building them together.",
-    projects: ["About", "Résumés", "Contact"],
+      "New systems, new research questions, new storiesÃ¢â‚¬â€and the people interested in building them together.",
+    projects: ["About", "RÃƒÂ©sumÃƒÂ©s", "Contact"],
   },
 ] as const;
 
@@ -66,7 +67,10 @@ export function HomeActSelector() {
     <div className={styles.layout}>
       <div>
         <GameWorldFrame activeWorld={active.title} label="World select">
-          <div className={`${styles.scene} ${styles[`scene_${active.id}`]}`} aria-hidden="true">
+          <div
+            className={`${styles.scene} ${styles[`scene_${active.id}`]}`}
+            aria-hidden="true"
+          >
             <span className={styles.moon} />
             <span className={styles.horizonFar} />
             <span className={styles.horizonNear} />
@@ -75,7 +79,11 @@ export function HomeActSelector() {
           </div>
         </GameWorldFrame>
 
-        <div className={styles.tabs} role="tablist" aria-label="Choose a portfolio world">
+        <div
+          className={styles.tabs}
+          role="tablist"
+          aria-label="Choose a portfolio world"
+        >
           {worlds.map((world, index) => {
             const selected = world.id === active.id;
             return (
@@ -96,7 +104,8 @@ export function HomeActSelector() {
                   }
                   if (event.key === "ArrowLeft") {
                     event.preventDefault();
-                    const previous = (index - 1 + worlds.length) % worlds.length;
+                    const previous =
+                      (index - 1 + worlds.length) % worlds.length;
                     selectByIndex(previous);
                     event.currentTarget.parentElement
                       ?.querySelectorAll<HTMLButtonElement>('[role="tab"]')
@@ -145,8 +154,8 @@ export function HomeActSelector() {
             <li key={project}>{project}</li>
           ))}
         </ul>
-        <Link className={styles.enterLink} href={active.route}>
-          {active.action} <span aria-hidden="true">→</span>
+        <Link className={styles.enterLink} href={active.route as Route}>
+          {active.action} <span aria-hidden="true">Ã¢â€ â€™</span>
         </Link>
       </article>
     </div>

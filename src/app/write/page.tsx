@@ -1,5 +1,10 @@
-import { PhaseNotice } from "@/components/site/PhaseNotice";
-
+import { WorldPage } from "@/components/projects/WorldPage";
+import type { Metadata } from "next";
+export const metadata: Metadata = {
+  title: "Write",
+  description:
+    "Poetry, narrative design, and creative community work by Hasan Bukhari.",
+};
 export default function WritePage() {
-  return <PhaseNotice eyebrow="ACT III / WRITE" title="Write" description="Poetry, narrative design, and creative community. Approved excerpts, event records, and rights-cleared imagery will populate this route." />;
+  return <WorldPage world="write" />;
 }

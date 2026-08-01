@@ -1,5 +1,9 @@
-import { PhaseNotice } from "@/components/site/PhaseNotice";
-
+import { WorldPage } from "@/components/projects/WorldPage";
+import type { Metadata } from "next";
+export const metadata: Metadata = {
+  title: "Build",
+  description: "Products, tools, games, and systems built by Hasan Bukhari.",
+};
 export default function BuildPage() {
-  return <PhaseNotice eyebrow="ACT I / BUILD" title="Build" description="Products, systems, games, and research tools. The approved case-study content and production assets will populate this route in the implementation phase." />;
+  return <WorldPage world="build" />;
 }

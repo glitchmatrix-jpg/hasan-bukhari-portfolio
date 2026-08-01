@@ -1,12 +1,11 @@
-import type { Metadata, Viewport } from "next";
-import type { ReactNode } from "react";
-
 import { SiteFooter } from "@/components/site/SiteFooter";
 import { SiteHeader } from "@/components/site/SiteHeader";
-import "@/styles/tokens.css";
-import "@/styles/globals.css";
 import "@/styles/components.css";
-
+import "@/styles/globals.css";
+import "@/styles/p14.css";
+import "@/styles/tokens.css";
+import type { Metadata, Viewport } from "next";
+import type { ReactNode } from "react";
 export const metadata: Metadata = {
   metadataBase: new URL("https://hasanbukhari.dev"),
   title: {
@@ -18,19 +17,15 @@ export const metadata: Metadata = {
   applicationName: "Hasan Bukhari — Build · Research · Write",
   authors: [{ name: "Hasan Bukhari" }],
   creator: "Hasan Bukhari",
-  formatDetection: {
-    email: false,
-    address: false,
-    telephone: false,
-  },
+  formatDetection: { email: false, address: false, telephone: false },
 };
-
 export const viewport: Viewport = {
   colorScheme: "dark light",
   themeColor: "#14070b",
 };
-
-export default function RootLayout({ children }: Readonly<{ children: ReactNode }>) {
+export default function RootLayout({
+  children,
+}: Readonly<{ children: ReactNode }>) {
   return (
     <html lang="en">
       <body>

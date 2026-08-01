@@ -1,10 +1,20 @@
 import AxeBuilder from "@axe-core/playwright";
 import { expect, test } from "@playwright/test";
 
-const routes = ["/", "/build", "/research", "/write", "/about", "/resume", "/contact"];
+const routes = [
+  "/",
+  "/build",
+  "/research",
+  "/write",
+  "/about",
+  "/resume",
+  "/contact",
+];
 
 for (const route of routes) {
-  test(`${route} has no serious or critical axe violations`, async ({ page }) => {
+  test(`${route} has no serious or critical axe violations`, async ({
+    page,
+  }) => {
     await page.goto(route);
     await expect(page.locator("main")).toBeVisible();
 
