@@ -12,6 +12,17 @@
   --color-newsprint: #b8b0a5;
   --color-graphite: #3a3232;
 
+  --color-global-ink: var(--color-ink);
+  --color-global-black-cherry: var(--color-black-cherry);
+  --color-global-cola: var(--color-cola);
+  --color-global-oxblood: var(--color-oxblood);
+  --color-global-blood-red: var(--color-blood-red);
+  --color-global-bright-cherry: var(--color-bright-cherry);
+  --color-global-dirty-cream: var(--color-dirty-cream);
+  --color-global-paper-white: var(--color-paper-white);
+  --color-global-newsprint: var(--color-newsprint);
+  --color-global-graphite: var(--color-graphite);
+
   --color-build-bg: #16080d;
   --color-build-surface: #2b1018;
   --color-build-accent: #e63352;
@@ -20,15 +31,30 @@
   --color-research-surface: #0c2436;
   --color-research-teal: #25b3aa;
   --color-research-violet: #6945a8;
+  --color-research-ice: #d7e8e8;
+  --color-research-grid: #40606c;
 
   --color-write-bg: #123f5a;
   --color-write-deep: #092a3b;
   --color-write-cream: #efe3cc;
+  --color-write-paper: #f5ecdd;
   --color-write-gold: #b0924e;
+  --color-write-ink: #182328;
+
+  --color-state-success-bg: #143b2d;
+  --color-state-success-text: #bde8cb;
+  --color-state-warning-bg: #4a3211;
+  --color-state-warning-text: #f1d49b;
+  --color-state-error-bg: #4d111a;
+  --color-state-error-text: #ffd1d8;
+  --color-state-error-border: #d55361;
+  --color-state-info-bg: #102d42;
+  --color-state-info-text: #cde7f4;
 
   --focus-outer: #f4ed79;
   --focus-width: 3px;
   --focus-offset: 3px;
+  --color-focus-outer: var(--focus-outer);
 
   --space-1: 0.25rem;
   --space-2: 0.5rem;
@@ -44,6 +70,7 @@
   --space-12: 10rem;
   --space-13: 13rem;
 
+  --gutter: clamp(1.125rem, 4vw, 6rem);
   --container-reading: 47.5rem;
   --container-editorial: 70rem;
   --container-wide: 90rem;
@@ -61,6 +88,12 @@
   --shadow-paper-sm: 0 4px 10px rgb(0 0 0 / 20%);
   --shadow-paper-md: 0 10px 24px rgb(0 0 0 / 28%);
   --shadow-paper-lg: 0 22px 50px rgb(0 0 0 / 36%);
+  --shadow-print-offset: 4px 4px 0 currentColor;
+
+  --font-display: "Arial Narrow", "Roboto Condensed", Impact, sans-serif;
+  --font-serif: Georgia, "Times New Roman", serif;
+  --font-body: Arial, Helvetica, sans-serif;
+  --font-mono: ui-monospace, SFMono-Regular, Consolas, monospace;
 
   --motion-instant: 80ms;
   --motion-fast: 140ms;
@@ -76,4 +109,5 @@
   --z-menu: 200;
   --z-backdrop: 500;
   --z-modal: 600;
+  --z-emergency: 1000;
 }
