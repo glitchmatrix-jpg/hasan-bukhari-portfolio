@@ -2,7 +2,7 @@ import { defineConfig, devices } from "@playwright/test";
 
 const chromiumExecutable = process.env.PLAYWRIGHT_CHROMIUM_PATH;
 const localChromium = chromiumExecutable
-  ? { executablePath: chromiumExecutable }
+  ? { launchOptions: { executablePath: chromiumExecutable } }
   : {};
 
 export default defineConfig({

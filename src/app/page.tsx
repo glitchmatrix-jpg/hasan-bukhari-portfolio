@@ -1,569 +1,419 @@
+import { IdentityStage } from "@/components/identity/IdentityStage";
+import { HomeMotion } from "@/components/motion/HomeMotion";
+import { SmoothScroll } from "@/components/motion/SmoothScroll";
 import Link from "next/link";
-
-import { HomeActSelector } from "@/components/game/HomeActSelector";
-import { ProjectSpread } from "@/components/projects/ProjectSpread";
-import { ResumeTile } from "@/components/projects/ResumeTile";
-import { ResearchMetric } from "@/components/research/ResearchMetric";
-import { ButtonLink } from "@/components/ui/ButtonLink";
-import { AlbumTracklist } from "@/components/zine/AlbumTracklist";
-import { StampedLabel } from "@/components/zine/StampedLabel";
+import type { CSSProperties } from "react";
 
 import styles from "./home.module.css";
 
-const tracks = [
-  {
-    number: "01",
-    title: "Build",
-    description: "Products, systems, games, and tools",
-    href: "#heartline",
-  },
-  {
-    number: "02",
-    title: "Research",
-    description: "Genomics, machine learning, chromatin, and validation",
-    href: "#cancershift",
-  },
-  {
-    number: "03",
-    title: "Write",
-    description: "Poetry, narrative, and creative community",
-    href: "#flooded",
-  },
-  {
-    number: "04",
-    title: "Archive",
-    description: "Supporting projects and experiments",
-    href: "#archive",
-  },
+const basePath =
+  process.env.GITHUB_PAGES === "true" ? "/hasan-bukhari-portfolio" : "";
+
+const archive = [
   {
     number: "05",
-    title: "RÃ©sumÃ©s",
-    description: "Two professional paths through one body of work",
-    href: "#resumes",
+    name: "Taaqat",
+    note: "Offline-first fitness",
+    href: "/build/taaqat",
+  },
+  {
+    number: "06",
+    name: "Nivala",
+    note: "Pakistani food data",
+    href: "/build/nivala",
+  },
+  {
+    number: "07",
+    name: "A17",
+    note: "Chromatin contact maps",
+    href: "/research/a17",
+  },
+  {
+    number: "08",
+    name: "BioLitGraph",
+    note: "Evidence networks",
+    href: "/build/biolitgraph",
+  },
+  {
+    number: "09",
+    name: "Ichthyology",
+    note: "Comparative genomics",
+    href: "/research/ichthyology",
+  },
+  {
+    number: "10",
+    name: "Student Poets Association",
+    note: "Community infrastructure",
+    href: "/write/student-poets-association",
   },
 ] as const;
 
-const archiveItems = [
-  [
-    "01",
-    "BioLitGraph",
-    "Biomedical literature mining and evidence graphs",
-    "/build/biolitgraph",
-  ],
-  [
-    "02",
-    "QTL Analysis Toolkit",
-    "Research software",
-    "/research/research-software",
-  ],
-  [
-    "03",
-    "Unified Genome Explorer",
-    "Local-first genomics tooling",
-    "/research/research-software",
-  ],
-  [
-    "04",
-    "PhyloPlayground",
-    "Scientific education and visualization",
-    "/research/research-software",
-  ],
-  ["05", "Observatorium", "Supporting software project", "/archive"],
-  ["06", "Moonwater Angler", "Game engineering archive", "/archive"],
-] as const;
+function Arrow() {
+  return <span aria-hidden="true">↗</span>;
+}
 
 export default function HomePage() {
   return (
-    <div className={styles.page}>
-      <section className={styles.hero} aria-labelledby="home-title">
-        <div className={`${styles.inner} ${styles.heroGrid}`}>
-          <div className={`${styles.heroCopy} motion-hero-copy`}>
-            <p className={styles.issueLabel}>Hasan Bukhari â€” Issue 01</p>
-            <h1 className={styles.heroTitle} id="home-title">
-              <span>Hasan</span>
-              <span>Bukhari</span>
-            </h1>
-            <p className={styles.kicker}>Build Â· Research Â· Write</p>
-            <p className={styles.heroStatement}>
-              I build systems, study signals, and write about what survives.
-            </p>
-            <p className={styles.heroSupport}>
-              Software engineer, computational biology researcher, game
-              developer, writer, and student leader at the University of
-              Southern Mississippi.
-            </p>
-            <div className={styles.actions}>
-              <ButtonLink href="#editorial">Explore the issue</ButtonLink>
-              <ButtonLink href="#resumes" variant="secondary">
-                View rÃ©sumÃ©s
-              </ButtonLink>
-              <ButtonLink href="#contact" variant="text">
-                Contact
-              </ButtonLink>
+    <>
+      <SmoothScroll />
+      <HomeMotion>
+        <div className={styles.page}>
+          <section className={styles.hero} aria-labelledby="home-title">
+            <span className={styles.signal}>Signal 001 / identity</span>
+            <div className={styles.patch} aria-hidden="true">
+              HB
             </div>
-          </div>
-
-          <div
-            className={`${styles.heroArt} motion-hero-art`}
-            aria-hidden="true"
-          >
-            <span className={styles.artMap} />
-            <span className={styles.artPhone} />
-            <span className={styles.artBook} />
-            <span className={styles.artSprite} />
-          </div>
-        </div>
-      </section>
-
-      <section
-        className={`${styles.section} ${styles.editorial}`}
-        id="editorial"
-        aria-labelledby="editorial-title"
-      >
-        <div className={styles.reading}>
-          <p className={styles.eyebrow}>Editor&apos;s note</p>
-          <h2 className={styles.editorialText} id="editorial-title">
-            Software, research, games, and writing are not separate practices to
-            me.
-          </h2>
-          <p className={styles.editorialBody}>
-            Each begins with the same question: how do complex systems become
-            understandable, useful, or alive? I work across mobile products,
-            computational biology, interactive systems, poetry, and creative
-            community with the same commitmentsâ€”clear structure, honest
-            evidence, and human meaning.
-          </p>
-          <p className={styles.editorialBody}>
-            <Link href="/about">Read the full introduction â†’</Link>
-          </p>
-        </div>
-      </section>
-
-      <section
-        className={`${styles.section} ${styles.trackSection}`}
-        aria-labelledby="tracklist-title"
-      >
-        <div className={styles.inner}>
-          <div className={styles.sectionHeader}>
-            <p className={styles.eyebrow}>Issue index</p>
-            <h2 id="tracklist-title">Contents / Tracklist</h2>
-          </div>
-          <AlbumTracklist tracks={tracks} />
-        </div>
-      </section>
-
-      <section
-        className={`${styles.section} ${styles.worldSection}`}
-        aria-labelledby="worlds-title"
-      >
-        <div className={styles.inner}>
-          <div className={styles.sectionHeader}>
-            <p className={styles.eyebrow}>Interactive insert 01</p>
-            <h2 id="worlds-title">Enter the worlds</h2>
-            <p>
-              Four acts. Three disciplines. One body of work. The scene is
-              atmospheric; every destination remains ordinary, accessible HTML.
-            </p>
-          </div>
-          <HomeActSelector />
-        </div>
-      </section>
-
-      <section
-        className={`${styles.section} ${styles.feature} ${styles.featureHeartline}`}
-        id="heartline"
-        aria-label="HEARTLINE featured project"
-      >
-        <div className={styles.inner}>
-          <ProjectSpread
-            href="/build/heartline"
-            label="Feature 01 / Build"
-            linkLabel="Read the HEARTLINE case study"
-            media={
-              <div
-                className={`${styles.mediaPlate} ${styles.phonePlate}`}
-                data-label="HEARTLINE"
-                role="img"
-                aria-label="Abstract public-safe placeholder for the HEARTLINE mobile interface"
+            <div className={styles.heroObject} data-parallax>
+              <IdentityStage
+                poster={`${basePath}/assets/v2/identity-object-v1.png`}
               />
-            }
-            metadata={[
-              "Native Android",
-              "Kotlin",
-              "Jetpack Compose",
-              "Room",
-              "GitHub Actions",
-            ]}
-            summary="A native Android lyric companion that follows active playback, retrieves synchronized lyrics, works offline, powers live lyric notifications, and creates shareable lyric cards on-device."
-            title="HEARTLINE"
-            world="build"
-          />
-        </div>
-      </section>
-
-      <section
-        className={`${styles.section} ${styles.feature} ${styles.featureCancer}`}
-        id="cancershift"
-        aria-label="CancerShift featured research"
-      >
-        <div className={styles.inner}>
-          <ProjectSpread
-            href="/research/cancershift"
-            label="Feature 02 / Research"
-            linkLabel="Read the CancerShift research case study"
-            media={
-              <div
-                className={`${styles.mediaPlate} ${styles.researchPlate}`}
-                data-label="CancerShift"
-                role="img"
-                aria-label="Simplified study flow from development data to external microarray and RNA-seq evaluation"
-              >
-                <div className={styles.researchFlow}>
-                  <div className={styles.researchNode}>Development cohorts</div>
-                  <div className={styles.researchNode}>
-                    Blind external microarray
-                  </div>
-                  <div className={styles.researchNode}>External RNA-seq</div>
-                </div>
-              </div>
-            }
-            metadata={[
-              "TCGA",
-              "GEO",
-              "CPTAC-GDC",
-              "Leakage control",
-              "Cross-platform validation",
-            ]}
-            metric={
-              <div className={styles.metricGrid}>
-                <ResearchMetric
-                  value="99.59%"
-                  label="Blind external microarray accuracy"
-                  context="Verified result from the final leakage-controlled pipeline."
-                />
-                <ResearchMetric
-                  value="98.24%"
-                  label="External RNA-seq accuracy"
-                  context="Verified external RNA-seq evaluation result."
-                />
-              </div>
-            }
-            summary="Does a cancer classifier still work when the study, sequencing platform, and patient cohort change? CancerShift tests that question through external, cross-platform evaluation."
-            title="CancerShift"
-            world="research"
-          />
-        </div>
-      </section>
-
-      <section
-        className={`${styles.section} ${styles.feature} ${styles.featureGame}`}
-        id="to-ash-again"
-        aria-label="To Ash Again featured project"
-      >
-        <div className={styles.inner}>
-          <ProjectSpread
-            href="/build/to-ash-again"
-            label="Feature 03 / Build + Narrative"
-            linkLabel="Enter the To Ash Again case study"
-            media={
-              <div
-                className={`${styles.mediaPlate} ${styles.gamePlate}`}
-                data-label="To Ash Again"
-                role="img"
-                aria-label="Abstract pixel-art red landscape representing To Ash Again"
-              >
-                <span className={styles.mountain} aria-hidden="true" />
-                <span className={styles.player} aria-hidden="true" />
-              </div>
-            }
-            metadata={[
-              "Python",
-              "Pygame",
-              "Four acts",
-              "Two playable characters",
-              "Six abilities",
-              "~258 tracked files",
-            ]}
-            summary="A four-act narrative platformer built as a modular system of characters, abilities, levels, enemies, cutscenes, inventory, saving, bosses, and progression."
-            title="To Ash Again"
-            world="build"
-          />
-        </div>
-      </section>
-
-      <section
-        className={`${styles.section} ${styles.feature} ${styles.featureA17}`}
-        id="a17"
-        aria-label="A17 featured research"
-      >
-        <div className={styles.inner}>
-          <ProjectSpread
-            href="/research/a17"
-            label="Feature 04 / Research"
-            linkLabel="Understand structure versus scale"
-            media={
-              <div
-                className={`${styles.mediaPlate} ${styles.researchPlate}`}
-                data-label="A17"
-                role="img"
-                aria-label="Abstract contact-map comparison illustrating structure and scale"
-              >
-                <div className={styles.researchFlow}>
-                  <div className={styles.researchNode}>
-                    Seven epigenomic tracks
-                  </div>
-                  <div className={styles.researchNode}>
-                    Residual neural network
-                  </div>
-                  <div className={styles.researchNode}>Chromosome holdouts</div>
-                </div>
-              </div>
-            }
-            metadata={[
-              "Hi-C",
-              "Seven-track residual model",
-              "Frozen decisions",
-              "Locked test set",
-              "Manuscript in preparation",
-            ]}
-            summary="Can epigenomic signals predict chromatin contact maps on chromosomes the model never saw during development? Relative structure transferred more consistently than absolute contact-map scale."
-            title="A17"
-            world="research"
-          />
-        </div>
-      </section>
-
-      <section
-        className={`${styles.section} ${styles.feature} ${styles.featureFlooded}`}
-        id="flooded"
-        aria-label="Flooded writing project"
-      >
-        <div className={styles.inner}>
-          <ProjectSpread
-            href="/write/flooded"
-            label="Interlude / Write"
-            linkLabel="Enter the writing section"
-            media={
-              <div
-                className={styles.mediaPlate}
-                data-label="Flooded"
-                role="img"
-                aria-label="Abstract blue book-cover placeholder for Flooded"
-              />
-            }
-            metadata={[
-              "Poetry",
-              "Physical object",
-              "Collection in development",
-            ]}
-            summary="Flooded is a poetry collection in development. The public page will center its artistic premise, physical form, process, and only excerpts explicitly approved for publication."
-            title="Flooded"
-            world="write"
-          />
-        </div>
-      </section>
-
-      <section
-        className={`${styles.section} ${styles.feature} ${styles.featureProducts}`}
-        id="local-first"
-        aria-labelledby="products-title"
-      >
-        <div className={styles.inner}>
-          <div className={styles.sectionHeader}>
-            <p className={styles.eyebrow}>Local-first products</p>
-            <h2 id="products-title">Taaqat + Nivala</h2>
-            <p>
-              Two Flutter products shaped around offline use, local persistence,
-              and data that remains close to the person using it.
-            </p>
-          </div>
-          <div className={styles.productPair}>
-            <article className={styles.productCard}>
-              <StampedLabel tone="build">Build / Fitness</StampedLabel>
-              <h3>Taaqat</h3>
-              <div
-                className={styles.productMock}
-                role="img"
-                aria-label="Public-safe placeholder for the Taaqat recovery dashboard"
-              >
-                Recovery dashboard asset pending
-              </div>
-              <p>
-                An offline-first fitness platform with 172 bundled exercises,
-                muscle mapping, recovery-aware planning, persistent routines,
-                workout logging, analytics, reminders, and import/export.
+            </div>
+            <div className={styles.heroCopy}>
+              <p className={styles.kicker} data-hero-line>
+                Build / Research / Write
               </p>
-              <ButtonLink href="/build/taaqat">
-                Read the Taaqat case study
-              </ButtonLink>
-            </article>
-            <article className={styles.productCard}>
-              <StampedLabel tone="build">Build / Nutrition</StampedLabel>
-              <h3>Nivala</h3>
-              <div
-                className={styles.productMock}
-                role="img"
-                aria-label="Public-safe placeholder for the Nivala nutrition dashboard"
-              >
-                Synthetic-data screenshot pending
-              </div>
-              <p>
-                A privacy-first nutrition tracker built around 278 Pakistani
-                foods with English, Urdu, and Roman Urdu aliases, meal logging,
-                recipes, progress tracking, and validated local backup.
+              <h1 id="home-title" data-hero-line>
+                Software engineer. Computational biologist. Builder of strange
+                little worlds.
+              </h1>
+              <p className={styles.heroSupport} data-hero-line>
+                I make tools for bodies, data, music, and memory.
               </p>
-              <p className={styles.meta}>Private repository</p>
-              <ButtonLink href="/build/nivala">
-                Read the Nivala case study
-              </ButtonLink>
-            </article>
-          </div>
-        </div>
-      </section>
-
-      <section
-        className={`${styles.section} ${styles.archive}`}
-        id="archive"
-        aria-labelledby="archive-title"
-      >
-        <div className={styles.inner}>
-          <div className={styles.sectionHeader}>
-            <p className={styles.eyebrow}>Supporting constellation</p>
-            <h2 id="archive-title">The archive</h2>
-            <p>
-              Supporting projects remain discoverable without competing with the
-              flagship narrative.
-            </p>
-          </div>
-          <ol className={styles.archiveList}>
-            {archiveItems.map(([number, title, description, href]) => (
-              <li key={`${number}-${title}`}>
-                <Link href={href}>
-                  <span aria-hidden="true">{number}</span>
-                  <strong>{title}</strong>
-                  <span>{description}</span>
+              <div className={styles.actions} data-hero-line>
+                <a className={styles.primaryAction} href="#selected-work">
+                  See selected work
+                </a>
+                <Link className={styles.secondaryAction} href="/resume">
+                  Résumé
                 </Link>
-              </li>
-            ))}
-          </ol>
-          <p>
-            <ButtonLink href="/archive" variant="secondary">
-              Explore the complete archive
-            </ButtonLink>
-          </p>
-        </div>
-      </section>
+                <a
+                  className={styles.secondaryAction}
+                  href="mailto:hasan.bukhari25@gmail.com"
+                >
+                  Email
+                </a>
+              </div>
+            </div>
+          </section>
 
-      <section
-        className={`${styles.section} ${styles.human}`}
-        id="community"
-        aria-labelledby="community-title"
-      >
-        <div className={`${styles.inner} ${styles.humanGrid}`}>
-          <div
-            className={styles.photoFallback}
-            role="img"
-            aria-label="Event photograph placeholder pending photographer and participant rights review"
-          />
-          <div className={styles.humanCopy}>
-            <StampedLabel tone="write">Human / Community</StampedLabel>
-            <h2 id="community-title">
-              Outside the code, I build creative communities.
+          <div id="selected-work" className={styles.anchor} />
+
+          <section
+            className={`${styles.scene} ${styles.darkScene} ${styles.heartline}`}
+            aria-labelledby="heartline-title"
+          >
+            <span className={styles.sceneNumber}>
+              01 / Build / Native Android
+            </span>
+            <div className={styles.sceneCopy} data-reveal>
+              <p className={styles.kicker}>HEARTLINE</p>
+              <h2 id="heartline-title">Lyrics that stay.</h2>
+              <p className={styles.statement}>
+                A lyric companion that follows the song—even when the connection
+                does not.
+              </p>
+              <dl className={styles.proof}>
+                <div>
+                  <dt>Platform</dt>
+                  <dd>Native Android</dd>
+                </div>
+                <div>
+                  <dt>Behavior</dt>
+                  <dd>Playback-aware</dd>
+                </div>
+                <div>
+                  <dt>Continuity</dt>
+                  <dd>Offline cache</dd>
+                </div>
+              </dl>
+              <Link className={styles.sceneLink} href="/build/heartline">
+                View the case study <Arrow />
+              </Link>
+            </div>
+            <div
+              className={styles.phoneStage}
+              data-parallax
+              aria-label="HEARTLINE interface demonstration"
+            >
+              <div className={styles.phone}>
+                <div className={styles.phoneTop}>
+                  <b>HEARTLINE</b>
+                  <span>Active playback</span>
+                </div>
+                <div className={styles.albumArt} aria-hidden="true">
+                  <span>H</span>
+                </div>
+                <div className={styles.lyricPanel}>
+                  <small>Rights-safe demonstration</small>
+                  <strong>
+                    Live lyrics.
+                    <br />
+                    No borrowed words.
+                  </strong>
+                  <span>Synced line / 02:17</span>
+                </div>
+                <div className={styles.playerBar}>
+                  <span>‹</span>
+                  <span>▶</span>
+                  <span>›</span>
+                </div>
+              </div>
+              <div className={styles.phoneCard}>
+                <small>HEARTLINE</small>
+                <strong>Available offline</strong>
+              </div>
+            </div>
+          </section>
+
+          <section
+            className={`${styles.scene} ${styles.lightScene} ${styles.cancer}`}
+            aria-labelledby="cancershift-title"
+          >
+            <span className={styles.sceneNumber}>
+              02 / Research / External evaluation
+            </span>
+            <div className={styles.researchCopy} data-reveal>
+              <p className={styles.kicker}>CancerShift</p>
+              <h2 id="cancershift-title">Change the dataset.</h2>
+              <p className={styles.statement}>
+                A classifier is only convincing after the dataset changes.
+              </p>
+              <p className={styles.disclaimer}>
+                Independent computational-biology research. Not represented as
+                peer reviewed.
+              </p>
+              <Link className={styles.sceneLink} href="/research/cancershift">
+                Read the research <Arrow />
+              </Link>
+            </div>
+            <figure className={styles.researchPaper} data-reveal>
+              <figcaption>
+                <b>Blind external evaluation</b>
+                <span>Accuracy / %</span>
+              </figcaption>
+              <div
+                className={styles.bars}
+                role="img"
+                aria-label="99.59 percent blind external microarray accuracy and 98.24 percent external RNA-seq accuracy"
+              >
+                <div
+                  className={styles.bar}
+                  style={{ "--bar": "99.59%" } as CSSProperties}
+                >
+                  <strong>99.59</strong>
+                  <span>
+                    Blind external
+                    <br />
+                    microarray
+                  </span>
+                </div>
+                <div
+                  className={styles.bar}
+                  style={{ "--bar": "98.24%" } as CSSProperties}
+                >
+                  <strong>98.24</strong>
+                  <span>
+                    External
+                    <br />
+                    RNA-seq
+                  </span>
+                </div>
+              </div>
+              <p>
+                Accuracy alone does not establish clinical utility. Cohort
+                labels and original figures remain withheld pending
+                verification.
+              </p>
+            </figure>
+          </section>
+
+          <section
+            className={`${styles.scene} ${styles.darkScene} ${styles.game}`}
+            aria-labelledby="taa-title"
+          >
+            <span className={styles.sceneNumber}>
+              03 / Build + Write / Pygame
+            </span>
+            <h2 id="taa-title" className={styles.gameTitle} data-reveal>
+              To Ash Again
             </h2>
-            <p>
-              Hasan is the Founder and President of the Student Poets
-              Association and Creative Writing Club at the University of
-              Southern Mississippi.
-            </p>
-            <p>
-              The organization creates open mics, public showcases,
-              collaborative arts programming, and a place for student writers to
-              make work together.
-            </p>
-            <ButtonLink href="/write/student-poets-association">
-              Explore the Student Poets Association
-            </ButtonLink>
-          </div>
-        </div>
-      </section>
+            <div className={styles.gameFrame} data-parallax>
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src={`${basePath}/assets/v2/taa-provenance-placeholder.svg`}
+                alt="Publication boundary placeholder for To Ash Again game art pending provenance approval"
+              />
+            </div>
+            <div className={styles.gameCopy} data-reveal>
+              <p className={styles.statement}>
+                A four-act story built out of character state, powers, enemies,
+                saves, and consequences.
+              </p>
+              <dl className={styles.proof}>
+                <div>
+                  <dt>Structure</dt>
+                  <dd>Four acts</dd>
+                </div>
+                <div>
+                  <dt>Play</dt>
+                  <dd>Two characters</dd>
+                </div>
+                <div>
+                  <dt>System</dt>
+                  <dd>Six abilities</dd>
+                </div>
+              </dl>
+              <Link className={styles.sceneLink} href="/build/to-ash-again">
+                Enter the case study <Arrow />
+              </Link>
+            </div>
+          </section>
 
-      <section
-        className={`${styles.section} ${styles.resumeSection}`}
-        id="resumes"
-        aria-labelledby="resumes-title"
-      >
-        <div className={styles.inner}>
-          <div className={styles.sectionHeader}>
-            <p className={styles.eyebrow}>Professional documents</p>
-            <h2 id="resumes-title">Two paths. One body of work.</h2>
-            <p>
-              Choose the rÃ©sumÃ© that matches the role. Both lead back to the
-              same systems-minded practice.
-            </p>
-          </div>
-          <div className={styles.resumeGrid}>
-            <ResumeTile
-              description="For computational biology, bioinformatics, research engineering, data science, and scientific software roles."
-              href="/resume#computational-biology"
-              title="Computational Biology / Bioinformatics RÃ©sumÃ©"
-              tone="research"
-              updatedAt="August 2026"
-            />
-            <ResumeTile
-              description="For software engineering, mobile development, backend systems, product engineering, and interactive software roles."
-              href="/resume#software-engineering"
-              title="Software Engineering RÃ©sumÃ©"
-              tone="build"
-              updatedAt="August 2026"
-            />
-          </div>
-        </div>
-      </section>
+          <section
+            className={`${styles.scene} ${styles.lightScene} ${styles.flooded}`}
+            aria-labelledby="flooded-title"
+          >
+            <span className={styles.sceneNumber}>04 / Write / Poetry</span>
+            <div
+              className={styles.bookStage}
+              data-parallax
+              aria-label="Provisional Flooded book-object direction"
+            >
+              <div className={styles.book}>
+                <span>FLOODED</span>
+                <small>HASAN BUKHARI</small>
+              </div>
+              <span className={styles.bookNote}>
+                Original object photography pending
+              </span>
+            </div>
+            <div
+              className={`${styles.sceneCopy} ${styles.floodedCopy}`}
+              data-reveal
+            >
+              <p className={styles.kicker}>Flooded</p>
+              <h2 id="flooded-title">Still becoming.</h2>
+              <p className={styles.statement}>
+                A poetry collection still becoming an object.
+              </p>
+              <p className={styles.disclaimer}>
+                No poem is quoted until an exact excerpt is approved.
+              </p>
+              <Link className={styles.sceneLink} href="/write/flooded">
+                Open the writing study <Arrow />
+              </Link>
+            </div>
+          </section>
 
-      <section
-        className={styles.exit}
-        id="contact"
-        aria-labelledby="contact-title"
-      >
-        <div className={`${styles.inner} ${styles.exitGrid}`}>
-          <div>
-            <p className={styles.eyebrow}>Exit scene / Act IV</p>
-            <h2 id="contact-title">The issue ends here. The work does not.</h2>
-          </div>
-          <div className={styles.contactSheet}>
-            <p className={styles.meta}>
-              Hasan Bukhari Â· Build Â· Research Â· Write
+          <section
+            className={`${styles.scene} ${styles.archive}`}
+            aria-labelledby="archive-title"
+          >
+            <div className={styles.archiveHead} data-reveal>
+              <p className={styles.kicker}>The quieter archive</p>
+              <h2 id="archive-title">More signals.</h2>
+            </div>
+            <div className={styles.archiveList}>
+              {archive.map((item) => (
+                <Link
+                  key={item.name}
+                  className={styles.archiveItem}
+                  href={item.href}
+                  data-reveal
+                >
+                  <span>{item.number}</span>
+                  <strong>{item.name}</strong>
+                  <span>{item.note}</span>
+                  <Arrow />
+                </Link>
+              ))}
+            </div>
+          </section>
+
+          <section
+            className={`${styles.scene} ${styles.human}`}
+            aria-labelledby="human-title"
+          >
+            <span className={styles.sceneNumber}>Human layer / community</span>
+            <div
+              className={styles.humanCollage}
+              data-parallax
+              aria-hidden="true"
+            >
+              <div className={styles.portraitPlaceholder}>
+                Portrait
+                <br />
+                pending
+              </div>
+              <div className={styles.spaPatch}>SPA</div>
+              <div className={styles.handNote}>
+                Founder &amp; President
+                <br />
+                University of Southern Mississippi
+              </div>
+            </div>
+            <div className={styles.humanCopy} data-reveal>
+              <p className={styles.kicker}>About / Student Poets Association</p>
+              <h2 id="human-title">Make room for people.</h2>
+              <p className={styles.statement}>
+                I founded a student writing community built through open mics,
+                showcases, and collaborative arts programming.
+              </p>
+              <Link className={styles.sceneLink} href="/about">
+                About Hasan <Arrow />
+              </Link>
+            </div>
+          </section>
+
+          <section
+            className={`${styles.scene} ${styles.resume}`}
+            aria-labelledby="resume-title"
+          >
+            <div data-reveal>
+              <p className={styles.kicker}>Professional paths</p>
+              <h2 id="resume-title">
+                Two résumés.
+                <br />
+                One person.
+              </h2>
+            </div>
+            <div className={styles.resumeCards} data-reveal>
+              <Link href="/resume">
+                <span>01</span>
+                <strong>Software engineering</strong>
+                <small>View profile / PDF pending</small>
+                <Arrow />
+              </Link>
+              <Link href="/resume">
+                <span>02</span>
+                <strong>Computational biology</strong>
+                <small>View profile / PDF pending</small>
+                <Arrow />
+              </Link>
+            </div>
+          </section>
+
+          <section className={styles.closing} aria-labelledby="contact-title">
+            <p className={styles.kicker}>Last page / no pitch deck</p>
+            <h2 id="contact-title" data-reveal>
+              Make something
+              <br />
+              worth keeping.
+            </h2>
+            <div className={styles.contactLinks} data-reveal>
+              <a href="mailto:hasan.bukhari25@gmail.com">
+                hasan.bukhari25@gmail.com <Arrow />
+              </a>
+              <a href="https://www.linkedin.com/in/hasan-bukhari">
+                LinkedIn <Arrow />
+              </a>
+            </div>
+            <p className={styles.colophon}>
+              Hasan Bukhari / Build · Research · Write
             </p>
-            <a href="mailto:hasan.bukhari25@gmail.com">
-              hasan.bukhari25@gmail.com
-            </a>
-            <a
-              href="https://www.linkedin.com/in/hasan-bukhari"
-              rel="noreferrer"
-              target="_blank"
-            >
-              LinkedIn <span className="sr-only">(opens in a new tab)</span>
-            </a>
-            <a
-              href="https://github.com/PurplePoet25"
-              rel="noreferrer"
-              target="_blank"
-            >
-              GitHub â€” PurplePoet25{" "}
-              <span className="sr-only">(opens in a new tab)</span>
-            </a>
-            <a
-              href="https://github.com/glitchmatrix-jpg"
-              rel="noreferrer"
-              target="_blank"
-            >
-              GitHub â€” glitchmatrix-jpg{" "}
-              <span className="sr-only">(opens in a new tab)</span>
-            </a>
-            <Link href="/contact">Open the contact page â†’</Link>
-          </div>
+          </section>
         </div>
-      </section>
-    </div>
+      </HomeMotion>
+    </>
   );
 }

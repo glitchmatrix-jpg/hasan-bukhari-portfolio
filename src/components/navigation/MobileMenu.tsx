@@ -9,7 +9,7 @@ const items = [
   ["/research", "Research"],
   ["/write", "Write"],
   ["/about", "About"],
-  ["/resume", "RÃƒÂ©sumÃƒÂ©s"],
+  ["/resume", "Résumé"],
   ["/contact", "Contact"],
 ] as const;
 
@@ -24,14 +24,10 @@ export function MobileMenu() {
           className="mobile-menu__content"
         >
           <div className="mobile-menu__header">
-            <Dialog.Title className="mobile-menu__title">
-              Issue index
-            </Dialog.Title>
+            <Dialog.Title className="mobile-menu__title">Index</Dialog.Title>
             <Dialog.Close className="mobile-menu__close">Close</Dialog.Close>
           </div>
-          <p id="mobile-menu-description">
-            Navigate Build, Research, and Write.
-          </p>
+          <p id="mobile-menu-description">Navigate the portfolio.</p>
           <nav aria-label="Mobile navigation">
             <ol className="mobile-menu__list">
               {items.map(([href, label], index) => (

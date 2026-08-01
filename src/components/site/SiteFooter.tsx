@@ -21,7 +21,7 @@ export function SiteFooter() {
             <Link href="/write">Write</Link>
           </li>
           <li>
-            <Link href="/resume">Résumés</Link>
+            <Link href="/resume">Résumé</Link>
           </li>
           <li>
             <Link href="/accessibility">Accessibility</Link>
@@ -34,7 +34,7 @@ export function SiteFooter() {
           </li>
         </ul>
       </nav>
-      <p className="footer-meta">ISSUE 01 · DEVELOPMENT BUILD</p>
+      <p className="footer-meta">Direction C / working preview</p>
     </footer>
   );
 }

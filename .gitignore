@@ -10,6 +10,7 @@ test-results/
 .vercel/
 .DS_Store
 *.log
+*.tsbuildinfo
 
 # Source and restricted production material never belongs in public builds.
 assets-source/**/restricted/

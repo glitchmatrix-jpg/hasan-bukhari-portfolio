@@ -10,6 +10,7 @@ const coreRoutes = [
   "/resume",
   "/contact",
 ];
+
 test.describe("release-candidate navigation", () => {
   for (const route of [
     ...coreRoutes,
@@ -33,17 +34,16 @@ test.describe("release-candidate navigation", () => {
     });
   }
 
-  test("reduced motion removes retained entrance animations", async ({
+  test("reduced motion keeps the complete hero and static identity fallback", async ({
     page,
   }) => {
     await page.emulateMedia({ reducedMotion: "reduce" });
     await page.goto("/");
-    await expect(page.locator(".motion-hero-copy")).toHaveCSS(
-      "animation-name",
-      "none",
-    );
-    await expect(page.locator(".motion-hero-art")).toHaveCSS(
-      "animation-name",
+    await expect(page.getByRole("heading", { level: 1 })).toBeVisible();
+    await expect(page.locator(".identity-stage__poster")).toBeVisible();
+    await expect(page.locator(".identity-stage__canvas")).toHaveCount(0);
+    await expect(page.locator("[data-hero-line]").first()).toHaveCSS(
+      "transform",
       "none",
     );
   });

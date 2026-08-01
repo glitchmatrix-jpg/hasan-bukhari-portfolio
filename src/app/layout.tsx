@@ -6,6 +6,13 @@ import "@/styles/globals.css";
 import "@/styles/motion.css";
 import "@/styles/p14.css";
 import "@/styles/tokens.css";
+import "@/styles/v2-shell.css";
+import "@fontsource/ibm-plex-mono/400.css";
+import "@fontsource/ibm-plex-mono/500.css";
+import "@fontsource/ibm-plex-sans/400.css";
+import "@fontsource/ibm-plex-sans/600.css";
+import "@fontsource/instrument-serif/400-italic.css";
+import "@fontsource/instrument-serif/400.css";
 import type { Metadata, Viewport } from "next";
 import type { ReactNode } from "react";
 
@@ -54,10 +61,12 @@ export const metadata: Metadata = {
   },
   formatDetection: { email: false, address: false, telephone: false },
 };
+
 export const viewport: Viewport = {
   colorScheme: "dark light",
-  themeColor: "#14070b",
+  themeColor: "#090909",
 };
+
 export default function RootLayout({
   children,
 }: Readonly<{ children: ReactNode }>) {

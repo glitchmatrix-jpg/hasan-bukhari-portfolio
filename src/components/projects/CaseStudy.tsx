@@ -156,7 +156,7 @@ export function CaseStudy({ project }: { project: ProjectRecord }) {
                 <Link href={item.route as Route}>
                   <span>{String(index + 1).padStart(2, "0")}</span>
                   <strong>{item.title}</strong>
-                  <small>{item.world} ÃƒÂ¢Ã¢â‚¬Â Ã¢â‚¬â„¢</small>
+                  <small>{item.world} &#8599;</small>
                 </Link>
               </li>
             ))}

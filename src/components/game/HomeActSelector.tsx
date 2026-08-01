@@ -46,8 +46,8 @@ const worlds = [
     route: "/contact",
     action: "Continue",
     description:
-      "New systems, new research questions, new storiesÃ¢â‚¬â€and the people interested in building them together.",
-    projects: ["About", "RÃƒÂ©sumÃƒÂ©s", "Contact"],
+      "New systems, new research questions, new stories\u2014and the people interested in building them together.",
+    projects: ["About", "R\u00e9sum\u00e9s", "Contact"],
   },
 ] as const;
 
@@ -155,7 +155,7 @@ export function HomeActSelector() {
           ))}
         </ul>
         <Link className={styles.enterLink} href={active.route as Route}>
-          {active.action} <span aria-hidden="true">Ã¢â€ â€™</span>
+          {active.action} <span aria-hidden="true">&#8594;</span>
         </Link>
       </article>
     </div>

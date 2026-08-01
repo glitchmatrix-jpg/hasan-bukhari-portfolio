@@ -60,7 +60,7 @@ export function WorldPage({ world }: { world: World }) {
                   <p>{project.summary}</p>
                   <small>{project.status}</small>
                 </div>
-                <span aria-hidden="true">â†—</span>
+                <span aria-hidden="true">&#8599;</span>
               </Link>
             </li>
           ))}

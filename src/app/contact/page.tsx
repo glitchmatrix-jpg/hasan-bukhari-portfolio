@@ -10,7 +10,7 @@ export default function ContactPage() {
     <div className="utility-page utility-page--contact">
       <header>
         <p className="eyebrow">Act IV / What comes next</p>
-        <h1>Letâ€™s make the next thing.</h1>
+        <h1>Let&apos;s make the next thing.</h1>
         <p className="utility-page__lead">
           For software, computational biology, research engineering, creative
           technology, and community collaboration.
