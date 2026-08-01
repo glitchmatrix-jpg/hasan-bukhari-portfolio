@@ -3,8 +3,9 @@ import type { ReactNode } from "react";
 
 import { SiteFooter } from "@/components/site/SiteFooter";
 import { SiteHeader } from "@/components/site/SiteHeader";
-import "@/styles/globals.css";
 import "@/styles/tokens.css";
+import "@/styles/globals.css";
+import "@/styles/components.css";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://hasanbukhari.dev"),
