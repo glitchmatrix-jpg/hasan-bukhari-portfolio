@@ -14,9 +14,12 @@ export function HomeFeature({
 
   return (
     <section
-      className={`world-${project.world} border-t border-border py-20 lg:py-28`}
+      className={`home-feature motion-reveal world-${project.world} border-t border-border py-20 lg:py-28`}
       aria-labelledby={`home-${project.id}`}
     >
+      <span aria-hidden="true" className="home-feature__index">
+        {index}
+      </span>
       <div className="shell grid-editorial items-center gap-y-12">
         <div
           className={`col-span-4 lg:col-span-7 ${reverse ? "lg:col-start-6" : "lg:col-start-1"}`}

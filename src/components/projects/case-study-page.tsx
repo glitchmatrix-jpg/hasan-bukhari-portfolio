@@ -43,7 +43,21 @@ export function CaseStudyPage({ projectId }: { projectId: string }) {
         </header>
 
         <section className="shell py-16 lg:py-24" aria-label="Project evidence">
-          <ProjectVisual project={project} />
+          <div className="project-evidence-stage motion-reveal">
+            <ProjectVisual project={project} />
+            <aside className="evidence-rail" aria-label="Evidence summary">
+              <div>
+                <p className="meta world-mark">Evidence plate / 01</p>
+                <p className="evidence-rail__proof">{project.facts[0]}</p>
+                <p className="text-xs leading-relaxed text-muted-foreground">{project.status}</p>
+              </div>
+              <ol>
+                {project.facts.slice(1, 5).map((fact) => (
+                  <li key={fact}>{fact}</li>
+                ))}
+              </ol>
+            </aside>
+          </div>
         </section>
 
         <section className="shell grid-editorial gap-y-12 border-t border-border py-16 lg:py-24">
@@ -68,7 +82,7 @@ export function CaseStudyPage({ projectId }: { projectId: string }) {
             return (
               <article
                 key={section.title}
-                className="grid-editorial gap-y-5 border-t border-border py-10 first:border-t-0 first:pt-0"
+                className="motion-reveal grid-editorial gap-y-5 border-t border-border py-10 first:border-t-0 first:pt-0"
               >
                 <p className="meta col-span-1 world-mark">{String(index + 1).padStart(2, "0")}</p>
                 <h2 className="display col-span-3 text-3xl lg:col-span-3 lg:text-4xl">
@@ -156,7 +170,7 @@ export function CaseStudyPage({ projectId }: { projectId: string }) {
           </div>
         </nav>
 
-        <section className="border-t border-border py-16 lg:py-20">
+        <section className="world-transition motion-reveal border-t border-border py-16 lg:py-20">
           <div className="shell grid-editorial items-end gap-y-7">
             <div className="col-span-4 lg:col-span-7">
               <p className="meta text-muted-foreground">Cross-world transition</p>

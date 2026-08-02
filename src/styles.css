@@ -1186,3 +1186,338 @@
     overflow-wrap: anywhere;
   }
 }
+/* spectacle pass: realtime identity object, evidence plates and restrained movement */
+
+.relic-scene {
+  position: relative;
+  isolation: isolate;
+  width: 100%;
+  min-height: clamp(23rem, 46vw, 40rem);
+  touch-action: pan-y;
+}
+
+.relic-aura {
+  position: absolute;
+  inset: 12% -4% 7%;
+  z-index: -1;
+  border-radius: 50%;
+  background:
+    radial-gradient(
+      circle at 58% 48%,
+      color-mix(in oklab, var(--cherry) 68%, transparent),
+      transparent 38%
+    ),
+    radial-gradient(
+      circle at 32% 54%,
+      color-mix(in oklab, var(--teal) 18%, transparent),
+      transparent 48%
+    );
+  filter: blur(28px);
+  opacity: 0.72;
+}
+
+.relic-mount,
+.relic-canvas,
+.relic-fallback {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.relic-mount {
+  z-index: 2;
+}
+
+.relic-canvas {
+  display: block;
+  cursor: crosshair;
+}
+
+.relic-fallback {
+  z-index: 1;
+  transition: opacity 700ms ease;
+}
+
+.relic-scene.is-ready .relic-fallback {
+  opacity: 0;
+}
+
+.relic-fallback__lobe {
+  position: absolute;
+  top: 29%;
+  width: 46%;
+  aspect-ratio: 1.35;
+  border: 1px solid color-mix(in oklab, var(--rose) 20%, transparent);
+  border-radius: 52% 48% 44% 56%;
+  background:
+    radial-gradient(
+      circle at 34% 25%,
+      color-mix(in oklab, var(--rose) 36%, transparent),
+      transparent 17%
+    ),
+    radial-gradient(circle at 58% 62%, var(--oxblood), var(--blackcherry) 68%);
+  box-shadow:
+    inset -1.5rem -1.5rem 2.5rem oklch(0 0 0 / 0.45),
+    0 2rem 4rem oklch(0 0 0 / 0.42);
+}
+
+.relic-fallback__lobe--left {
+  left: 7%;
+  transform: rotate(-8deg);
+}
+
+.relic-fallback__lobe--right {
+  right: 7%;
+  transform: rotate(8deg);
+}
+
+.relic-fallback__bridge {
+  position: absolute;
+  left: 28%;
+  top: 30%;
+  z-index: 2;
+  width: 44%;
+  height: 12%;
+  border-radius: 999px;
+  background: linear-gradient(
+    180deg,
+    var(--bone),
+    var(--graphite) 48%,
+    var(--bone) 70%,
+    var(--blackcherry)
+  );
+  box-shadow: 0 0.8rem 1.4rem oklch(0 0 0 / 0.46);
+}
+
+.relic-fallback__signal {
+  position: absolute;
+  left: 27%;
+  top: 49%;
+  z-index: 3;
+  width: 46%;
+  height: 8%;
+  border: 1px solid var(--graphite);
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      color-mix(in oklab, var(--cherry) 30%, transparent),
+      transparent
+    ),
+    repeating-linear-gradient(90deg, var(--cherry) 0 2px, transparent 2px 11px), var(--blackcherry);
+  box-shadow: 0 0 1.8rem color-mix(in oklab, var(--cherry) 45%, transparent);
+}
+
+.relic-caption {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  z-index: 3;
+  color: var(--muted-foreground);
+}
+
+.home-feature {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+}
+
+.home-feature__index {
+  position: absolute;
+  right: -0.05em;
+  top: -0.18em;
+  z-index: -1;
+  color: color-mix(in oklab, var(--world-accent, var(--cherry)) 12%, transparent);
+  font-family: var(--font-display);
+  font-size: clamp(12rem, 27vw, 31rem);
+  font-variant-numeric: lining-nums;
+  line-height: 1;
+  pointer-events: none;
+}
+
+.project-evidence-stage {
+  display: grid;
+  grid-template-columns: minmax(0, 4fr) minmax(15rem, 1fr);
+  gap: 1rem;
+  align-items: stretch;
+}
+
+.project-evidence-stage > .project-visual {
+  min-height: clamp(29rem, 62vw, 48rem);
+}
+
+.evidence-rail {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border: 1px solid var(--border);
+  padding: 1.2rem;
+  background:
+    linear-gradient(
+      135deg,
+      color-mix(in oklab, var(--world-accent, var(--cherry)) 10%, transparent),
+      transparent 46%
+    ),
+    color-mix(in oklab, var(--background) 94%, var(--foreground));
+}
+
+.evidence-rail__proof {
+  margin-block: 1.5rem;
+  font-family: var(--font-display);
+  font-size: clamp(1.75rem, 2.5vw, 2.65rem);
+  line-height: 0.94;
+  overflow-wrap: anywhere;
+  text-wrap: balance;
+}
+
+.evidence-rail ol {
+  counter-reset: evidence;
+  border-top: 1px solid var(--border);
+}
+
+.evidence-rail li {
+  display: grid;
+  grid-template-columns: 1.5rem 1fr;
+  gap: 0.6rem;
+  border-bottom: 1px solid var(--border);
+  padding-block: 0.8rem;
+  font-size: 0.72rem;
+  line-height: 1.45;
+}
+
+.evidence-rail li::before {
+  counter-increment: evidence;
+  content: "0" counter(evidence);
+  color: var(--world-accent, var(--cherry));
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+}
+
+.project-visual::before,
+.project-visual::after {
+  content: "";
+  position: absolute;
+  z-index: 6;
+  width: 1.15rem;
+  height: 1.15rem;
+  pointer-events: none;
+  background:
+    linear-gradient(currentColor, currentColor) center / 100% 1px no-repeat,
+    linear-gradient(currentColor, currentColor) center / 1px 100% no-repeat;
+  color: color-mix(in oklab, var(--foreground) 45%, transparent);
+}
+
+.project-visual::before {
+  left: 0.75rem;
+  bottom: 0.75rem;
+}
+
+.project-visual::after {
+  right: 0.75rem;
+  top: 0.75rem;
+}
+
+.world-transition {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  background:
+    linear-gradient(
+      105deg,
+      color-mix(in oklab, var(--world-accent, var(--cherry)) 16%, transparent),
+      transparent 44%
+    ),
+    var(--background);
+}
+
+.world-transition::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  opacity: 0.34;
+  background-image: repeating-linear-gradient(
+    115deg,
+    transparent 0 2.8rem,
+    color-mix(in oklab, var(--foreground) 8%, transparent) 2.8rem 2.9rem
+  );
+  mask-image: linear-gradient(90deg, transparent 30%, black);
+}
+
+@keyframes editorial-reveal {
+  from {
+    opacity: 0.45;
+    transform: translate3d(0, 2.25rem, 0);
+    clip-path: inset(0 0 12% 0);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+    clip-path: inset(0);
+  }
+}
+
+@supports (animation-timeline: view()) {
+  .motion-reveal {
+    animation: editorial-reveal linear both;
+    animation-timeline: view();
+    animation-range: entry 8% cover 30%;
+  }
+}
+
+@view-transition {
+  navigation: auto;
+}
+
+::view-transition-old(root) {
+  animation: 220ms ease both fade-out;
+}
+
+::view-transition-new(root) {
+  animation: 520ms cubic-bezier(0.16, 0.84, 0.28, 1) both settle;
+}
+
+@keyframes fade-out {
+  to {
+    opacity: 0;
+  }
+}
+
+@media (max-width: 47.99rem) {
+  .relic-scene {
+    min-height: 23rem;
+  }
+
+  .project-evidence-stage {
+    grid-template-columns: 1fr;
+  }
+
+  .project-evidence-stage > .project-visual {
+    min-height: 23rem;
+  }
+
+  .evidence-rail {
+    min-height: 21rem;
+  }
+
+  .home-feature__index {
+    top: 0.06em;
+    font-size: 13rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  ::view-transition-old(root),
+  ::view-transition-new(root) {
+    animation: none;
+  }
+
+  .motion-reveal {
+    animation: none;
+  }
+
+  .relic-fallback {
+    transition: none;
+  }
+}
