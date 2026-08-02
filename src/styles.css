@@ -1521,3 +1521,624 @@
     transition: none;
   }
 }
+
+
+/* final asset-authorship pass */
+
+.case-study-hero {
+  padding-bottom: clamp(2.5rem, 5vw, 4rem);
+}
+
+.case-study-hero__evidence {
+  margin-top: clamp(3.5rem, 7vw, 6rem);
+}
+
+.case-study-hero__evidence .project-evidence-stage > .project-visual {
+  min-height: clamp(27rem, 55vw, 44rem);
+}
+
+.visual-heartline--real {
+  display: block;
+  padding: 3.8rem 1rem 1rem;
+}
+
+.real-device-stage {
+  position: relative;
+  isolation: isolate;
+  display: grid;
+  min-height: clamp(27rem, 52vw, 42rem);
+  place-items: center;
+}
+
+.real-device-stage::before {
+  content: "";
+  position: absolute;
+  inset: 8% 16% 5%;
+  z-index: -1;
+  border-radius: 50%;
+  background: radial-gradient(circle, color-mix(in oklab, var(--rose) 36%, transparent), transparent 68%);
+  filter: blur(1.4rem);
+}
+
+.real-device-shell {
+  z-index: 2;
+  width: min(43%, 20rem);
+  overflow: hidden;
+  border: 1px solid color-mix(in oklab, var(--rose) 58%, transparent);
+  border-radius: 2.6rem;
+  background: #050305;
+  box-shadow: 0 3rem 7rem -2.4rem #000, 0 0 0 0.42rem rgb(0 0 0 / 38%);
+  transform: rotate(2deg);
+}
+
+.project-visual--compact .real-device-shell {
+  width: min(42%, 15rem);
+}
+
+.real-device-shell img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.real-device-note {
+  position: absolute;
+  right: 4%;
+  bottom: 10%;
+  z-index: 3;
+  width: min(17rem, 35%);
+  border: 1px solid var(--rose);
+  background: color-mix(in oklab, var(--blackcherry) 91%, transparent);
+  padding: 1rem;
+  transform: rotate(-3deg);
+  box-shadow: 0 1.5rem 4rem -2rem #000;
+}
+
+.real-device-note span {
+  display: block;
+  margin-bottom: 0.65rem;
+  color: var(--rose);
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  letter-spacing: 0.12em;
+}
+
+.real-device-note strong {
+  display: block;
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  font-weight: 400;
+  line-height: 1;
+}
+
+.visual-game--real {
+  display: block;
+  padding: 0;
+}
+
+.toash-art {
+  position: relative;
+  min-height: clamp(29rem, 54vw, 43rem);
+  overflow: hidden;
+  background: #13090b;
+}
+
+.toash-art::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: linear-gradient(110deg, rgb(12 4 6 / 30%), transparent 55%, rgb(12 4 6 / 48%));
+  pointer-events: none;
+}
+
+.toash-art__scene {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: saturate(0.85) contrast(1.12) brightness(0.68);
+}
+
+.toash-art__title,
+.toash-art__combat {
+  position: absolute;
+  z-index: 2;
+  object-fit: cover;
+  border: 1px solid color-mix(in oklab, var(--rose) 60%, transparent);
+  box-shadow: 0 2.5rem 5rem -2rem #000;
+}
+
+.toash-art__title {
+  left: 5%;
+  top: 14%;
+  width: 49%;
+  transform: rotate(-2.5deg);
+}
+
+.toash-art__combat {
+  right: 5%;
+  bottom: 8%;
+  width: 40%;
+  transform: rotate(2deg);
+}
+
+.toash-art__hud {
+  position: absolute;
+  left: 4%;
+  bottom: 4%;
+  z-index: 3;
+  display: flex;
+  gap: 0.45rem;
+  flex-wrap: wrap;
+}
+
+.toash-art__hud span {
+  border: 1px solid var(--rose);
+  background: rgb(15 5 7 / 78%);
+  padding: 0.45rem 0.55rem;
+  color: var(--bone);
+  font-family: var(--font-mono);
+  font-size: 0.58rem;
+  letter-spacing: 0.08em;
+}
+
+.visual-flooded--real {
+  display: block;
+  padding: 0;
+}
+
+.flooded-art {
+  position: relative;
+  min-height: clamp(28rem, 52vw, 42rem);
+  overflow: hidden;
+  background:
+    linear-gradient(100deg, color-mix(in oklab, var(--deepwater) 78%, transparent), transparent),
+    repeating-linear-gradient(0deg, transparent 0 2rem, rgb(255 255 255 / 5%) 2rem 2.05rem),
+    var(--deepwater);
+}
+
+.flooded-art__wrap {
+  position: absolute;
+  left: 4%;
+  bottom: 12%;
+  width: 55%;
+  height: 64%;
+  object-fit: cover;
+  transform: rotate(-5deg);
+  filter: saturate(0.82) contrast(1.05);
+  box-shadow: 0 2.2rem 5rem -2rem #000;
+}
+
+.flooded-art__book {
+  position: absolute;
+  right: 5%;
+  top: 7%;
+  width: 39%;
+  height: 84%;
+  object-fit: contain;
+  transform: rotate(3.5deg);
+  filter: drop-shadow(0 2.4rem 2.3rem rgb(0 0 0 / 65%));
+}
+
+.flooded-art__caption {
+  position: absolute;
+  left: 5%;
+  bottom: 4%;
+  z-index: 2;
+  color: var(--bone);
+  font-family: var(--font-display);
+  font-size: clamp(1.2rem, 2.5vw, 2rem);
+}
+
+.visual-product-real {
+  display: block;
+  padding: 3.8rem 1rem 1rem;
+  background:
+    radial-gradient(circle at 50% 48%, color-mix(in oklab, var(--world-accent, var(--cherry)) 25%, transparent), transparent 52%),
+    var(--blackcherry);
+}
+
+.product-device-stage {
+  position: relative;
+  min-height: clamp(27rem, 50vw, 41rem);
+  overflow: hidden;
+}
+
+.product-device {
+  position: absolute;
+  width: auto;
+  max-height: 85%;
+  border: 1px solid color-mix(in oklab, var(--bone) 24%, transparent);
+  border-radius: 1.55rem;
+  background: #090909;
+  object-fit: contain;
+  box-shadow: 0 3rem 6rem -2.4rem #000;
+}
+
+.product-device-stage--single .product-device {
+  left: 50%;
+  top: 4%;
+  transform: translateX(-50%) rotate(1.5deg);
+}
+
+.product-device-stage--pair .product-device--light {
+  left: 23%;
+  top: 7%;
+  transform: rotate(-5deg);
+}
+
+.product-device-stage--pair .product-device--dark {
+  right: 23%;
+  top: 2%;
+  transform: rotate(5deg);
+}
+
+.product-proof {
+  position: absolute;
+  right: 3%;
+  bottom: 5%;
+  z-index: 2;
+  width: min(14rem, 34%);
+  border: 1px solid var(--world-accent, var(--cherry));
+  background: color-mix(in oklab, var(--blackcherry) 90%, transparent);
+  padding: 0.9rem;
+}
+
+.product-proof strong {
+  display: block;
+  color: var(--world-accent, var(--cherry));
+  font-family: var(--font-display);
+  font-size: clamp(2.5rem, 5vw, 4.5rem);
+  font-weight: 400;
+  line-height: 0.9;
+}
+
+.product-proof span {
+  display: block;
+  margin-top: 0.55rem;
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  line-height: 1.45;
+  text-transform: uppercase;
+}
+
+.visual-biolitgraph--real {
+  display: block;
+  padding: 3.8rem 1rem 1rem;
+}
+
+.biolitgraph-spread {
+  position: relative;
+  min-height: clamp(29rem, 54vw, 43rem);
+  overflow: hidden;
+  background: linear-gradient(135deg, var(--midnight), color-mix(in oklab, var(--teal) 12%, var(--midnight)));
+}
+
+.biolitgraph-spread img {
+  position: absolute;
+  border: 1px solid color-mix(in oklab, var(--teal) 45%, transparent);
+  object-fit: cover;
+  box-shadow: 0 2.5rem 5rem -2rem #000;
+}
+
+.biolitgraph-spread__graph {
+  left: 4%;
+  top: 8%;
+  width: 70%;
+  height: 70%;
+  object-position: center;
+  transform: rotate(-1.5deg);
+}
+
+.biolitgraph-spread__search {
+  right: 4%;
+  top: 7%;
+  width: 35%;
+  height: 38%;
+  transform: rotate(2deg);
+}
+
+.biolitgraph-spread__timeline {
+  right: 6%;
+  bottom: 6%;
+  width: 40%;
+  height: 40%;
+  transform: rotate(-2deg);
+}
+
+.visual-spa--real {
+  display: block;
+  padding: 3.8rem 1rem 1rem;
+}
+
+.spa-collage {
+  position: relative;
+  min-height: clamp(29rem, 54vw, 43rem);
+  overflow: hidden;
+  background: linear-gradient(145deg, var(--plotcream), color-mix(in oklab, var(--cherry) 14%, var(--plotcream)));
+}
+
+.spa-collage img {
+  position: absolute;
+  object-fit: cover;
+  box-shadow: 0 2.2rem 4rem -2rem rgb(0 0 0 / 70%);
+}
+
+.spa-collage__logo {
+  left: 2%;
+  top: 3%;
+  width: 35%;
+  height: 48%;
+  opacity: 0.9;
+  mix-blend-mode: multiply;
+  transform: rotate(-5deg);
+}
+
+.spa-collage__poster {
+  top: 9%;
+  width: 27%;
+  height: 66%;
+}
+
+.spa-collage__poster--one {
+  left: 28%;
+  transform: rotate(3deg);
+}
+
+.spa-collage__poster--two {
+  left: 52%;
+  transform: rotate(-2deg);
+}
+
+.spa-collage__presenting {
+  right: 3%;
+  bottom: 4%;
+  width: 34%;
+  height: 48%;
+  transform: rotate(3deg);
+}
+
+@media (max-width: 47.99rem) {
+  .case-study-hero {
+    padding-bottom: 2.25rem;
+  }
+
+  .case-study-hero__evidence {
+    margin-top: 3rem;
+  }
+
+  .case-study-hero__evidence .project-evidence-stage > .project-visual {
+    min-height: 24rem;
+  }
+
+  .real-device-stage {
+    min-height: 28rem;
+  }
+
+  .real-device-shell,
+  .project-visual--compact .real-device-shell {
+    width: min(64%, 14rem);
+  }
+
+  .real-device-note {
+    right: 2%;
+    bottom: 4%;
+    width: 43%;
+    padding: 0.7rem;
+  }
+
+  .real-device-note strong {
+    font-size: 0.9rem;
+  }
+
+  .toash-art {
+    min-height: 27rem;
+  }
+
+  .toash-art__title {
+    left: 5%;
+    top: 18%;
+    width: 78%;
+  }
+
+  .toash-art__combat {
+    right: 4%;
+    bottom: 12%;
+    width: 63%;
+  }
+
+  .toash-art__hud {
+    left: 3%;
+    bottom: 3%;
+  }
+
+  .flooded-art {
+    min-height: 29rem;
+  }
+
+  .flooded-art__wrap {
+    left: -8%;
+    bottom: 16%;
+    width: 79%;
+    height: 56%;
+  }
+
+  .flooded-art__book {
+    right: -5%;
+    top: 8%;
+    width: 58%;
+    height: 78%;
+  }
+
+  .flooded-art__caption {
+    max-width: 70%;
+    font-size: 1.15rem;
+  }
+
+  .product-device-stage {
+    min-height: 29rem;
+  }
+
+  .product-device {
+    max-height: 78%;
+  }
+
+  .product-device-stage--pair .product-device--light {
+    left: 7%;
+  }
+
+  .product-device-stage--pair .product-device--dark {
+    right: 7%;
+  }
+
+  .product-proof {
+    right: 3%;
+    bottom: 3%;
+    width: 47%;
+  }
+
+  .biolitgraph-spread {
+    min-height: 27rem;
+  }
+
+  .biolitgraph-spread__graph {
+    left: -8%;
+    top: 9%;
+    width: 91%;
+    height: 61%;
+  }
+
+  .biolitgraph-spread__search {
+    right: -5%;
+    top: 6%;
+    width: 54%;
+    height: 34%;
+  }
+
+  .biolitgraph-spread__timeline {
+    right: 4%;
+    bottom: 5%;
+    width: 65%;
+    height: 37%;
+  }
+
+  .spa-collage {
+    min-height: 29rem;
+  }
+
+  .spa-collage__logo {
+    width: 51%;
+    height: 38%;
+  }
+
+  .spa-collage__poster {
+    top: 16%;
+    width: 42%;
+    height: 57%;
+  }
+
+  .spa-collage__poster--one {
+    left: 13%;
+  }
+
+  .spa-collage__poster--two {
+    left: 48%;
+  }
+
+  .spa-collage__presenting {
+    right: 4%;
+    bottom: 3%;
+    width: 52%;
+    height: 37%;
+  }
+}
+
+@media (max-width: 360px) {
+  .real-device-note {
+    display: none;
+  }
+
+  .real-device-shell,
+  .project-visual--compact .real-device-shell {
+    width: min(68%, 13.5rem);
+  }
+
+  .project-visual__label {
+    font-size: 0.54rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .real-device-shell,
+  .real-device-note,
+  .toash-art__title,
+  .toash-art__combat,
+  .flooded-art__wrap,
+  .flooded-art__book,
+  .product-device,
+  .biolitgraph-spread img,
+  .spa-collage img {
+    transform: none;
+  }
+}
+
+
+/* block alignment reset for absolute-positioned evidence compositions */
+.visual-heartline--real,
+.visual-flooded--real,
+.visual-product-real,
+.visual-biolitgraph--real,
+.visual-spa--real {
+  justify-items: stretch;
+  align-items: stretch;
+}
+
+.real-device-stage,
+.toash-art,
+.flooded-art,
+.product-device-stage,
+.biolitgraph-spread,
+.spa-collage {
+  width: 100%;
+}
+
+.visual-biolitgraph--real .biolitgraph-spread__graph {
+  width: 70%;
+}
+
+.visual-biolitgraph--real .biolitgraph-spread__search {
+  width: 35%;
+}
+
+.visual-biolitgraph--real .biolitgraph-spread__timeline {
+  width: 40%;
+}
+
+@media (max-width: 47.99rem) {
+  .visual-biolitgraph--real .biolitgraph-spread__graph {
+    width: 91%;
+  }
+
+  .visual-biolitgraph--real .biolitgraph-spread__search {
+    width: 54%;
+  }
+
+  .visual-biolitgraph--real .biolitgraph-spread__timeline {
+    width: 65%;
+  }
+}
+
+
+.project-index-row > *,
+.link-rule {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+@media (max-width: 47.99rem) {
+  .project-index-row .display {
+    font-size: clamp(1.2rem, 7.5vw, 1.875rem);
+  }
+}

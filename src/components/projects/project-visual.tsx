@@ -5,20 +5,22 @@ import { sitePath } from "@/lib/site-path";
 
 type ProjectVisualProps = {
   project: ProjectRecord;
-  compact?: boolean;
+  compact?: boolean | undefined;
 };
 
 function Frame({
   label,
   children,
   className = "",
+  compact = false,
 }: {
   label: string;
   children: ReactNode;
   className?: string;
+  compact?: boolean | undefined;
 }) {
   return (
-    <figure className={`project-visual ${className}`}>
+    <figure className={"project-visual " + className + (compact ? " project-visual--compact" : "")}>
       <div className="project-visual__label">{label}</div>
       {children}
     </figure>
@@ -27,37 +29,37 @@ function Frame({
 
 function HeartlineVisual({ compact }: { compact?: boolean }) {
   return (
-    <Frame label="Rights-safe interface reconstruction" className="visual-heartline">
-      <div className={`demo-phone ${compact ? "demo-phone--compact" : ""}`}>
-        <div className="demo-phone__status">
-          <span>HEARTLINE</span>
-          <span>01:42</span>
+    <Frame
+      label="Real HEARTLINE interface · fictional demo lyrics"
+      className="visual-heartline visual-heartline--real"
+      compact={compact}
+    >
+      <div className="real-device-stage">
+        <div className="real-device-shell">
+          <img
+            src={sitePath("/assets/project/heartline-live-demo.jpg")}
+            alt="HEARTLINE live lyrics interface showing fictional publication-safe demo text."
+            width={520}
+            height={1156}
+            loading={compact ? "lazy" : "eager"}
+          />
         </div>
-        <div className="demo-phone__body">
-          <p className="meta text-cherry">Active media session</p>
-          <p className="display mt-4 text-3xl">Original demo track</p>
-          <p className="mt-2 text-sm text-muted-foreground">Synchronized line available</p>
-          <div className="demo-phone__wave" aria-hidden="true">
-            {Array.from({ length: 22 }, (_, index) => (
-              <span key={index} style={{ height: `${18 + ((index * 13) % 42)}%` }} />
-            ))}
-          </div>
-          <div className="demo-phone__progress">
-            <span />
-          </div>
-          <div className="mt-5 flex justify-between">
-            <span className="meta">Cached locally</span>
-            <span className="meta">Live notification</span>
-          </div>
+        <div className="real-device-note" aria-hidden="true">
+          <span>REAL BUILD</span>
+          <strong>Media-session lyrics, translated into a live lock-screen surface.</strong>
         </div>
       </div>
     </Frame>
   );
 }
 
-function CancerShiftVisual() {
+function CancerShiftVisual({ compact }: { compact?: boolean }) {
   return (
-    <Frame label="Public aggregate results" className="visual-research">
+    <Frame
+      label="Verified aggregate result · manuscript figure pending clearance"
+      className="visual-research"
+      compact={compact}
+    >
       <div className="metric-sheet">
         <div className="metric-sheet__head">
           <span>Blind external evaluation</span>
@@ -82,35 +84,61 @@ function CancerShiftVisual() {
   );
 }
 
-function ToAshVisual() {
+function ToAshVisual({ compact }: { compact?: boolean }) {
   return (
-    <Frame label="Code-native scene · original project art withheld" className="visual-game">
-      <div className="game-scene" aria-hidden="true">
-        <div className="game-scene__moon" />
-        <div className="game-scene__platform game-scene__platform--one" />
-        <div className="game-scene__platform game-scene__platform--two" />
-        <div className="game-scene__player" />
-        <div className="game-scene__enemy" />
-        <div className="game-scene__signal" />
-      </div>
-      <div className="game-scene__hud">
-        <span>ACT 04</span>
-        <span>2 CHARACTERS</span>
-        <span>6 ABILITIES</span>
+    <Frame
+      label="Original title art · gameplay · Act IV environment"
+      className="visual-game visual-game--real"
+      compact={compact}
+    >
+      <div className="toash-art">
+        <img
+          className="toash-art__scene"
+          src={sitePath("/assets/project/toash-red-scene.jpg")}
+          alt=""
+          width={1600}
+          height={900}
+          loading="lazy"
+        />
+        <img
+          className="toash-art__title"
+          src={sitePath("/assets/project/toash-title.jpg")}
+          alt="To Ash Again title screen."
+          width={1600}
+          height={900}
+          loading="lazy"
+        />
+        <img
+          className="toash-art__combat"
+          src={sitePath("/assets/project/toash-combat.jpg")}
+          alt="To Ash Again gameplay showing its side-scrolling combat interface."
+          width={1600}
+          height={900}
+          loading="lazy"
+        />
+        <div className="toash-art__hud" aria-hidden="true">
+          <span>ACT 04</span>
+          <span>2 CHARACTERS</span>
+          <span>6 ABILITIES</span>
+        </div>
       </div>
     </Frame>
   );
 }
 
-function A17Visual() {
+function A17Visual({ compact }: { compact?: boolean }) {
   return (
-    <Frame label="Public-safe method diagram" className="visual-a17">
+    <Frame
+      label="Public-safe method diagram · manuscript figure withheld"
+      className="visual-a17"
+      compact={compact}
+    >
       <div className="a17-flow">
         <div>
           <span className="meta">Seven epigenomic tracks</span>
           <div className="a17-tracks" aria-hidden="true">
             {Array.from({ length: 7 }, (_, index) => (
-              <span key={index} style={{ width: `${58 + index * 6}%` }} />
+              <span key={index} style={{ width: 58 + index * 6 + "%" }} />
             ))}
           </div>
         </div>
@@ -144,89 +172,137 @@ function A17Visual() {
   );
 }
 
-function FloodedVisual() {
-  return (
-    <Frame label="Code-native object · no manuscript text shown" className="visual-flooded">
-      <div className="book-object" aria-hidden="true">
-        <div className="book-object__spine">FLOODED</div>
-        <div className="book-object__cover">
-          <span>FLOODED</span>
-          <small>COLLECTION IN DEVELOPMENT</small>
-        </div>
-        <div className="book-object__pages" />
-      </div>
-    </Frame>
-  );
-}
-
-function TaaqatVisual() {
-  return (
-    <Frame label="Synthetic product diagram" className="visual-taaqat">
-      <div className="recovery-map">
-        <div className="recovery-map__figure" aria-hidden="true">
-          <span className="recovery-map__head" />
-          <span className="recovery-map__torso" />
-          <span className="recovery-map__arm recovery-map__arm--left" />
-          <span className="recovery-map__arm recovery-map__arm--right" />
-          <span className="recovery-map__leg recovery-map__leg--left" />
-          <span className="recovery-map__leg recovery-map__leg--right" />
-        </div>
-        <dl>
-          <div>
-            <dt>Library</dt>
-            <dd>172 exercises</dd>
-          </div>
-          <div>
-            <dt>Core use</dt>
-            <dd>Offline</dd>
-          </div>
-          <div>
-            <dt>Data</dt>
-            <dd>Local persistence</dd>
-          </div>
-        </dl>
-      </div>
-    </Frame>
-  );
-}
-
-function NivalaVisual() {
-  return (
-    <Frame label="Synthetic product diagram" className="visual-nivala">
-      <div className="nivala-panel">
-        <div>
-          <p className="meta">Pakistani-first food library</p>
-          <strong>278</strong>
-          <span>bundled foods</span>
-        </div>
-        <ul>
-          <li>English</li>
-          <li lang="ur">اردو</li>
-          <li>Roman Urdu</li>
-        </ul>
-        <p>Local diary · recipes · backup</p>
-      </div>
-    </Frame>
-  );
-}
-
-function BioLitGraphVisual() {
-  return (
-    <Frame label="Project-authored demonstration output" className="visual-biolitgraph">
-      <img
-        src={sitePath("/assets/biolitgraph-egfr.png")}
-        alt="BioLitGraph demonstration network connecting normalized EGFR-related entities to source evidence."
-        loading="lazy"
-      />
-    </Frame>
-  );
-}
-
-function IchthyologyVisual() {
+function FloodedVisual({ compact }: { compact?: boolean }) {
   return (
     <Frame
-      label="Abstract correspondence matrix · no unpublished result"
+      label="Physical book prototype · cover wrap"
+      className="visual-flooded visual-flooded--real"
+      compact={compact}
+    >
+      <div className="flooded-art">
+        <img
+          className="flooded-art__wrap"
+          src={sitePath("/assets/project/flooded-cover.jpg")}
+          alt="Flooded cover-wrap design."
+          width={1200}
+          height={800}
+          loading="lazy"
+        />
+        <img
+          className="flooded-art__book"
+          src={sitePath("/assets/project/flooded-book.jpg")}
+          alt="Physical prototype of the Flooded poetry collection."
+          width={900}
+          height={1200}
+          loading="lazy"
+        />
+        <p className="flooded-art__caption">A manuscript becoming an object.</p>
+      </div>
+    </Frame>
+  );
+}
+
+function TaaqatVisual({ compact }: { compact?: boolean }) {
+  return (
+    <Frame
+      label="Real Taaqat product interface"
+      className="visual-product-real visual-taaqat--real"
+      compact={compact}
+    >
+      <div className="product-device-stage product-device-stage--single">
+        <img
+          className="product-device"
+          src={sitePath("/assets/project/taaqat-dashboard.png")}
+          alt="Taaqat rehabilitation dashboard showing exercise and recovery tracking."
+          width={1080}
+          height={2160}
+          loading="lazy"
+        />
+        <div className="product-proof">
+          <strong>172</strong>
+          <span>exercises · local-first recovery tracking</span>
+        </div>
+      </div>
+    </Frame>
+  );
+}
+
+function NivalaVisual({ compact }: { compact?: boolean }) {
+  return (
+    <Frame
+      label="Real Nivala light and dark interfaces"
+      className="visual-product-real visual-nivala--real"
+      compact={compact}
+    >
+      <div className="product-device-stage product-device-stage--pair">
+        <img
+          className="product-device product-device--light"
+          src={sitePath("/assets/project/nivala-light.png")}
+          alt="Nivala food-tracking dashboard in its light interface."
+          width={1080}
+          height={2160}
+          loading="lazy"
+        />
+        <img
+          className="product-device product-device--dark"
+          src={sitePath("/assets/project/nivala-dark.png")}
+          alt="Nivala food-tracking dashboard in its dark interface."
+          width={1080}
+          height={2160}
+          loading="lazy"
+        />
+        <div className="product-proof">
+          <strong>278</strong>
+          <span>bundled Pakistani foods · English, Urdu and Roman Urdu</span>
+        </div>
+      </div>
+    </Frame>
+  );
+}
+
+function BioLitGraphVisual({ compact }: { compact?: boolean }) {
+  return (
+    <Frame
+      label="Real landing, network and timeline views"
+      className="visual-biolitgraph visual-biolitgraph--real"
+      compact={compact}
+    >
+      <div className="biolitgraph-spread">
+        <img
+          className="biolitgraph-spread__graph"
+          src={sitePath("/assets/project/biolitgraph-graph.png")}
+          alt="BioLitGraph entity network connecting normalized biomedical entities to evidence."
+          width={1600}
+          height={1000}
+          loading="lazy"
+        />
+        <img
+          className="biolitgraph-spread__search"
+          src={sitePath("/assets/project/biolitgraph-search.png")}
+          alt="BioLitGraph landing and literature-search interface."
+          width={1200}
+          height={800}
+          loading="lazy"
+        />
+        <img
+          className="biolitgraph-spread__timeline"
+          src={sitePath("/assets/project/biolitgraph-timeline.png")}
+          alt="BioLitGraph evidence timeline view."
+          width={1200}
+          height={800}
+          loading="lazy"
+        />
+      </div>
+    </Frame>
+  );
+}
+
+function IchthyologyVisual({ compact }: { compact?: boolean }) {
+  return (
+    <Frame
+      label="Abstract correspondence matrix · unpublished result withheld"
       className="visual-ichthyology"
+      compact={compact}
     >
       <div className="chromosome-sheet">
         <div className="chromosome-sheet__labels">
@@ -235,7 +311,7 @@ function IchthyologyVisual() {
         </div>
         <div className="chromosome-lines" aria-hidden="true">
           {Array.from({ length: 24 }, (_, index) => (
-            <span key={index} style={{ width: `${42 + ((index * 17) % 54)}%` }} />
+            <span key={index} style={{ width: 42 + ((index * 17) % 54) + "%" }} />
           ))}
         </div>
         <p>24 pseudochromosome labels · ongoing comparative work</p>
@@ -244,28 +320,46 @@ function IchthyologyVisual() {
   );
 }
 
-function SpaVisual() {
+function SpaVisual({ compact }: { compact?: boolean }) {
   return (
-    <Frame label="Public-safe poster field · participant photos withheld" className="visual-spa">
-      <div className="poster-field">
-        <div className="poster poster--cream">
-          <small>STUDENT POETS ASSOCIATION</small>
-          <strong>
-            OPEN
-            <br />
-            MIC
-          </strong>
-          <span>No date published here</span>
-        </div>
-        <div className="poster poster--red">
-          <small>WRITE · READ · LISTEN</small>
-          <strong>
-            POETRY
-            <br />
-            MONTH
-          </strong>
-          <span>USM student community</span>
-        </div>
+    <Frame
+      label="Real logo, posters and presenting image · group photography withheld"
+      className="visual-spa visual-spa--real"
+      compact={compact}
+    >
+      <div className="spa-collage">
+        <img
+          className="spa-collage__logo"
+          src={sitePath("/assets/project/spa-logo.jpg")}
+          alt="Student Poets Association logo."
+          width={1000}
+          height={1000}
+          loading="lazy"
+        />
+        <img
+          className="spa-collage__poster spa-collage__poster--one"
+          src={sitePath("/assets/project/spa-open-mic.jpg")}
+          alt="Student Poets Association open-mic poster."
+          width={900}
+          height={1100}
+          loading="lazy"
+        />
+        <img
+          className="spa-collage__poster spa-collage__poster--two"
+          src={sitePath("/assets/project/spa-poetry-month.jpg")}
+          alt="Student Poets Association poetry-month poster."
+          width={900}
+          height={1100}
+          loading="lazy"
+        />
+        <img
+          className="spa-collage__presenting"
+          src={sitePath("/assets/project/spa-presenting.jpg")}
+          alt="Hasan presenting at a Student Poets Association event."
+          width={1000}
+          height={800}
+          loading="lazy"
+        />
       </div>
     </Frame>
   );
@@ -276,23 +370,23 @@ export function ProjectVisual({ project, compact = false }: ProjectVisualProps) 
     case "heartline":
       return <HeartlineVisual compact={compact} />;
     case "cancershift":
-      return <CancerShiftVisual />;
+      return <CancerShiftVisual compact={compact} />;
     case "to-ash-again":
-      return <ToAshVisual />;
+      return <ToAshVisual compact={compact} />;
     case "a17":
-      return <A17Visual />;
+      return <A17Visual compact={compact} />;
     case "flooded":
-      return <FloodedVisual />;
+      return <FloodedVisual compact={compact} />;
     case "taaqat":
-      return <TaaqatVisual />;
+      return <TaaqatVisual compact={compact} />;
     case "nivala":
-      return <NivalaVisual />;
+      return <NivalaVisual compact={compact} />;
     case "biolitgraph":
-      return <BioLitGraphVisual />;
+      return <BioLitGraphVisual compact={compact} />;
     case "ichthyology":
-      return <IchthyologyVisual />;
+      return <IchthyologyVisual compact={compact} />;
     case "student-poets-association":
-      return <SpaVisual />;
+      return <SpaVisual compact={compact} />;
     default:
       return null;
   }

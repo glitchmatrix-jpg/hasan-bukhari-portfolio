@@ -40,7 +40,32 @@ const allowedPublicAssets = [
   "biolitgraph-egfr.png",
   "hasan-bukhari-computational-biology.pdf",
   "hasan-bukhari-software-engineering.pdf",
+  "project/biolitgraph-graph.png",
+  "project/biolitgraph-search.png",
+  "project/biolitgraph-timeline.png",
+  "project/flooded-book.jpg",
+  "project/flooded-cover.jpg",
+  "project/heartline-live-demo.jpg",
+  "project/nivala-dark.png",
+  "project/nivala-light.png",
+  "project/spa-logo.jpg",
+  "project/spa-open-mic.jpg",
+  "project/spa-poetry-month.jpg",
+  "project/spa-presenting.jpg",
+  "project/taaqat-dashboard.png",
+  "project/toash-combat.jpg",
+  "project/toash-red-scene.jpg",
+  "project/toash-title.jpg",
 ];
+
+function listPublicAssets(directory, prefix = "") {
+  return readdirSync(directory, { withFileTypes: true }).flatMap((entry) => {
+    const relativePath = prefix ? `${prefix}/${entry.name}` : entry.name;
+    return entry.isDirectory()
+      ? listPublicAssets(join(directory, entry.name), relativePath)
+      : [relativePath];
+  });
+}
 
 const bannedPublicCopy = [
   "The first open mic had nine people",
@@ -75,7 +100,7 @@ for (const phrase of bannedPublicCopy) {
   }
 }
 
-const publicAssets = readdirSync(join(root, "public/assets")).sort();
+const publicAssets = listPublicAssets(join(root, "public/assets")).sort();
 if (JSON.stringify(publicAssets) !== JSON.stringify([...allowedPublicAssets].sort())) {
   throw new Error(
     `Public asset allowlist mismatch. Expected ${allowedPublicAssets.join(", ")}; received ${publicAssets.join(", ")}`,

@@ -43,7 +43,7 @@ export const projects: readonly ProjectRecord[] = [
       },
       {
         title: "Public demonstration",
-        body: "The public demonstration uses original interface text. Commercial lyrics, album artwork, and artist metadata stay out until a cleared demo set exists.",
+        body: "The public demonstration uses the real interface with a fictional local demo track. Commercial lyrics, album artwork, and artist metadata have been removed.",
       },
     ],
     repository: {
@@ -82,7 +82,7 @@ export const projects: readonly ProjectRecord[] = [
       },
       {
         title: "Public demonstration",
-        body: "The public page uses an original code-native scene. Project screenshots stay out until every visible asset is cleared for reuse.",
+        body: "The public page uses project-authored title art, gameplay, and an Act IV environment from the original build.",
       },
     ],
     repository: {
@@ -396,7 +396,7 @@ export const projects: readonly ProjectRecord[] = [
       },
       {
         title: "People stay in control",
-        body: "Participant photographs stay out until the original file, photographer rights, and participant consent are confirmed. The public page uses an original poster field instead.",
+        body: "The public page uses the real association logo, event posters with social-media chrome removed, and a presenting image of Hasan. Group photographs stay out until participant permission is confirmed.",
       },
     ],
     related: ["flooded", "to-ash-again", "ichthyology"],

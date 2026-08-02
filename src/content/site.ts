@@ -58,14 +58,28 @@ export const worlds: readonly WorldRecord[] = [
 
 export const publicLinks = [
   {
+    label: "Email",
+    value: "hasan.bukhari25@gmail.com",
+    href: "mailto:hasan.bukhari25@gmail.com",
+    external: false,
+  },
+  {
+    label: "LinkedIn",
+    value: "linkedin.com/in/hasan-bukhari",
+    href: "https://www.linkedin.com/in/hasan-bukhari",
+    external: true,
+  },
+  {
     label: "GitHub · mobile",
     value: "glitchmatrix-jpg",
     href: "https://github.com/glitchmatrix-jpg",
+    external: true,
   },
   {
     label: "GitHub · games and research",
     value: "PurplePoet25",
     href: "https://github.com/PurplePoet25",
+    external: true,
   },
 ] as const;
 

@@ -18,11 +18,11 @@ export function SiteFooter() {
         <div className="col-span-4 lg:col-span-6">
           <p className="meta text-cherry">Exit scene</p>
           <h2 className="display mt-5 text-5xl lg:text-[4.5rem]">
-            Write to me when there's something worth making.
+            Write to me when there&apos;s something worth making.
           </h2>
           <p className="measure mt-5 text-sm leading-relaxed text-muted-foreground">
-            Code and résumé links are public. A public email address is not listed until Hasan
-            confirms the exact address for this site.
+            Email is public. Send the useful version: what you are making, where it is stuck, and
+            why it matters.
           </p>
         </div>
 
@@ -31,8 +31,8 @@ export function SiteFooter() {
             <a
               key={link.label}
               href={link.href}
-              target="_blank"
-              rel="noreferrer"
+              target={link.external ? "_blank" : undefined}
+              rel={link.external ? "noreferrer" : undefined}
               className="block border-t border-border py-5 last:border-b"
             >
               <span className="meta text-muted-foreground">{link.label}</span>
@@ -45,7 +45,7 @@ export function SiteFooter() {
           </a>
           <a href={sitePath("/contact")} className="block border-y border-border py-5">
             <span className="meta text-muted-foreground">Contact page</span>
-            <span className="link-rule display mt-2 block text-2xl">Public links and status</span>
+            <span className="link-rule display mt-2 block text-2xl">Email and public profiles</span>
           </a>
         </nav>
 

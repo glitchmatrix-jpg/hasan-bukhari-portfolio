@@ -8,7 +8,7 @@ export function HumanSection() {
   return (
     <section
       id="about"
-      className="relative overflow-hidden border-t border-border py-24 lg:py-32"
+      className="relative overflow-hidden border-t border-border py-20 lg:py-28"
       aria-labelledby="about-title"
     >
       <div

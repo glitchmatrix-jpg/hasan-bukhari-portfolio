@@ -15,7 +15,7 @@ export function HomeFeature({
 
   return (
     <section
-      className={`home-feature motion-reveal world-${project.world} border-t border-border py-20 lg:py-28`}
+      className={`home-feature motion-reveal world-${project.world} border-t border-border py-16 sm:py-20 lg:py-28`}
       aria-labelledby={`home-${project.id}`}
     >
       <span aria-hidden="true" className="home-feature__index">

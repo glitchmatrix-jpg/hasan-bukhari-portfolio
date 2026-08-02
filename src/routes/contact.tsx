@@ -11,7 +11,7 @@ export const Route = createFileRoute("/contact")({
       { title: "Contact — Hasan Bukhari" },
       {
         name: "description",
-        content: "Public contact status, GitHub profiles, and résumé links for Hasan Bukhari.",
+        content: "Email, public profiles, and résumé links for Hasan Bukhari.",
       },
     ],
   }),
@@ -33,8 +33,8 @@ function ContactPage() {
             </div>
             <div className="col-span-4 lg:col-span-4 lg:col-start-9 lg:self-end">
               <p className="text-sm leading-relaxed text-muted-foreground">
-                A public email address for the website has not been confirmed. The two GitHub
-                profiles and résumé downloads below are the verified public routes.
+                Email is the direct route. LinkedIn and both GitHub profiles are here when you want
+                the record first.
               </p>
             </div>
           </div>
@@ -49,11 +49,11 @@ function ContactPage() {
               <a
                 key={link.label}
                 href={link.href}
-                target="_blank"
-                rel="noreferrer"
+                target={link.external ? "_blank" : undefined}
+                rel={link.external ? "noreferrer" : undefined}
                 className="project-index-row"
               >
-                <span className="meta text-cherry">↗</span>
+                <span className="meta text-cherry">{link.external ? "↗" : "@"}</span>
                 <span className="display text-3xl">{link.value}</span>
                 <span className="meta text-muted-foreground">{link.label}</span>
               </a>

@@ -15,7 +15,7 @@ export function CaseStudyPage({ projectId }: { projectId: string }) {
     <>
       <SiteNav />
       <main id="main-content" className={`page-stage world-${project.world}`}>
-        <header className="page-hero">
+        <header className="page-hero case-study-hero">
           <div className="shell grid-editorial items-end gap-y-12">
             <div className="col-span-4 lg:col-span-7">
               <p className="meta world-mark">{project.eyebrow}</p>
@@ -41,25 +41,24 @@ export function CaseStudyPage({ projectId }: { projectId: string }) {
               </div>
             </dl>
           </div>
-        </header>
-
-        <section className="shell py-16 lg:py-24" aria-label="Project evidence">
-          <div className="project-evidence-stage motion-reveal">
-            <ProjectVisual project={project} />
-            <aside className="evidence-rail" aria-label="Evidence summary">
-              <div>
-                <p className="meta world-mark">Evidence plate / 01</p>
-                <p className="evidence-rail__proof">{project.facts[0]}</p>
-                <p className="text-xs leading-relaxed text-muted-foreground">{project.status}</p>
-              </div>
-              <ol>
-                {project.facts.slice(1, 5).map((fact) => (
-                  <li key={fact}>{fact}</li>
-                ))}
-              </ol>
-            </aside>
+          <div className="shell case-study-hero__evidence motion-reveal">
+            <div className="project-evidence-stage">
+              <ProjectVisual project={project} />
+              <aside className="evidence-rail" aria-label="Evidence summary">
+                <div>
+                  <p className="meta world-mark">Evidence plate / 01</p>
+                  <p className="evidence-rail__proof">{project.facts[0]}</p>
+                  <p className="text-xs leading-relaxed text-muted-foreground">{project.status}</p>
+                </div>
+                <ol>
+                  {project.facts.slice(1, 5).map((fact) => (
+                    <li key={fact}>{fact}</li>
+                  ))}
+                </ol>
+              </aside>
+            </div>
           </div>
-        </section>
+        </header>
 
         <section className="shell grid-editorial gap-y-12 border-t border-border py-16 lg:py-24">
           <div className="col-span-4 lg:col-span-3">
