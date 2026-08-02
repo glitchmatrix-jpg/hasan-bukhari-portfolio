@@ -1,11 +1,12 @@
 import { Link } from "@tanstack/react-router";
 
+import { profile } from "@/content/site";
+
 import { Relic } from "./relic";
 
 export function Hero() {
   return (
     <section className="relative overflow-hidden pt-14" aria-labelledby="hero-name">
-      {/* one dominant idea: the relic sits in a cherry-lit vitrine, the name owns the page */}
       <div
         aria-hidden="true"
         className="pointer-events-none absolute inset-y-0 right-0 w-full lg:w-[55%]"
@@ -25,20 +26,20 @@ export function Hero() {
           </h1>
 
           <p className="display mt-8 max-w-[30rem] text-[1.6rem] leading-[1.15] sm:text-3xl lg:text-[2.1rem]">
-            I build software, study biological signals, and write poems and games.
+            {profile.statement}
           </p>
 
           <p className="measure mt-5 text-[0.95rem] leading-relaxed text-muted-foreground">
-            I'm Hasan, a computer science student at Southern Miss with a biology minor. Karachi
-            first, Mississippi now. Android and backend work on one side, cross-cohort cancer
-            classification on the other, a Pygame platformer and a poetry collection in between.
+            Computer science at Southern Miss, with a biology minor. Karachi first, Mississippi now.
+            Android and offline-first products, computational-biology research, a Pygame platformer,
+            and a poetry collection in progress.
           </p>
 
           <div className="mt-9 flex flex-wrap items-center gap-3">
-            <Link to="/" hash="work" className="action-solid">
+            <Link to="/build" className="action-solid">
               View work
             </Link>
-            <Link to="/" hash="resumes" className="action">
+            <Link to="/resume" className="action">
               Résumés
             </Link>
           </div>
@@ -46,9 +47,9 @@ export function Hero() {
           <dl className="rule-top mt-12 grid grid-cols-2 gap-y-4 pt-5 sm:grid-cols-4">
             {[
               ["Study", "CIS, B.S. · 2028"],
-              ["Minor", "Biological sciences"],
+              ["GPA", profile.gpa],
+              ["Minor", profile.minor],
               ["Lab", "USM Ichthyology"],
-              ["Leads", "Student Poets Association"],
             ].map(([label, value]) => (
               <div key={label}>
                 <dt className="meta text-muted-foreground">{label}</dt>

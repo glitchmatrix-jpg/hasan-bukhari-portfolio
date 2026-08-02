@@ -10,13 +10,58 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as AboutRouteImport } from './routes/about'
+import { Route as ArchiveRouteImport } from './routes/archive'
+import { Route as ContactRouteImport } from './routes/contact'
+import { Route as ResumeRouteImport } from './routes/resume'
+import { Route as BuildIndexRouteImport } from './routes/build/index'
+import { Route as BuildBiolitgraphRouteImport } from './routes/build/biolitgraph'
 import { Route as BuildHeartlineRouteImport } from './routes/build/heartline'
+import { Route as BuildNivalaRouteImport } from './routes/build/nivala'
+import { Route as BuildTaaqatRouteImport } from './routes/build/taaqat'
+import { Route as BuildToAshAgainRouteImport } from './routes/build/to-ash-again'
+import { Route as ResearchIndexRouteImport } from './routes/research/index'
+import { Route as ResearchA17RouteImport } from './routes/research/a17'
 import { Route as ResearchCancershiftRouteImport } from './routes/research/cancershift'
+import { Route as ResearchIchthyologyRouteImport } from './routes/research/ichthyology'
+import { Route as ResearchResearchSoftwareRouteImport } from './routes/research/research-software'
+import { Route as WriteIndexRouteImport } from './routes/write/index'
 import { Route as WriteFloodedRouteImport } from './routes/write/flooded'
+import { Route as WriteStudentPoetsAssociationRouteImport } from './routes/write/student-poets-association'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AboutRoute = AboutRouteImport.update({
+  id: '/about',
+  path: '/about',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ArchiveRoute = ArchiveRouteImport.update({
+  id: '/archive',
+  path: '/archive',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ContactRoute = ContactRouteImport.update({
+  id: '/contact',
+  path: '/contact',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ResumeRoute = ResumeRouteImport.update({
+  id: '/resume',
+  path: '/resume',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BuildIndexRoute = BuildIndexRouteImport.update({
+  id: '/build/',
+  path: '/build/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BuildBiolitgraphRoute = BuildBiolitgraphRouteImport.update({
+  id: '/build/biolitgraph',
+  path: '/build/biolitgraph',
   getParentRoute: () => rootRouteImport,
 } as any)
 const BuildHeartlineRoute = BuildHeartlineRouteImport.update({
@@ -24,9 +69,50 @@ const BuildHeartlineRoute = BuildHeartlineRouteImport.update({
   path: '/build/heartline',
   getParentRoute: () => rootRouteImport,
 } as any)
+const BuildNivalaRoute = BuildNivalaRouteImport.update({
+  id: '/build/nivala',
+  path: '/build/nivala',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BuildTaaqatRoute = BuildTaaqatRouteImport.update({
+  id: '/build/taaqat',
+  path: '/build/taaqat',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BuildToAshAgainRoute = BuildToAshAgainRouteImport.update({
+  id: '/build/to-ash-again',
+  path: '/build/to-ash-again',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ResearchIndexRoute = ResearchIndexRouteImport.update({
+  id: '/research/',
+  path: '/research/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ResearchA17Route = ResearchA17RouteImport.update({
+  id: '/research/a17',
+  path: '/research/a17',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ResearchCancershiftRoute = ResearchCancershiftRouteImport.update({
   id: '/research/cancershift',
   path: '/research/cancershift',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ResearchIchthyologyRoute = ResearchIchthyologyRouteImport.update({
+  id: '/research/ichthyology',
+  path: '/research/ichthyology',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ResearchResearchSoftwareRoute =
+  ResearchResearchSoftwareRouteImport.update({
+    id: '/research/research-software',
+    path: '/research/research-software',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const WriteIndexRoute = WriteIndexRouteImport.update({
+  id: '/write/',
+  path: '/write/',
   getParentRoute: () => rootRouteImport,
 } as any)
 const WriteFloodedRoute = WriteFloodedRouteImport.update({
@@ -34,45 +120,163 @@ const WriteFloodedRoute = WriteFloodedRouteImport.update({
   path: '/write/flooded',
   getParentRoute: () => rootRouteImport,
 } as any)
+const WriteStudentPoetsAssociationRoute =
+  WriteStudentPoetsAssociationRouteImport.update({
+    id: '/write/student-poets-association',
+    path: '/write/student-poets-association',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/archive': typeof ArchiveRoute
+  '/contact': typeof ContactRoute
+  '/resume': typeof ResumeRoute
+  '/build/biolitgraph': typeof BuildBiolitgraphRoute
   '/build/heartline': typeof BuildHeartlineRoute
+  '/build/nivala': typeof BuildNivalaRoute
+  '/build/taaqat': typeof BuildTaaqatRoute
+  '/build/to-ash-again': typeof BuildToAshAgainRoute
+  '/research/a17': typeof ResearchA17Route
   '/research/cancershift': typeof ResearchCancershiftRoute
+  '/research/ichthyology': typeof ResearchIchthyologyRoute
+  '/research/research-software': typeof ResearchResearchSoftwareRoute
   '/write/flooded': typeof WriteFloodedRoute
+  '/write/student-poets-association': typeof WriteStudentPoetsAssociationRoute
+  '/build/': typeof BuildIndexRoute
+  '/research/': typeof ResearchIndexRoute
+  '/write/': typeof WriteIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/archive': typeof ArchiveRoute
+  '/contact': typeof ContactRoute
+  '/resume': typeof ResumeRoute
+  '/build/biolitgraph': typeof BuildBiolitgraphRoute
   '/build/heartline': typeof BuildHeartlineRoute
+  '/build/nivala': typeof BuildNivalaRoute
+  '/build/taaqat': typeof BuildTaaqatRoute
+  '/build/to-ash-again': typeof BuildToAshAgainRoute
+  '/research/a17': typeof ResearchA17Route
   '/research/cancershift': typeof ResearchCancershiftRoute
+  '/research/ichthyology': typeof ResearchIchthyologyRoute
+  '/research/research-software': typeof ResearchResearchSoftwareRoute
   '/write/flooded': typeof WriteFloodedRoute
+  '/write/student-poets-association': typeof WriteStudentPoetsAssociationRoute
+  '/build': typeof BuildIndexRoute
+  '/research': typeof ResearchIndexRoute
+  '/write': typeof WriteIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/archive': typeof ArchiveRoute
+  '/contact': typeof ContactRoute
+  '/resume': typeof ResumeRoute
+  '/build/biolitgraph': typeof BuildBiolitgraphRoute
   '/build/heartline': typeof BuildHeartlineRoute
+  '/build/nivala': typeof BuildNivalaRoute
+  '/build/taaqat': typeof BuildTaaqatRoute
+  '/build/to-ash-again': typeof BuildToAshAgainRoute
+  '/research/a17': typeof ResearchA17Route
   '/research/cancershift': typeof ResearchCancershiftRoute
+  '/research/ichthyology': typeof ResearchIchthyologyRoute
+  '/research/research-software': typeof ResearchResearchSoftwareRoute
   '/write/flooded': typeof WriteFloodedRoute
+  '/write/student-poets-association': typeof WriteStudentPoetsAssociationRoute
+  '/build/': typeof BuildIndexRoute
+  '/research/': typeof ResearchIndexRoute
+  '/write/': typeof WriteIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
-    '/' | '/build/heartline' | '/research/cancershift' | '/write/flooded'
+    | '/'
+    | '/about'
+    | '/archive'
+    | '/contact'
+    | '/resume'
+    | '/build/biolitgraph'
+    | '/build/heartline'
+    | '/build/nivala'
+    | '/build/taaqat'
+    | '/build/to-ash-again'
+    | '/research/a17'
+    | '/research/cancershift'
+    | '/research/ichthyology'
+    | '/research/research-software'
+    | '/write/flooded'
+    | '/write/student-poets-association'
+    | '/build/'
+    | '/research/'
+    | '/write/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/build/heartline' | '/research/cancershift' | '/write/flooded'
+  to:
+    | '/'
+    | '/about'
+    | '/archive'
+    | '/contact'
+    | '/resume'
+    | '/build/biolitgraph'
+    | '/build/heartline'
+    | '/build/nivala'
+    | '/build/taaqat'
+    | '/build/to-ash-again'
+    | '/research/a17'
+    | '/research/cancershift'
+    | '/research/ichthyology'
+    | '/research/research-software'
+    | '/write/flooded'
+    | '/write/student-poets-association'
+    | '/build'
+    | '/research'
+    | '/write'
   id:
     | '__root__'
     | '/'
+    | '/about'
+    | '/archive'
+    | '/contact'
+    | '/resume'
+    | '/build/biolitgraph'
     | '/build/heartline'
+    | '/build/nivala'
+    | '/build/taaqat'
+    | '/build/to-ash-again'
+    | '/research/a17'
     | '/research/cancershift'
+    | '/research/ichthyology'
+    | '/research/research-software'
     | '/write/flooded'
+    | '/write/student-poets-association'
+    | '/build/'
+    | '/research/'
+    | '/write/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AboutRoute: typeof AboutRoute
+  ArchiveRoute: typeof ArchiveRoute
+  ContactRoute: typeof ContactRoute
+  ResumeRoute: typeof ResumeRoute
+  BuildBiolitgraphRoute: typeof BuildBiolitgraphRoute
   BuildHeartlineRoute: typeof BuildHeartlineRoute
+  BuildNivalaRoute: typeof BuildNivalaRoute
+  BuildTaaqatRoute: typeof BuildTaaqatRoute
+  BuildToAshAgainRoute: typeof BuildToAshAgainRoute
+  ResearchA17Route: typeof ResearchA17Route
   ResearchCancershiftRoute: typeof ResearchCancershiftRoute
+  ResearchIchthyologyRoute: typeof ResearchIchthyologyRoute
+  ResearchResearchSoftwareRoute: typeof ResearchResearchSoftwareRoute
   WriteFloodedRoute: typeof WriteFloodedRoute
+  WriteStudentPoetsAssociationRoute: typeof WriteStudentPoetsAssociationRoute
+  BuildIndexRoute: typeof BuildIndexRoute
+  ResearchIndexRoute: typeof ResearchIndexRoute
+  WriteIndexRoute: typeof WriteIndexRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -84,11 +288,88 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/about': {
+      id: '/about'
+      path: '/about'
+      fullPath: '/about'
+      preLoaderRoute: typeof AboutRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/archive': {
+      id: '/archive'
+      path: '/archive'
+      fullPath: '/archive'
+      preLoaderRoute: typeof ArchiveRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/contact': {
+      id: '/contact'
+      path: '/contact'
+      fullPath: '/contact'
+      preLoaderRoute: typeof ContactRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/resume': {
+      id: '/resume'
+      path: '/resume'
+      fullPath: '/resume'
+      preLoaderRoute: typeof ResumeRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/build/': {
+      id: '/build/'
+      path: '/build'
+      fullPath: '/build/'
+      preLoaderRoute: typeof BuildIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/build/biolitgraph': {
+      id: '/build/biolitgraph'
+      path: '/build/biolitgraph'
+      fullPath: '/build/biolitgraph'
+      preLoaderRoute: typeof BuildBiolitgraphRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/build/heartline': {
       id: '/build/heartline'
       path: '/build/heartline'
       fullPath: '/build/heartline'
       preLoaderRoute: typeof BuildHeartlineRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/build/nivala': {
+      id: '/build/nivala'
+      path: '/build/nivala'
+      fullPath: '/build/nivala'
+      preLoaderRoute: typeof BuildNivalaRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/build/taaqat': {
+      id: '/build/taaqat'
+      path: '/build/taaqat'
+      fullPath: '/build/taaqat'
+      preLoaderRoute: typeof BuildTaaqatRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/build/to-ash-again': {
+      id: '/build/to-ash-again'
+      path: '/build/to-ash-again'
+      fullPath: '/build/to-ash-again'
+      preLoaderRoute: typeof BuildToAshAgainRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/research/': {
+      id: '/research/'
+      path: '/research'
+      fullPath: '/research/'
+      preLoaderRoute: typeof ResearchIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/research/a17': {
+      id: '/research/a17'
+      path: '/research/a17'
+      fullPath: '/research/a17'
+      preLoaderRoute: typeof ResearchA17RouteImport
       parentRoute: typeof rootRouteImport
     }
     '/research/cancershift': {
@@ -98,6 +379,27 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ResearchCancershiftRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/research/ichthyology': {
+      id: '/research/ichthyology'
+      path: '/research/ichthyology'
+      fullPath: '/research/ichthyology'
+      preLoaderRoute: typeof ResearchIchthyologyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/research/research-software': {
+      id: '/research/research-software'
+      path: '/research/research-software'
+      fullPath: '/research/research-software'
+      preLoaderRoute: typeof ResearchResearchSoftwareRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/write/': {
+      id: '/write/'
+      path: '/write'
+      fullPath: '/write/'
+      preLoaderRoute: typeof WriteIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/write/flooded': {
       id: '/write/flooded'
       path: '/write/flooded'
@@ -105,14 +407,36 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof WriteFloodedRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/write/student-poets-association': {
+      id: '/write/student-poets-association'
+      path: '/write/student-poets-association'
+      fullPath: '/write/student-poets-association'
+      preLoaderRoute: typeof WriteStudentPoetsAssociationRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AboutRoute: AboutRoute,
+  ArchiveRoute: ArchiveRoute,
+  ContactRoute: ContactRoute,
+  ResumeRoute: ResumeRoute,
+  BuildBiolitgraphRoute: BuildBiolitgraphRoute,
   BuildHeartlineRoute: BuildHeartlineRoute,
+  BuildNivalaRoute: BuildNivalaRoute,
+  BuildTaaqatRoute: BuildTaaqatRoute,
+  BuildToAshAgainRoute: BuildToAshAgainRoute,
+  ResearchA17Route: ResearchA17Route,
   ResearchCancershiftRoute: ResearchCancershiftRoute,
+  ResearchIchthyologyRoute: ResearchIchthyologyRoute,
+  ResearchResearchSoftwareRoute: ResearchResearchSoftwareRoute,
   WriteFloodedRoute: WriteFloodedRoute,
+  WriteStudentPoetsAssociationRoute: WriteStudentPoetsAssociationRoute,
+  BuildIndexRoute: BuildIndexRoute,
+  ResearchIndexRoute: ResearchIndexRoute,
+  WriteIndexRoute: WriteIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

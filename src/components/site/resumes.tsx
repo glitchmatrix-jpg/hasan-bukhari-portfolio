@@ -18,7 +18,8 @@ const sheets = [
   },
 ];
 
-export function Resumes() {
+export function Resumes({ headingLevel = "h2" }: { headingLevel?: "h1" | "h2" }) {
+  const Heading = headingLevel;
   return (
     <section
       id="resumes"
@@ -27,14 +28,14 @@ export function Resumes() {
     >
       <div className="shell grid-editorial gap-y-12">
         <div className="col-span-4 lg:col-span-4">
-          <h3 id="resumes-title" className="display text-5xl lg:text-6xl">
+          <Heading id="resumes-title" className="display text-5xl lg:text-6xl">
             Two résumés.
             <br />
             One person.
-          </h3>
+          </Heading>
           <p className="measure mt-5 text-sm leading-relaxed text-muted-foreground">
-            Same work, ordered for two different readers. Both are one page and both were updated in
-            August 2026. Neither is the backup.
+            Same work, ordered for two readers. Both are one page and were updated in August 2026:
+            one for product and software roles, one for computational biology.
           </p>
         </div>
 

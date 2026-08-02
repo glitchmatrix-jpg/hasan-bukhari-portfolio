@@ -448,3 +448,741 @@
     transition-duration: 0.001ms !important;
   }
 }
+
+/* definitive-structure: public-safe project evidence and complete route system */
+
+.skip-link {
+  position: fixed;
+  left: 1rem;
+  top: 0.75rem;
+  z-index: 100;
+  transform: translateY(-180%);
+  border: 1px solid var(--bone);
+  background: var(--bone);
+  color: var(--blackcherry);
+  padding: 0.7rem 1rem;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.skip-link:focus {
+  transform: translateY(0);
+}
+
+.page-stage {
+  min-height: 100vh;
+  padding-top: 3.5rem;
+}
+
+.page-hero {
+  border-bottom: 1px solid var(--border);
+  padding-block: clamp(6rem, 12vw, 10rem) clamp(4rem, 8vw, 7rem);
+}
+
+.world-build {
+  --world-accent: var(--cherry);
+}
+
+.world-research {
+  --world-accent: var(--teal);
+  background: var(--midnight);
+}
+
+.world-write {
+  --world-accent: var(--gold);
+  background: var(--deepwater);
+}
+
+.world-mark {
+  color: var(--world-accent, var(--cherry));
+}
+
+.project-visual {
+  position: relative;
+  isolation: isolate;
+  min-height: 22rem;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  background: color-mix(in oklab, var(--background) 88%, var(--cola));
+  box-shadow: var(--shadow-lift);
+}
+
+.project-visual__label {
+  position: absolute;
+  left: 1rem;
+  top: 1rem;
+  z-index: 5;
+  max-width: calc(100% - 2rem);
+  border: 1px solid var(--border);
+  background: color-mix(in oklab, var(--background) 88%, transparent);
+  padding: 0.4rem 0.55rem;
+  font-family: var(--font-mono);
+  font-size: 0.61rem;
+  letter-spacing: 0.09em;
+  line-height: 1.4;
+  text-transform: uppercase;
+}
+
+.visual-heartline {
+  display: grid;
+  place-items: center;
+  background:
+    radial-gradient(
+      circle at 72% 28%,
+      color-mix(in oklab, var(--cherry) 26%, transparent),
+      transparent 38%
+    ),
+    var(--blackcherry);
+  padding: 4.5rem 1.5rem 2rem;
+}
+
+.demo-phone {
+  width: min(100%, 18rem);
+  overflow: hidden;
+  border: 1px solid color-mix(in oklab, var(--rose) 48%, transparent);
+  border-radius: 2.3rem;
+  background: linear-gradient(160deg, var(--cola), var(--blackcherry));
+  box-shadow:
+    0 40px 90px -40px oklch(0 0 0 / 1),
+    inset 0 0 0 0.35rem oklch(0 0 0 / 0.32);
+  transform: rotate(2deg);
+}
+
+.demo-phone--compact {
+  max-width: 14rem;
+}
+
+.demo-phone__status {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid var(--border);
+  padding: 1.3rem 1.25rem 0.85rem;
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  letter-spacing: 0.1em;
+}
+
+.demo-phone__body {
+  padding: 2rem 1.4rem 1.6rem;
+}
+
+.demo-phone__wave {
+  display: flex;
+  height: 4.2rem;
+  align-items: center;
+  gap: 0.18rem;
+  margin-top: 2rem;
+}
+
+.demo-phone__wave span {
+  width: 100%;
+  min-height: 0.25rem;
+  background: linear-gradient(var(--rose), var(--cherry));
+}
+
+.demo-phone__progress {
+  height: 2px;
+  margin-top: 1.2rem;
+  background: var(--border);
+}
+
+.demo-phone__progress span {
+  display: block;
+  width: 58%;
+  height: 100%;
+  background: var(--rose);
+}
+
+.visual-research {
+  display: grid;
+  place-items: center;
+  background:
+    linear-gradient(135deg, transparent 68%, color-mix(in oklab, var(--teal) 10%, transparent)),
+    var(--midnight);
+  padding: 4.5rem 1.25rem 2rem;
+}
+
+.metric-sheet {
+  width: min(100%, 38rem);
+  transform: rotate(-1deg);
+  border: 1px solid oklch(0 0 0 / 0.22);
+  background: var(--plotcream);
+  color: var(--ink-deep);
+  padding: clamp(1.2rem, 4vw, 2.2rem);
+  box-shadow: 0 35px 80px -45px oklch(0 0 0 / 0.9);
+}
+
+.metric-sheet__head {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid oklch(0 0 0 / 0.24);
+  padding-bottom: 0.8rem;
+  font-family: var(--font-mono);
+  font-size: 0.64rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.metric-sheet__grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.7rem;
+  margin-top: 1rem;
+}
+
+.metric-sheet__grid > div {
+  min-height: 9rem;
+  background: var(--teal);
+  padding: 1rem;
+}
+
+.metric-sheet__grid strong {
+  display: block;
+  font-family: var(--font-display);
+  font-size: clamp(2.2rem, 7vw, 4rem);
+  font-weight: 400;
+}
+
+.metric-sheet__grid span,
+.metric-sheet > p {
+  display: block;
+  font-size: 0.7rem;
+  line-height: 1.45;
+}
+
+.metric-sheet > p {
+  margin-top: 1rem;
+  border-top: 1px solid oklch(0 0 0 / 0.22);
+  padding-top: 0.8rem;
+}
+
+.visual-game {
+  display: grid;
+  align-content: end;
+  background: linear-gradient(
+    var(--blackcherry),
+    color-mix(in oklab, var(--oxblood) 72%, var(--blackcherry))
+  );
+  padding: 4rem 1rem 1rem;
+}
+
+.game-scene {
+  position: relative;
+  height: 17rem;
+  overflow: hidden;
+  background:
+    linear-gradient(transparent 72%, color-mix(in oklab, var(--cherry) 16%, transparent)),
+    repeating-linear-gradient(90deg, transparent 0 3rem, oklch(0 0 0 / 0.07) 3rem 3.08rem);
+}
+
+.game-scene__moon {
+  position: absolute;
+  right: 12%;
+  top: 12%;
+  width: 5rem;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: var(--rose);
+  box-shadow: 0 0 4rem color-mix(in oklab, var(--rose) 60%, transparent);
+}
+
+.game-scene__platform {
+  position: absolute;
+  height: 0.8rem;
+  border: 1px solid var(--rose);
+  background: var(--cola);
+}
+
+.game-scene__platform--one {
+  bottom: 25%;
+  left: 4%;
+  width: 48%;
+}
+
+.game-scene__platform--two {
+  bottom: 47%;
+  right: 0;
+  width: 31%;
+}
+
+.game-scene__player,
+.game-scene__enemy {
+  position: absolute;
+  bottom: calc(25% + 0.8rem);
+  width: 1.2rem;
+  height: 2.4rem;
+}
+
+.game-scene__player {
+  left: 22%;
+  background: var(--bone);
+}
+
+.game-scene__enemy {
+  left: 42%;
+  border: 1px solid var(--cherry);
+  background: var(--blackcherry);
+}
+
+.game-scene__signal {
+  position: absolute;
+  left: 24%;
+  bottom: 41%;
+  width: 19%;
+  height: 2px;
+  transform: rotate(-11deg);
+  background: var(--cherry);
+  box-shadow: 0 0 1rem var(--cherry);
+}
+
+.game-scene__hud {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 0.5rem;
+  border-top: 1px solid var(--border);
+  padding-top: 0.9rem;
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  letter-spacing: 0.08em;
+}
+
+.visual-a17 {
+  display: grid;
+  align-content: center;
+  background: var(--midnight);
+  padding: 5rem 1.4rem 2rem;
+}
+
+.a17-flow {
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) auto minmax(0, 0.8fr) auto minmax(0, 1fr);
+  align-items: center;
+  gap: 1rem;
+}
+
+.a17-tracks {
+  display: grid;
+  gap: 0.35rem;
+  margin-top: 1rem;
+}
+
+.a17-tracks span {
+  display: block;
+  height: 0.45rem;
+  background: var(--violet);
+}
+
+.a17-arrow {
+  color: var(--sigblue);
+  font-size: 2rem;
+}
+
+.a17-blocks {
+  display: grid;
+  gap: 0.45rem;
+  margin-top: 1rem;
+}
+
+.a17-blocks span {
+  display: block;
+  height: 2.2rem;
+  border: 1px solid var(--sigblue);
+  background: color-mix(in oklab, var(--sigblue) 16%, transparent);
+}
+
+.contact-matrix {
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+  aspect-ratio: 1;
+  gap: 1px;
+  margin-top: 1rem;
+}
+
+.contact-matrix span {
+  background: var(--teal);
+}
+
+.visual-flooded {
+  display: grid;
+  place-items: center;
+  background: var(--deepwater);
+  padding: 4.5rem 1.25rem 2rem;
+}
+
+.book-object {
+  position: relative;
+  width: min(76%, 21rem);
+  aspect-ratio: 0.72;
+  transform: perspective(900px) rotateY(-12deg) rotateZ(-2deg);
+  filter: drop-shadow(2rem 2.4rem 2rem oklch(0 0 0 / 0.45));
+}
+
+.book-object__cover {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  align-content: space-between;
+  border: 1px solid color-mix(in oklab, var(--paper) 55%, transparent);
+  background:
+    radial-gradient(
+      circle at 30% 20%,
+      color-mix(in oklab, var(--sigblue) 22%, transparent),
+      transparent 36%
+    ),
+    var(--flooded);
+  padding: 2rem 1.5rem;
+}
+
+.book-object__cover span {
+  font-family: var(--font-display);
+  font-size: clamp(2.5rem, 8vw, 5rem);
+}
+
+.book-object__cover small,
+.book-object__spine {
+  font-family: var(--font-mono);
+  letter-spacing: 0.12em;
+}
+
+.book-object__spine {
+  position: absolute;
+  left: -1.4rem;
+  top: 0.8rem;
+  bottom: 0.8rem;
+  z-index: -1;
+  width: 1.4rem;
+  background: var(--ink-deep);
+  padding-top: 1rem;
+  color: var(--paper);
+  font-size: 0.55rem;
+  writing-mode: vertical-rl;
+}
+
+.book-object__pages {
+  position: absolute;
+  right: -0.65rem;
+  top: 0.5rem;
+  bottom: 0.5rem;
+  z-index: -2;
+  width: 0.8rem;
+  background: repeating-linear-gradient(
+    90deg,
+    var(--paper) 0 1px,
+    color-mix(in oklab, var(--gold) 34%, var(--paper)) 1px 2px
+  );
+}
+
+.visual-taaqat,
+.visual-nivala,
+.visual-ichthyology,
+.visual-spa,
+.visual-biolitgraph {
+  display: grid;
+  place-items: center;
+  padding: 4.5rem 1.25rem 2rem;
+}
+
+.recovery-map {
+  display: grid;
+  width: min(100%, 34rem);
+  grid-template-columns: 1fr 1.2fr;
+  align-items: center;
+  gap: 2rem;
+}
+
+.recovery-map__figure {
+  position: relative;
+  height: 16rem;
+}
+
+.recovery-map__figure span {
+  position: absolute;
+  display: block;
+  border: 1px solid var(--rose);
+  background: color-mix(in oklab, var(--cherry) 22%, transparent);
+}
+
+.recovery-map__head {
+  left: 50%;
+  top: 0;
+  width: 2.8rem;
+  aspect-ratio: 1;
+  transform: translateX(-50%);
+  border-radius: 50%;
+}
+
+.recovery-map__torso {
+  left: 50%;
+  top: 3.3rem;
+  width: 4.4rem;
+  height: 6rem;
+  transform: translateX(-50%);
+  border-radius: 45% 45% 30% 30%;
+}
+
+.recovery-map__arm {
+  top: 4rem;
+  width: 1.1rem;
+  height: 7rem;
+  border-radius: 999px;
+}
+
+.recovery-map__arm--left {
+  left: calc(50% - 3.5rem);
+  transform: rotate(14deg);
+}
+
+.recovery-map__arm--right {
+  right: calc(50% - 3.5rem);
+  transform: rotate(-14deg);
+}
+
+.recovery-map__leg {
+  top: 8.7rem;
+  width: 1.35rem;
+  height: 7rem;
+  border-radius: 999px;
+}
+
+.recovery-map__leg--left {
+  left: calc(50% - 1.7rem);
+  transform: rotate(5deg);
+}
+
+.recovery-map__leg--right {
+  right: calc(50% - 1.7rem);
+  transform: rotate(-5deg);
+}
+
+.recovery-map dl {
+  border-top: 1px solid var(--border);
+}
+
+.recovery-map dl div {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  border-bottom: 1px solid var(--border);
+  padding-block: 0.8rem;
+  font-size: 0.75rem;
+}
+
+.recovery-map dt {
+  color: var(--muted-foreground);
+}
+
+.nivala-panel {
+  width: min(100%, 34rem);
+  border: 1px solid var(--border);
+  background: var(--cola);
+  padding: clamp(1.4rem, 5vw, 3rem);
+}
+
+.nivala-panel strong {
+  display: block;
+  margin-top: 1rem;
+  font-family: var(--font-display);
+  font-size: clamp(4rem, 12vw, 7rem);
+  font-weight: 400;
+  line-height: 0.85;
+}
+
+.nivala-panel > div > span,
+.nivala-panel > p {
+  color: var(--muted-foreground);
+  font-size: 0.8rem;
+}
+
+.nivala-panel ul {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  margin-block: 2rem;
+  border-block: 1px solid var(--border);
+}
+
+.nivala-panel li {
+  padding-block: 0.9rem;
+  text-align: center;
+  font-family: var(--font-mono);
+  font-size: 0.67rem;
+}
+
+.visual-biolitgraph img {
+  width: min(100%, 44rem);
+  border: 1px solid var(--border);
+  object-fit: contain;
+}
+
+.chromosome-sheet {
+  width: min(100%, 37rem);
+  border: 1px solid oklch(0 0 0 / 0.24);
+  background: var(--plotcream);
+  color: var(--ink-deep);
+  padding: 1.5rem;
+}
+
+.chromosome-sheet__labels {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid oklch(0 0 0 / 0.2);
+  padding-bottom: 0.7rem;
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.chromosome-lines {
+  display: grid;
+  gap: 0.24rem;
+  margin-block: 1.2rem;
+}
+
+.chromosome-lines span {
+  height: 0.28rem;
+  background: linear-gradient(90deg, var(--violet), var(--teal));
+}
+
+.chromosome-sheet p {
+  font-size: 0.72rem;
+}
+
+.poster-field {
+  position: relative;
+  width: min(100%, 34rem);
+  min-height: 19rem;
+}
+
+.poster {
+  position: absolute;
+  display: flex;
+  width: 48%;
+  min-height: 17rem;
+  flex-direction: column;
+  justify-content: space-between;
+  border: 1px solid currentColor;
+  padding: 1.2rem;
+  box-shadow: 1.2rem 1.6rem 2rem oklch(0 0 0 / 0.25);
+}
+
+.poster small,
+.poster span {
+  font-family: var(--font-mono);
+  font-size: 0.55rem;
+  letter-spacing: 0.1em;
+}
+
+.poster strong {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 7vw, 4rem);
+  font-weight: 400;
+  line-height: 0.82;
+}
+
+.poster--cream {
+  left: 4%;
+  top: 0;
+  transform: rotate(-5deg);
+  background: var(--bone);
+  color: var(--blackcherry);
+}
+
+.poster--red {
+  right: 2%;
+  bottom: 0;
+  transform: rotate(6deg);
+  background: var(--cherry);
+  color: var(--bone);
+}
+
+.project-index-row {
+  display: grid;
+  grid-template-columns: minmax(0, 0.25fr) minmax(0, 1.1fr) minmax(0, 1.8fr);
+  gap: clamp(1rem, 3vw, 3rem);
+  align-items: start;
+  border-top: 1px solid var(--border);
+  padding-block: clamp(1.6rem, 4vw, 2.8rem);
+}
+
+.project-index-row:last-child {
+  border-bottom: 1px solid var(--border);
+}
+
+.related-strip {
+  border-block: 1px solid var(--border);
+}
+
+.related-strip a {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  gap: 1rem;
+  align-items: baseline;
+  border-bottom: 1px solid var(--border);
+  padding-block: 1.2rem;
+}
+
+.related-strip a:last-child {
+  border-bottom: 0;
+}
+
+.publication-note {
+  border-left: 0.35rem solid var(--world-accent, var(--cherry));
+  background: color-mix(in oklab, var(--background) 75%, var(--cola));
+  padding: 1rem 1.2rem;
+}
+
+@media (max-width: 47.99rem) {
+  .page-hero {
+    padding-block: 5.5rem 3.5rem;
+  }
+
+  .project-visual {
+    min-height: 20rem;
+  }
+
+  .metric-sheet__grid,
+  .recovery-map,
+  .a17-flow {
+    grid-template-columns: 1fr;
+  }
+
+  .a17-arrow {
+    transform: rotate(90deg);
+    text-align: center;
+  }
+
+  .metric-sheet__grid > div {
+    min-height: 7rem;
+  }
+
+  .project-index-row {
+    grid-template-columns: auto 1fr;
+  }
+
+  .project-index-row > :last-child {
+    grid-column: 2;
+  }
+
+  .poster-field {
+    min-height: 22rem;
+  }
+
+  .poster {
+    width: 68%;
+  }
+
+  .book-object {
+    width: 72%;
+  }
+}
+
+@media (max-width: 360px) {
+  .page-hero h1 {
+    max-width: 100%;
+    font-size: 3.05rem;
+    overflow-wrap: anywhere;
+  }
+}

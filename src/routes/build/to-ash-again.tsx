@@ -3,9 +3,9 @@ import { createFileRoute } from "@tanstack/react-router";
 import { CaseStudyPage } from "@/components/projects/case-study-page";
 import { getProject } from "@/content/portfolio";
 
-const project = getProject("heartline");
+const project = getProject("to-ash-again");
 
-export const Route = createFileRoute("/build/heartline")({
+export const Route = createFileRoute("/build/to-ash-again")({
   head: () => ({
     meta: [
       { title: `${project.title} — Hasan Bukhari` },
@@ -16,5 +16,5 @@ export const Route = createFileRoute("/build/heartline")({
 });
 
 function RouteComponent() {
-  return <CaseStudyPage projectId="heartline" />;
+  return <CaseStudyPage projectId="to-ash-again" />;
 }
