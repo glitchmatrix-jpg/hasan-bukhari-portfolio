@@ -1,0 +1,450 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+/*
+ * HASAN BUKHARI — design system
+ * "Premium editorial portfolio with disciplined punk materiality."
+ *
+ * Foundation: black cherry / bone / cherry.
+ * Research accents (midnight, teal, signal blue) belong to research scenes only.
+ * Writing accents (flooded blue, paper, gold) belong to Flooded only.
+ * All colors are oklch. Never hardcode hex or bg-white/text-black in components.
+ */
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+
+  --font-display: "Bodoni Moda", "Times New Roman", serif;
+  --font-sans: "Archivo", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, monospace;
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+
+  /* foundation */
+  --color-blackcherry: var(--blackcherry);
+  --color-cola: var(--cola);
+  --color-oxblood: var(--oxblood);
+  --color-cherry: var(--cherry);
+  --color-rose: var(--rose);
+  --color-bone: var(--bone);
+  --color-smoke: var(--smoke);
+  --color-graphite: var(--graphite);
+
+  /* research */
+  --color-midnight: var(--midnight);
+  --color-teal: var(--teal);
+  --color-violet: var(--violet);
+  --color-sigblue: var(--sigblue);
+  --color-plotcream: var(--plotcream);
+
+  /* writing */
+  --color-flooded: var(--flooded);
+  --color-deepwater: var(--deepwater);
+  --color-paper: var(--paper);
+  --color-gold: var(--gold);
+  --color-ink: var(--ink-deep);
+}
+
+:root {
+  --radius: 0.25rem;
+
+  --blackcherry: oklch(0.1616 0.0247 355.53);
+  --cola: oklch(0.2057 0.0356 8.49);
+  --oxblood: oklch(0.3075 0.0941 12.81);
+  --cherry: oklch(0.5576 0.1817 14.67);
+  --rose: oklch(0.8005 0.0927 6.58);
+  --bone: oklch(0.9425 0.0205 81.78);
+  --smoke: oklch(0.7586 0.0144 0.4);
+  --graphite: oklch(0.2836 0.0074 297.36);
+
+  --midnight: oklch(0.2 0.0368 249.96);
+  --teal: oklch(0.6588 0.1078 194.85);
+  --violet: oklch(0.5539 0.1877 290.45);
+  --sigblue: oklch(0.6129 0.1149 252.62);
+  --plotcream: oklch(0.9432 0.0067 233.64);
+
+  --flooded: oklch(0.3458 0.0688 242.37);
+  --deepwater: oklch(0.2762 0.0549 239.93);
+  --paper: oklch(0.9357 0.0242 85.79);
+  --gold: oklch(0.6931 0.0965 85.93);
+  --ink-deep: oklch(0.2202 0.0115 254.08);
+
+  /* semantic mapping — site default is the dark cherry stage */
+  --background: var(--blackcherry);
+  --foreground: var(--bone);
+  --card: var(--cola);
+  --card-foreground: var(--bone);
+  --popover: var(--cola);
+  --popover-foreground: var(--bone);
+  --primary: var(--cherry);
+  --primary-foreground: var(--bone);
+  --secondary: var(--graphite);
+  --secondary-foreground: var(--bone);
+  --muted: var(--cola);
+  --muted-foreground: var(--smoke);
+  --accent: var(--oxblood);
+  --accent-foreground: var(--bone);
+  --destructive: var(--cherry);
+  --destructive-foreground: var(--bone);
+  --border: color-mix(in oklab, var(--bone) 18%, transparent);
+  --input: color-mix(in oklab, var(--bone) 24%, transparent);
+  --ring: var(--cherry);
+
+  --rule: color-mix(in oklab, var(--bone) 20%, transparent);
+  --shadow-lift: 0 30px 80px -40px oklch(0 0 0 / 0.9);
+}
+
+/* Inverted stage: bone paper sections (research + archive) */
+.stage-bone {
+  --background: var(--bone);
+  --foreground: var(--blackcherry);
+  --muted-foreground: color-mix(in oklab, var(--blackcherry) 62%, var(--bone));
+  --border: color-mix(in oklab, var(--blackcherry) 22%, transparent);
+  --rule: color-mix(in oklab, var(--blackcherry) 22%, transparent);
+  --card: var(--bone);
+  --card-foreground: var(--blackcherry);
+}
+
+/* Research stage: midnight + plot cream + teal */
+.stage-research {
+  --background: var(--midnight);
+  --foreground: var(--plotcream);
+  --muted-foreground: color-mix(in oklab, var(--plotcream) 62%, var(--midnight));
+  --primary: var(--teal);
+  --border: color-mix(in oklab, var(--plotcream) 20%, transparent);
+  --rule: color-mix(in oklab, var(--plotcream) 20%, transparent);
+}
+
+/* Writing stage: flooded blue + paper + gold */
+.stage-write {
+  --background: var(--deepwater);
+  --foreground: var(--paper);
+  --muted-foreground: color-mix(in oklab, var(--paper) 66%, var(--deepwater));
+  --primary: var(--gold);
+  --border: color-mix(in oklab, var(--paper) 20%, transparent);
+  --rule: color-mix(in oklab, var(--paper) 20%, transparent);
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+
+  html {
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-sans);
+    font-synthesis-weight: none;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  ::selection {
+    background: var(--cherry);
+    color: var(--bone);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--cherry);
+    outline-offset: 3px;
+  }
+
+  .stage-research :focus-visible {
+    outline-color: var(--teal);
+  }
+
+  .stage-write :focus-visible {
+    outline-color: var(--gold);
+  }
+}
+
+/* ---------- editorial primitives ---------- */
+
+/* 12-column desktop grid, 4-column mobile, generous outer margins */
+@utility shell {
+  width: 100%;
+  margin-inline: auto;
+  max-width: 1440px;
+  padding-inline: 1rem;
+
+  @media (min-width: 640px) {
+    padding-inline: 2.5rem;
+  }
+
+  @media (min-width: 1024px) {
+    padding-inline: 5rem;
+  }
+}
+
+@utility grid-editorial {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  column-gap: 1rem;
+
+  @media (min-width: 1024px) {
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+    column-gap: 1.5rem;
+  }
+}
+
+/* Display type: high-contrast didone, optically tight */
+@utility display {
+  font-family: var(--font-display);
+  font-weight: 500;
+  letter-spacing: -0.025em;
+  line-height: 0.92;
+  text-wrap: balance;
+}
+
+@utility meta {
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  line-height: 1.4;
+}
+
+@utility measure {
+  max-width: 34rem; /* ~65 characters */
+}
+
+@utility rule-top {
+  border-top: 1px solid var(--rule);
+}
+
+/* ---------- material system (one strong treatment per screen) ---------- */
+
+/* fine printing grain — never behind body copy, only over image plates */
+@utility grain {
+  position: relative;
+
+  &::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    opacity: 0.32;
+    mix-blend-mode: overlay;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='140' height='140'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3'/></filter><rect width='140' height='140' filter='url(%23n)' opacity='0.5'/></svg>");
+  }
+}
+
+@utility halftone {
+  background-image: radial-gradient(currentColor 0.9px, transparent 1.1px);
+  background-size: 5px 5px;
+}
+
+/* scanned paper card: uneven ink, soft cast shadow, slight crop imperfection */
+@utility paper-card {
+  background-color: var(--bone);
+  color: var(--blackcherry);
+  box-shadow:
+    0 1px 0 color-mix(in oklab, var(--blackcherry) 30%, transparent),
+    0 26px 50px -30px oklch(0 0 0 / 0.85);
+  background-image: radial-gradient(
+    120% 80% at 12% 0%,
+    color-mix(in oklab, var(--blackcherry) 5%, transparent),
+    transparent 60%
+  );
+}
+
+/* masking tape — must appear to hold something */
+@utility tape {
+  position: absolute;
+  width: 7.5rem;
+  height: 1.75rem;
+  background: color-mix(in oklab, var(--bone) 72%, var(--gold));
+  opacity: 0.82;
+  box-shadow: 0 2px 10px -4px oklch(0 0 0 / 0.7);
+  clip-path: polygon(2% 6%, 99% 0%, 97% 92%, 1% 100%);
+}
+
+/* rubber stamp — always a date, role or status */
+@utility stamp {
+  font-family: var(--font-mono);
+  font-size: 0.625rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  padding: 0.4rem 0.6rem;
+  border: 1.5px solid currentColor;
+  opacity: 0.72;
+  display: inline-block;
+}
+
+/* embroidered patch — classifies supporting work */
+@utility patch {
+  font-family: var(--font-mono);
+  font-size: 0.5625rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  padding: 0.3rem 0.55rem;
+  border-radius: 999px;
+  border: 1.5px dashed color-mix(in oklab, currentColor 45%, transparent);
+  box-shadow: inset 0 0 0 2px color-mix(in oklab, currentColor 10%, transparent);
+  display: inline-block;
+  white-space: nowrap;
+}
+
+/* registration marks for the "printed" plates */
+@utility regmark {
+  position: absolute;
+  width: 0.75rem;
+  height: 0.75rem;
+  opacity: 0.5;
+  background:
+    linear-gradient(currentColor, currentColor) center / 100% 1px no-repeat,
+    linear-gradient(currentColor, currentColor) center / 1px 100% no-repeat;
+}
+
+@utility pixelated {
+  image-rendering: pixelated;
+}
+
+/* handwriting stands in for a real personal annotation */
+@utility annotation {
+  font-family: var(--font-display);
+  font-style: italic;
+  letter-spacing: 0.01em;
+  opacity: 0.85;
+}
+
+/* link with an editorial underline that grows */
+@utility link-rule {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  border-bottom: 1px solid color-mix(in oklab, currentColor 55%, transparent);
+  padding-block-end: 0.2rem;
+  transition:
+    border-color 200ms ease,
+    color 200ms ease;
+
+  &:hover {
+    border-bottom-color: currentColor;
+    color: var(--primary);
+  }
+}
+
+/* primary editorial action — 44px minimum target */
+@utility action {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.625rem;
+  min-height: 2.75rem;
+  padding-inline: 1.25rem;
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  border: 1px solid currentColor;
+  transition:
+    background-color 200ms ease,
+    color 200ms ease;
+
+  &:hover {
+    background: var(--primary);
+    border-color: var(--primary);
+    color: var(--primary-foreground);
+  }
+}
+
+@utility action-solid {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.625rem;
+  min-height: 2.75rem;
+  padding-inline: 1.25rem;
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  background: var(--primary);
+  color: var(--primary-foreground);
+  transition: filter 200ms ease;
+
+  &:hover {
+    filter: brightness(1.12);
+  }
+}
+
+/* labelled boundary for assets that are not publication-cleared */
+@utility gate {
+  border: 1px dashed color-mix(in oklab, currentColor 50%, transparent);
+  background-image: repeating-linear-gradient(
+    -45deg,
+    color-mix(in oklab, currentColor 7%, transparent) 0 10px,
+    transparent 10px 20px
+  );
+}
+
+/* ---------- motion (explains hierarchy, never blocks reading) ---------- */
+
+@keyframes settle {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 18px, 0) scale(0.995);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@utility settle-in {
+  animation: settle 900ms cubic-bezier(0.16, 0.84, 0.28, 1) both;
+}
+
+@keyframes sheen {
+  0%,
+  100% {
+    opacity: 0.25;
+    transform: translate3d(-6%, 0, 0);
+  }
+  50% {
+    opacity: 0.5;
+    transform: translate3d(6%, 0, 0);
+  }
+}
+
+@utility sheen {
+  animation: sheen 9s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}
