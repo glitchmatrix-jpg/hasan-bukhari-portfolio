@@ -3,6 +3,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { SiteFooter } from "@/components/site/site-footer";
 import { SiteNav } from "@/components/site/site-nav";
 import { publicLinks } from "@/content/site";
+import { sitePath } from "@/lib/site-path";
 
 export const Route = createFileRoute("/contact")({
   head: () => ({
@@ -57,7 +58,7 @@ function ContactPage() {
                 <span className="meta text-muted-foreground">{link.label}</span>
               </a>
             ))}
-            <a href="/resume" className="project-index-row">
+            <a href={sitePath("/resume")} className="project-index-row">
               <span className="meta text-cherry">PDF</span>
               <span className="display text-3xl">Two résumés</span>
               <span className="meta text-muted-foreground">Software · computational biology</span>

@@ -5,6 +5,7 @@ import { SiteFooter } from "@/components/site/site-footer";
 import { SiteNav } from "@/components/site/site-nav";
 import { getProject } from "@/content/portfolio";
 import { profile } from "@/content/site";
+import { sitePath } from "@/lib/site-path";
 
 export const Route = createFileRoute("/about")({
   head: () => ({
@@ -81,7 +82,7 @@ function AboutPage() {
                 supplied where the record does not support one.
               </p>
               <div className="mt-8">
-                <a href={spa.route} className="action-solid">
+                <a href={sitePath(spa.route)} className="action-solid">
                   Student Poets Association
                 </a>
               </div>
@@ -91,10 +92,10 @@ function AboutPage() {
 
         <nav className="shell border-t border-border py-16" aria-label="Next pages">
           <div className="flex flex-wrap gap-3">
-            <a href="/resume" className="action-solid">
+            <a href={sitePath("/resume")} className="action-solid">
               Read the résumés
             </a>
-            <a href="/contact" className="action">
+            <a href={sitePath("/contact")} className="action">
               Contact and public links
             </a>
           </div>

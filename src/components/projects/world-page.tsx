@@ -3,6 +3,7 @@ import { getWorld, worlds } from "@/content/site";
 import { ProjectVisual } from "@/components/projects/project-visual";
 import { SiteFooter } from "@/components/site/site-footer";
 import { SiteNav } from "@/components/site/site-nav";
+import { sitePath } from "@/lib/site-path";
 
 export function WorldPage({ worldId }: { worldId: World }) {
   const world = getWorld(worldId);
@@ -43,7 +44,7 @@ export function WorldPage({ worldId }: { worldId: World }) {
                 {feature.summary}
               </p>
               <div className="mt-8">
-                <a href={feature.route} className="action-solid">
+                <a href={sitePath(feature.route)} className="action-solid">
                   Read the case study
                 </a>
               </div>
@@ -67,7 +68,7 @@ export function WorldPage({ worldId }: { worldId: World }) {
             <ol className="col-span-4 lg:col-span-8 lg:col-start-5">
               {entries.map((project, index) => (
                 <li key={project.id}>
-                  <a href={project.route} className="project-index-row">
+                  <a href={sitePath(project.route)} className="project-index-row">
                     <span className="meta world-mark">{String(index + 1).padStart(2, "0")}</span>
                     <span>
                       <strong className="display block text-3xl font-normal">
@@ -95,10 +96,10 @@ export function WorldPage({ worldId }: { worldId: World }) {
               </p>
             </div>
             <div className="col-span-4 flex flex-col gap-3 lg:col-span-4 lg:col-start-9 lg:self-end">
-              <a href={nextWorld.route} className="action-solid">
+              <a href={sitePath(nextWorld.route)} className="action-solid">
                 Enter {nextWorld.title}
               </a>
-              <a href="/archive" className="action">
+              <a href={sitePath("/archive")} className="action">
                 Open the complete archive
               </a>
             </div>
@@ -134,7 +135,7 @@ export function ArchivePage() {
           <ol>
             {projects.map((project, index) => (
               <li key={project.id}>
-                <a href={project.route} className="project-index-row">
+                <a href={sitePath(project.route)} className="project-index-row">
                   <span className="meta text-cherry">{String(index + 1).padStart(2, "0")}</span>
                   <span>
                     <strong className="display block text-3xl font-normal">{project.title}</strong>
@@ -154,7 +155,7 @@ export function ArchivePage() {
         <nav className="shell border-t border-border py-16" aria-label="Worlds">
           <div className="grid gap-3 sm:grid-cols-3">
             {worlds.map((world) => (
-              <a key={world.id} href={world.route} className="action">
+              <a key={world.id} href={sitePath(world.route)} className="action">
                 {world.index} · {world.title}
               </a>
             ))}

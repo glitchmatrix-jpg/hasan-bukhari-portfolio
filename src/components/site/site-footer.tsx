@@ -1,4 +1,5 @@
 import { publicLinks } from "@/content/site";
+import { sitePath } from "@/lib/site-path";
 
 export function SiteFooter() {
   return (
@@ -38,11 +39,11 @@ export function SiteFooter() {
               <span className="link-rule display mt-2 block text-2xl">{link.value}</span>
             </a>
           ))}
-          <a href="/resume" className="block border-t border-border py-5">
+          <a href={sitePath("/resume")} className="block border-t border-border py-5">
             <span className="meta text-muted-foreground">Résumé</span>
             <span className="link-rule display mt-2 block text-2xl">Two one-page PDFs</span>
           </a>
-          <a href="/contact" className="block border-y border-border py-5">
+          <a href={sitePath("/contact")} className="block border-y border-border py-5">
             <span className="meta text-muted-foreground">Contact page</span>
             <span className="link-rule display mt-2 block text-2xl">Public links and status</span>
           </a>

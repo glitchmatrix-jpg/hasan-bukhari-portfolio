@@ -1,5 +1,6 @@
 import { getProject } from "@/content/portfolio";
 import { getWorld } from "@/content/site";
+import { sitePath } from "@/lib/site-path";
 
 const supportingIds = [
   "taaqat",
@@ -28,7 +29,7 @@ export function Archive() {
             Six more projects. Each line says what is public and nothing more.
           </p>
           <div className="mt-8">
-            <a href="/archive" className="action">
+            <a href={sitePath("/archive")} className="action">
               Complete archive
             </a>
           </div>
@@ -38,7 +39,7 @@ export function Archive() {
           {entries.map((entry, index) => (
             <li key={entry.id} className="border-t border-border last:border-b">
               <a
-                href={entry.route}
+                href={sitePath(entry.route)}
                 className="flex flex-col py-6 transition-colors hover:text-cherry sm:flex-row sm:items-start sm:gap-6"
               >
                 <div className="flex items-baseline gap-4 sm:w-[16rem] sm:shrink-0">
@@ -59,7 +60,7 @@ export function Archive() {
 
         <figure className="col-span-4 border-t border-border pt-7 lg:col-span-8 lg:col-start-5">
           <img
-            src="/assets/biolitgraph-egfr.png"
+            src={sitePath("/assets/biolitgraph-egfr.png")}
             alt="BioLitGraph demonstration network connecting normalized EGFR-related entities to source evidence."
             loading="lazy"
             className="w-full border border-border object-contain"

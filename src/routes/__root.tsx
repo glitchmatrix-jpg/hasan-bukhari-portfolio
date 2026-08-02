@@ -20,6 +20,7 @@ import "@fontsource/ibm-plex-mono/latin-500.css";
 
 import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
+import { sitePath } from "@/lib/site-path";
 
 function NotFoundComponent() {
   return (
@@ -60,7 +61,7 @@ function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
           >
             Try again
           </button>
-          <a href="/" className="action">
+          <a href={sitePath("/")} className="action">
             Homepage
           </a>
         </div>
@@ -92,7 +93,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     ],
     links: [
       { rel: "stylesheet", href: appCss },
-      { rel: "icon", href: "/favicon.ico", type: "image/x-icon" },
+      { rel: "icon", href: sitePath("/favicon.ico"), type: "image/x-icon" },
     ],
   }),
   shellComponent: RootShell,

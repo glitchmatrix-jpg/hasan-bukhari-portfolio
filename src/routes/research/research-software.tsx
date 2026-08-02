@@ -2,6 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 
 import { SiteFooter } from "@/components/site/site-footer";
 import { SiteNav } from "@/components/site/site-nav";
+import { sitePath } from "@/lib/site-path";
 
 export const Route = createFileRoute("/research/research-software")({
   head: () => ({
@@ -36,12 +37,12 @@ function ResearchSoftwarePage() {
         </header>
         <section className="shell py-16 lg:py-24">
           <div className="related-strip">
-            <a href="/build/biolitgraph">
+            <a href={sitePath("/build/biolitgraph")}>
               <span className="meta text-teal">01</span>
               <span className="display text-3xl">BioLitGraph</span>
               <span className="meta text-muted-foreground">Case study ↗</span>
             </a>
-            <a href="/research">
+            <a href={sitePath("/research")}>
               <span className="meta text-teal">02</span>
               <span className="display text-3xl">Research world</span>
               <span className="meta text-muted-foreground">Index ↗</span>

@@ -3,6 +3,7 @@ import { getWorld } from "@/content/site";
 import { ProjectVisual } from "@/components/projects/project-visual";
 import { SiteFooter } from "@/components/site/site-footer";
 import { SiteNav } from "@/components/site/site-nav";
+import { sitePath } from "@/lib/site-path";
 
 export function CaseStudyPage({ projectId }: { projectId: string }) {
   const project = getProject(projectId);
@@ -161,7 +162,7 @@ export function CaseStudyPage({ projectId }: { projectId: string }) {
           <p className="meta text-muted-foreground">Related work</p>
           <div className="related-strip mt-6">
             {related.map((item, index) => (
-              <a key={item.id} href={item.route}>
+              <a key={item.id} href={sitePath(item.route)}>
                 <span className="meta world-mark">{String(index + 1).padStart(2, "0")}</span>
                 <span className="display text-2xl lg:text-3xl">{item.title}</span>
                 <span className="meta text-muted-foreground">{getWorld(item.world).title} ↗</span>
@@ -180,7 +181,7 @@ export function CaseStudyPage({ projectId }: { projectId: string }) {
               </p>
             </div>
             <div className="col-span-4 lg:col-span-3 lg:col-start-10">
-              <a href={nextWorld.route} className="action">
+              <a href={sitePath(nextWorld.route)} className="action">
                 Enter {nextWorld.title}
               </a>
             </div>

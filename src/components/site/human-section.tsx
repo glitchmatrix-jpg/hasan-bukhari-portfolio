@@ -1,5 +1,6 @@
 import { getProject } from "@/content/portfolio";
 import { ProjectVisual } from "@/components/projects/project-visual";
+import { sitePath } from "@/lib/site-path";
 
 export function HumanSection() {
   const project = getProject("student-poets-association");
@@ -37,10 +38,10 @@ export function HumanSection() {
           </p>
 
           <div className="mt-8 flex flex-wrap gap-3">
-            <a href="/write/student-poets-association" className="action-solid">
+            <a href={sitePath("/write/student-poets-association")} className="action-solid">
               Read the community study
             </a>
-            <a href="/about" className="action">
+            <a href={sitePath("/about")} className="action">
               About Hasan
             </a>
           </div>

@@ -1,5 +1,6 @@
 import { getProject } from "@/content/portfolio";
 import { ProjectVisual } from "@/components/projects/project-visual";
+import { sitePath } from "@/lib/site-path";
 
 export function HomeFeature({
   projectId,
@@ -50,7 +51,7 @@ export function HomeFeature({
             ))}
           </ul>
           <div className="mt-8">
-            <a href={project.route} className="action-solid">
+            <a href={sitePath(project.route)} className="action-solid">
               Read the case study
             </a>
           </div>

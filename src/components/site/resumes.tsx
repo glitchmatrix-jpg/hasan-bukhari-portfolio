@@ -1,19 +1,20 @@
 import resumeSE from "@/assets/resume-se.pdf.asset.json";
 import resumeCB from "@/assets/resume-cb.pdf.asset.json";
+import { sitePath } from "@/lib/site-path";
 
 const sheets = [
   {
     index: "A",
     title: "Software engineering",
     scope: "Mobile development, backend systems, product engineering, interactive software.",
-    url: resumeSE.url,
+    url: sitePath(resumeSE.url),
     file: "hasan-bukhari-software-engineering.pdf",
   },
   {
     index: "B",
     title: "Computational biology",
     scope: "Bioinformatics, research engineering, scientific computing, data analysis.",
-    url: resumeCB.url,
+    url: sitePath(resumeCB.url),
     file: "hasan-bukhari-computational-biology.pdf",
   },
 ];

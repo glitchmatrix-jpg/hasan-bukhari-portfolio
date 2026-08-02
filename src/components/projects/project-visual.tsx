@@ -1,6 +1,7 @@
 import type { ReactNode } from "react";
 
 import type { ProjectRecord } from "@/content/portfolio";
+import { sitePath } from "@/lib/site-path";
 
 type ProjectVisualProps = {
   project: ProjectRecord;
@@ -213,7 +214,7 @@ function BioLitGraphVisual() {
   return (
     <Frame label="Project-authored demonstration output" className="visual-biolitgraph">
       <img
-        src="/assets/biolitgraph-egfr.png"
+        src={sitePath("/assets/biolitgraph-egfr.png")}
         alt="BioLitGraph demonstration network connecting normalized EGFR-related entities to source evidence."
         loading="lazy"
       />
