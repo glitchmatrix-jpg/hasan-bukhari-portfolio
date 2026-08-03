@@ -1,5 +1,3 @@
-import resumeSE from "@/assets/resume-se.pdf.asset.json";
-import resumeCB from "@/assets/resume-cb.pdf.asset.json";
 import { sitePath } from "@/lib/site-path";
 
 const sheets = [
@@ -7,20 +5,45 @@ const sheets = [
     index: "A",
     title: "Software engineering",
     scope: "Mobile development, backend systems, product engineering, interactive software.",
-    url: sitePath(resumeSE.url),
-    file: "hasan-bukhari-software-engineering.pdf",
+    url: sitePath("/assets/hasan-bukhari-software-engineering.pdf"),
+    file: "Hasan_Bukhari_Software_Engineering_Resume.pdf",
   },
   {
     index: "B",
     title: "Computational biology",
     scope: "Bioinformatics, research engineering, scientific computing, data analysis.",
-    url: sitePath(resumeCB.url),
-    file: "hasan-bukhari-computational-biology.pdf",
+    url: sitePath("/assets/hasan-bukhari-computational-biology.pdf"),
+    file: "Hasan_Bukhari_Computational_Biology_Resume.pdf",
   },
-];
+] as const;
+
+async function downloadPdf(url: string, filename: string) {
+  const response = await fetch(url, { cache: "no-store" });
+
+  if (!response.ok) {
+    throw new Error(`Resume request failed with status ${response.status}.`);
+  }
+
+  const blob = await response.blob();
+  const signature = await blob.slice(0, 5).text();
+
+  if (signature !== "%PDF-") {
+    throw new Error("The server returned a non-PDF response for this résumé.");
+  }
+
+  const objectUrl = URL.createObjectURL(blob);
+  const anchor = document.createElement("a");
+  anchor.href = objectUrl;
+  anchor.download = filename;
+  document.body.appendChild(anchor);
+  anchor.click();
+  anchor.remove();
+  URL.revokeObjectURL(objectUrl);
+}
 
 export function Resumes({ headingLevel = "h2" }: { headingLevel?: "h1" | "h2" }) {
   const Heading = headingLevel;
+
   return (
     <section
       id="resumes"
@@ -40,7 +63,6 @@ export function Resumes({ headingLevel = "h2" }: { headingLevel?: "h1" | "h2" })
           </p>
         </div>
 
-        {/* two equal printed documents in sleeves */}
         <div className="col-span-4 grid gap-6 sm:grid-cols-2 lg:col-span-7 lg:col-start-6">
           {sheets.map((sheet) => (
             <article
@@ -66,9 +88,18 @@ export function Resumes({ headingLevel = "h2" }: { headingLevel?: "h1" | "h2" })
                 <a href={sheet.url} target="_blank" rel="noreferrer" className="action-solid">
                   View
                 </a>
-                <a href={sheet.url} download={sheet.file} className="action">
+                <button
+                  type="button"
+                  className="action"
+                  onClick={() => {
+                    void downloadPdf(sheet.url, sheet.file).catch((error: unknown) => {
+                      console.error(error);
+                      window.open(sheet.url, "_blank", "noopener,noreferrer");
+                    });
+                  }}
+                >
                   Download
-                </a>
+                </button>
               </div>
             </article>
           ))}
