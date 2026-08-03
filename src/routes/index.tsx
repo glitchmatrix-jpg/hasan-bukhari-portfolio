@@ -2,9 +2,11 @@ import { createFileRoute } from "@tanstack/react-router";
 
 import { HomeFeature } from "@/components/projects/home-feature";
 import { Archive } from "@/components/site/archive";
+import { CurrentDesk } from "@/components/site/current-desk";
 import { Hero } from "@/components/site/hero";
 import { HumanSection } from "@/components/site/human-section";
 import { Resumes } from "@/components/site/resumes";
+import { SelectedWorkIndex } from "@/components/site/selected-work-index";
 import { SiteFooter } from "@/components/site/site-footer";
 import { SiteNav } from "@/components/site/site-nav";
 
@@ -34,19 +36,16 @@ function Index() {
       <SiteNav />
       <main id="main-content">
         <Hero />
-
-        <section className="shell py-16 lg:py-20" aria-label="Introduction to the work">
-          <p className="display text-3xl sm:text-5xl lg:text-6xl">
-            Four things that explain the rest.
-          </p>
-        </section>
+        <SelectedWorkIndex />
 
         <HomeFeature projectId="heartline" index="01" />
         <HomeFeature projectId="cancershift" index="02" reverse />
         <HomeFeature projectId="to-ash-again" index="03" />
         <HomeFeature projectId="flooded" index="04" reverse />
-        <Archive />
+
         <HumanSection />
+        <Archive />
+        <CurrentDesk />
         <Resumes />
       </main>
       <SiteFooter />
