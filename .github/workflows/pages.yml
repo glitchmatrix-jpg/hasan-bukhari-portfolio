@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - agent/lovable-import
+      - design/homepage-refinement
   workflow_dispatch:
 
 permissions:
