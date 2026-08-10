@@ -66,9 +66,9 @@ export function Hero() {
 
           <dl className="mt-7 grid grid-cols-2 gap-y-4 border-t border-border pt-5 sm:grid-cols-4">
             {[
-              ["Study", "CIS, B.S. · 2028"],
+              ["Study", "Computer Science, B.S. · 2028"],
               ["GPA", profile.gpa],
-              ["Minor", profile.minor],
+              ["Minors", profile.minor],
               ["Lab", "USM Ichthyology"],
             ].map(([label, value]) => (
               <div key={label}>
