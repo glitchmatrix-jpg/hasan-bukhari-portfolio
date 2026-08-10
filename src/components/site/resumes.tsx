@@ -8,6 +8,7 @@ const sheets = [
       "Software engineering, mobile development, backend systems, product engineering, and interactive software.",
     url: sitePath("/resumes/Hasan_Bukhari_Software_Engineering_Resume.pdf"),
     file: "Hasan_Bukhari_Software_Engineering_Resume.pdf",
+    posture: "sm:-rotate-[0.6deg] sm:translate-y-2",
   },
   {
     index: "B",
@@ -16,6 +17,7 @@ const sheets = [
       "Machine learning, research engineering, scientific computing, data science, and applied AI.",
     url: sitePath("/resumes/Hasan_Bukhari_Machine_Learning_Resume.pdf"),
     file: "Hasan_Bukhari_Machine_Learning_Resume.pdf",
+    posture: "sm:rotate-[0.35deg] sm:-translate-y-2",
   },
   {
     index: "C",
@@ -23,6 +25,7 @@ const sheets = [
     scope: "Computational biology, bioinformatics, genomics, scientific software, and research.",
     url: sitePath("/resumes/Hasan_Bukhari_Bioinformatics_Resume.pdf"),
     file: "Hasan_Bukhari_Bioinformatics_Resume.pdf",
+    posture: "sm:-rotate-[0.25deg] sm:translate-y-3",
   },
 ] as const;
 
@@ -52,6 +55,7 @@ async function downloadPdf(url: string, filename: string) {
 
 export function Resumes({ headingLevel = "h2" }: { headingLevel?: "h1" | "h2" }) {
   const Heading = headingLevel;
+  const CardHeading = headingLevel === "h1" ? "h2" : "h3";
 
   return (
     <section
@@ -72,11 +76,11 @@ export function Resumes({ headingLevel = "h2" }: { headingLevel?: "h1" | "h2" })
           </p>
         </div>
 
-        <div className="col-span-4 grid gap-5 sm:grid-cols-3 lg:col-span-8 lg:col-start-5">
+        <div className="col-span-4 grid gap-6 py-2 sm:grid-cols-3 lg:col-span-8 lg:col-start-5">
           {sheets.map((sheet) => (
             <article
               key={sheet.title}
-              className="relative flex flex-col justify-between border border-border p-6"
+              className={`relative flex min-h-[23rem] flex-col justify-between border border-border p-6 shadow-sm transition-transform duration-200 hover:-translate-y-1 hover:rotate-0 ${sheet.posture}`}
               style={{
                 background: "color-mix(in oklab, var(--blackcherry) 4%, var(--bone))",
                 boxShadow: "0 30px 60px -45px oklch(0 0 0 / 0.6)",
@@ -85,7 +89,7 @@ export function Resumes({ headingLevel = "h2" }: { headingLevel?: "h1" | "h2" })
               <span className="regmark right-3 top-3" aria-hidden="true" />
               <div>
                 <p className="meta text-cherry">Sheet {sheet.index}</p>
-                <h4 className="display mt-4 text-3xl">{sheet.title}</h4>
+                <CardHeading className="display mt-4 text-3xl">{sheet.title}</CardHeading>
                 <p className="mt-4 text-xs leading-relaxed text-muted-foreground">{sheet.scope}</p>
                 <div className="mt-6 flex flex-wrap gap-2">
                   <span className="stamp">PDF · one page</span>
