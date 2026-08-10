@@ -11,7 +11,7 @@ export const Route = createFileRoute("/contact")({
       { title: "Contact — Hasan Bukhari" },
       {
         name: "description",
-        content: "Email, public profiles, and résumé links for Hasan Bukhari.",
+        content: "Email, public profiles, and three targeted résumé paths for Hasan Bukhari.",
       },
     ],
   }),
@@ -60,8 +60,10 @@ function ContactPage() {
             ))}
             <a href={sitePath("/resume")} className="project-index-row">
               <span className="meta text-cherry">PDF</span>
-              <span className="display text-3xl">Two résumés</span>
-              <span className="meta text-muted-foreground">Software · computational biology</span>
+              <span className="display text-3xl">Three résumés</span>
+              <span className="meta text-muted-foreground">
+                Software · ML / research · computational biology
+              </span>
             </a>
           </div>
         </section>
