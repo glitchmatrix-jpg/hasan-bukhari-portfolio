@@ -1,18 +1,29 @@
-# Hasan Bukhari — Build · Research · Write
+# Welcome to your Lovable project
 
-The definitive portfolio for Hasan Bukhari: software engineering, computational biology research, interactive systems, writing, and community leadership.
+This project was built with [Lovable](https://lovable.dev).
 
-## Current phase
+## Build with Lovable
 
-P11 — Technical architecture and initial scaffold.
+Open your project in the [Lovable editor](https://lovable.dev) and keep building.
 
-The production website is intentionally not implemented yet. The repository begins with architecture, content validation, design tokens, accessibility foundations, and testing infrastructure.
+- **Ship faster**: describe what you want to build and Lovable handles the code.
+- **Stay in sync**: connect the project to GitHub and every change made in Lovable is committed straight to your repository.
+- **Full ownership**: this code is yours. Push to your repository and your changes sync back into Lovable, ready for your next prompt.
 
-## Branches
+## Development
 
-- `main` — stable releases and reviewed documentation
-- `develop` — integration branch for scaffold and implementation work
+Prefer working locally? You need Node.js and npm — [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating).
 
-## Direction
+```sh
+git clone <this-repository-url>
+cd <repository-name>
+npm i
+npm run dev
+```
 
-**The Cherry-Cola Issue** — a disciplined digital publication shaped by punk-zine materiality, scientific dossiers, album sequencing, literary inserts, and a contained pixel-art game-world experience.
+## Built with
+
+- TanStack Start
+- TypeScript
+- React
+- Tailwind CSS
