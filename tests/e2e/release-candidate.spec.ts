@@ -4,6 +4,7 @@ import { projects } from "../../src/content/portfolio";
 const coreRoutes = [
   "/",
   "/build",
+  "/build/aegis",
   "/research",
   "/write",
   "/about",
