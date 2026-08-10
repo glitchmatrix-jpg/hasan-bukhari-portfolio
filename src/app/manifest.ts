@@ -7,7 +7,7 @@ export default function manifest(): MetadataRoute.Manifest {
     name: "Hasan Bukhari — Build · Research · Write",
     short_name: "Hasan Bukhari",
     description:
-      "Software engineering, computational biology, interactive systems, writing, and community leadership.",
+      "Software engineering, computational biology, machine learning, scientific software, interactive systems, writing, and community leadership.",
     start_url: `${basePath}/`,
     display: "standalone",
     background_color: "#14070b",
