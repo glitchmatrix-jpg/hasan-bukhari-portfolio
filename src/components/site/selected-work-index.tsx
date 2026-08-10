@@ -15,10 +15,10 @@ const works = [
 export function SelectedWorkIndex() {
   return (
     <section
-      className="stage-bone bg-background py-16 text-foreground lg:py-20"
+      className="stage-bone bg-background py-20 text-foreground sm:py-24 lg:py-24"
       aria-labelledby="selected-work-title"
     >
-      <div className="shell grid-editorial gap-y-10">
+      <div className="shell grid-editorial gap-y-12">
         <div className="col-span-4 lg:col-span-3">
           <p className="meta text-cherry">Selected work</p>
           <h2 id="selected-work-title" className="display mt-4 text-4xl lg:text-5xl">
