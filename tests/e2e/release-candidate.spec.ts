@@ -41,21 +41,16 @@ test.describe("release-candidate navigation", () => {
     });
   }
 
-  test("homepage exposes a fast recruiter read without replacing the editorial flow", async ({
+  test("homepage keeps the editorial identity while surfacing recruiter essentials", async ({
     page,
   }) => {
     await page.goto("/");
-    const snapshot = page.locator('section[aria-labelledby="snapshot-title"]');
-    await expect(snapshot).toBeVisible();
+    await expect(page.getByRole("heading", { level: 1 })).toBeVisible();
     await expect(
-      snapshot.getByRole("heading", {
-        name: "Software Engineering + Computational Biology",
-      }),
+      page.getByText(/Software engineer, computational biology researcher/),
     ).toBeVisible();
-    await expect(
-      snapshot.getByText(/University of Southern Mississippi/),
-    ).toBeVisible();
-    await expect(snapshot.getByText("Three résumé paths")).toBeVisible();
+    await expect(page.getByRole("link", { name: "View résumés" })).toBeVisible();
+    await expect(page.getByRole("link", { name: "Contact" })).toBeVisible();
     await expect(
       page.getByRole("heading", { name: "Enter the worlds" }),
     ).toBeVisible();
@@ -91,16 +86,12 @@ test.describe("release-candidate navigation", () => {
     }
   });
 
-  test("mobile layout keeps the fast read visible without horizontal overflow", async ({
+  test("mobile layout keeps the hero visible without horizontal overflow", async ({
     page,
   }) => {
     await page.setViewportSize({ width: 390, height: 844 });
     await page.goto("/");
-    await expect(
-      page.getByRole("heading", {
-        name: "Software Engineering + Computational Biology",
-      }),
-    ).toBeVisible();
+    await expect(page.getByRole("heading", { level: 1 })).toBeVisible();
     const hasOverflow = await page.evaluate(
       () =>
         document.documentElement.scrollWidth >
