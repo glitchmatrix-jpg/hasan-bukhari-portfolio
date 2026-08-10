@@ -44,6 +44,17 @@ jobs:
           GITHUB_PAGES: "true"
         run: npm run build
 
+      - name: Restore résumé PDFs byte-for-byte
+        shell: bash
+        run: |
+          mkdir -p dist/client/resumes
+          cp -f public/resumes/*.pdf dist/client/resumes/
+          for source in public/resumes/*.pdf; do
+            target="dist/client/resumes/$(basename "$source")"
+            cmp --silent "$source" "$target"
+            echo "Verified binary copy: $(basename "$source")"
+          done
+
       - name: Disable Jekyll processing
         run: touch dist/client/.nojekyll
 
