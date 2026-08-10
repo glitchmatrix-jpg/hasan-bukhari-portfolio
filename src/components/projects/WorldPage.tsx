@@ -31,9 +31,22 @@ const copy = {
   },
 } as const;
 
+const aegisBuildEntry = {
+  id: "aegis",
+  title: "AEGIS",
+  route: "/build/aegis",
+  world: "build" as const,
+  summary:
+    "A local-first Windows platform for trusted document baselines, deterministic multi-format change evidence, governed review, and tamper-evident audit history.",
+  status: "Public repository · 1.0.0 release candidate",
+};
+
 export function WorldPage({ world }: { world: World }) {
   const details = copy[world];
   const entries = projects.filter((project) => project.world === world);
+  const sequencedEntries =
+    world === "build" ? [aegisBuildEntry, ...entries] : entries;
+
   return (
     <div className={`world-page world-page--${world}`}>
       <header className="world-opener">
@@ -49,7 +62,7 @@ export function WorldPage({ world }: { world: World }) {
           </h2>
         </div>
         <ol>
-          {entries.map((project, index) => (
+          {sequencedEntries.map((project, index) => (
             <li key={project.id}>
               <Link href={project.route as Route}>
                 <span className="world-sequence__number">
@@ -60,7 +73,7 @@ export function WorldPage({ world }: { world: World }) {
                   <p>{project.summary}</p>
                   <small>{project.status}</small>
                 </div>
-                <span aria-hidden="true">â†—</span>
+                <span aria-hidden="true">↗</span>
               </Link>
             </li>
           ))}
@@ -92,9 +105,9 @@ export function WorldPage({ world }: { world: World }) {
           <p className="eyebrow">Systems behind the screens</p>
           <h2>Interfaces are the visible edge of architecture.</h2>
           <p>
-            Across mobile products, games, and research tools, the deeper thread
-            is state, persistence, resilient workflows, and evidence that stays
-            attached.
+            Across mobile products, desktop systems, games, and research tools,
+            the deeper thread is state, persistence, resilient workflows, and
+            evidence that stays attached.
           </p>
         </aside>
       )}
