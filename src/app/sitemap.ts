@@ -6,6 +6,7 @@ const base = "https://hasanbukhari.dev";
 const staticRoutes = [
   "",
   "/build",
+  "/build/aegis",
   "/research",
   "/write",
   "/about",
