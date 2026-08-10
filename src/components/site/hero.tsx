@@ -84,7 +84,7 @@ export function Hero() {
         </div>
 
         <div className="col-span-4 lg:col-span-6 lg:col-start-7">
-          <div className="mx-auto w-full max-w-[48rem] lg:-mr-12 lg:-translate-y-7 lg:pl-2">
+          <div className="mx-auto w-full max-w-[48rem] lg:-ml-16 lg:-translate-y-7 lg:w-[calc(100%+8rem)] lg:max-w-none">
             <Relic />
           </div>
         </div>
