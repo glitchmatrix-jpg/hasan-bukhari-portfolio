@@ -15,6 +15,7 @@ import { Route as ArchiveRouteImport } from './routes/archive'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as ResumeRouteImport } from './routes/resume'
 import { Route as BuildIndexRouteImport } from './routes/build/index'
+import { Route as BuildAegisRouteImport } from './routes/build/aegis'
 import { Route as BuildBiolitgraphRouteImport } from './routes/build/biolitgraph'
 import { Route as BuildHeartlineRouteImport } from './routes/build/heartline'
 import { Route as BuildNivalaRouteImport } from './routes/build/nivala'
@@ -57,6 +58,11 @@ const ResumeRoute = ResumeRouteImport.update({
 const BuildIndexRoute = BuildIndexRouteImport.update({
   id: '/build/',
   path: '/build/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BuildAegisRoute = BuildAegisRouteImport.update({
+  id: '/build/aegis',
+  path: '/build/aegis',
   getParentRoute: () => rootRouteImport,
 } as any)
 const BuildBiolitgraphRoute = BuildBiolitgraphRouteImport.update({
@@ -133,6 +139,7 @@ export interface FileRoutesByFullPath {
   '/archive': typeof ArchiveRoute
   '/contact': typeof ContactRoute
   '/resume': typeof ResumeRoute
+  '/build/aegis': typeof BuildAegisRoute
   '/build/biolitgraph': typeof BuildBiolitgraphRoute
   '/build/heartline': typeof BuildHeartlineRoute
   '/build/nivala': typeof BuildNivalaRoute
@@ -154,6 +161,7 @@ export interface FileRoutesByTo {
   '/archive': typeof ArchiveRoute
   '/contact': typeof ContactRoute
   '/resume': typeof ResumeRoute
+  '/build/aegis': typeof BuildAegisRoute
   '/build/biolitgraph': typeof BuildBiolitgraphRoute
   '/build/heartline': typeof BuildHeartlineRoute
   '/build/nivala': typeof BuildNivalaRoute
@@ -176,6 +184,7 @@ export interface FileRoutesById {
   '/archive': typeof ArchiveRoute
   '/contact': typeof ContactRoute
   '/resume': typeof ResumeRoute
+  '/build/aegis': typeof BuildAegisRoute
   '/build/biolitgraph': typeof BuildBiolitgraphRoute
   '/build/heartline': typeof BuildHeartlineRoute
   '/build/nivala': typeof BuildNivalaRoute
@@ -199,6 +208,7 @@ export interface FileRouteTypes {
     | '/archive'
     | '/contact'
     | '/resume'
+    | '/build/aegis'
     | '/build/biolitgraph'
     | '/build/heartline'
     | '/build/nivala'
@@ -220,6 +230,7 @@ export interface FileRouteTypes {
     | '/archive'
     | '/contact'
     | '/resume'
+    | '/build/aegis'
     | '/build/biolitgraph'
     | '/build/heartline'
     | '/build/nivala'
@@ -241,6 +252,7 @@ export interface FileRouteTypes {
     | '/archive'
     | '/contact'
     | '/resume'
+    | '/build/aegis'
     | '/build/biolitgraph'
     | '/build/heartline'
     | '/build/nivala'
@@ -263,6 +275,7 @@ export interface RootRouteChildren {
   ArchiveRoute: typeof ArchiveRoute
   ContactRoute: typeof ContactRoute
   ResumeRoute: typeof ResumeRoute
+  BuildAegisRoute: typeof BuildAegisRoute
   BuildBiolitgraphRoute: typeof BuildBiolitgraphRoute
   BuildHeartlineRoute: typeof BuildHeartlineRoute
   BuildNivalaRoute: typeof BuildNivalaRoute
@@ -321,6 +334,13 @@ declare module '@tanstack/react-router' {
       path: '/build'
       fullPath: '/build/'
       preLoaderRoute: typeof BuildIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/build/aegis': {
+      id: '/build/aegis'
+      path: '/build/aegis'
+      fullPath: '/build/aegis'
+      preLoaderRoute: typeof BuildAegisRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/build/biolitgraph': {
@@ -423,6 +443,7 @@ const rootRouteChildren: RootRouteChildren = {
   ArchiveRoute: ArchiveRoute,
   ContactRoute: ContactRoute,
   ResumeRoute: ResumeRoute,
+  BuildAegisRoute: BuildAegisRoute,
   BuildBiolitgraphRoute: BuildBiolitgraphRoute,
   BuildHeartlineRoute: BuildHeartlineRoute,
   BuildNivalaRoute: BuildNivalaRoute,

@@ -15,7 +15,8 @@ export function CurrentDesk() {
             Work still in motion.
           </h2>
           <p className="measure mt-5 text-base leading-relaxed text-muted-foreground">
-            A small, honest snapshot of what is active now—not a feed, not a productivity performance.
+            A small, honest snapshot of what is active now—not a feed, not a productivity
+            performance.
           </p>
         </div>
 

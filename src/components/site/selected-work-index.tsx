@@ -14,7 +14,10 @@ const works = [
 
 export function SelectedWorkIndex() {
   return (
-    <section className="stage-bone bg-background py-16 text-foreground lg:py-20" aria-labelledby="selected-work-title">
+    <section
+      className="stage-bone bg-background py-16 text-foreground lg:py-20"
+      aria-labelledby="selected-work-title"
+    >
       <div className="shell grid-editorial gap-y-10">
         <div className="col-span-4 lg:col-span-3">
           <p className="meta text-cherry">Selected work</p>
@@ -22,7 +25,8 @@ export function SelectedWorkIndex() {
             Four things that explain the rest.
           </h2>
           <p className="measure mt-5 text-base leading-relaxed text-muted-foreground">
-            Product, research, games, and writing—four projects that show how the same instinct changes form.
+            Product, research, games, and writing—four projects that show how the same instinct
+            changes form.
           </p>
         </div>
 

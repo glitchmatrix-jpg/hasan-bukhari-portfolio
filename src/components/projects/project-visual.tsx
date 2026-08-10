@@ -365,8 +365,29 @@ function SpaVisual({ compact }: { compact?: boolean }) {
   );
 }
 
+function AegisVisual({ compact }: { compact?: boolean }) {
+  return (
+    <Frame
+      label="Project-authored AEGIS architecture · deterministic evidence pipeline"
+      className="visual-aegis"
+      compact={compact}
+    >
+      <div className="bg-white p-4 sm:p-6">
+        <img
+          src={sitePath("/assets/project/aegis-architecture.svg")}
+          alt="AEGIS architecture from controlled libraries through monitoring, trusted identity, retained versions, format-aware parsing, deterministic diffing, governance, FastAPI, and the React and Tauri desktop interface."
+          loading={compact ? "lazy" : "eager"}
+          className="w-full object-contain"
+        />
+      </div>
+    </Frame>
+  );
+}
+
 export function ProjectVisual({ project, compact = false }: ProjectVisualProps) {
   switch (project.id) {
+    case "aegis":
+      return <AegisVisual compact={compact} />;
     case "heartline":
       return <HeartlineVisual compact={compact} />;
     case "cancershift":

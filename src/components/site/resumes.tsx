@@ -4,14 +4,16 @@ const sheets = [
   {
     index: "A",
     title: "Software engineering",
-    scope: "Software engineering, mobile development, backend systems, product engineering, and interactive software.",
+    scope:
+      "Software engineering, mobile development, backend systems, product engineering, and interactive software.",
     url: sitePath("/resumes/Hasan_Bukhari_Software_Engineering_Resume.pdf"),
     file: "Hasan_Bukhari_Software_Engineering_Resume.pdf",
   },
   {
     index: "B",
     title: "ML / research engineering",
-    scope: "Machine learning, research engineering, scientific computing, data science, and applied AI.",
+    scope:
+      "Machine learning, research engineering, scientific computing, data science, and applied AI.",
     url: sitePath("/resumes/Hasan_Bukhari_Machine_Learning_Resume.pdf"),
     file: "Hasan_Bukhari_Machine_Learning_Resume.pdf",
   },
