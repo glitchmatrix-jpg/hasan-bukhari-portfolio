@@ -21,7 +21,11 @@ jobs:
           cache: npm
       - run: npm ci
       - run: npm run validate
+      - run: npm run release:gate
       - run: npm run build
+      - run: npm run build
+        env:
+          GITHUB_PAGES: "true"
   e2e:
     runs-on: ubuntu-latest
     timeout-minutes: 25
