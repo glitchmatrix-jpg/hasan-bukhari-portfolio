@@ -38,7 +38,7 @@ const tracks = [
   {
     number: "05",
     title: "Résumés",
-    description: "Three professional paths through one body of work",
+    description: "Two professional paths through one body of work",
     href: "#resumes",
   },
 ] as const;
@@ -46,24 +46,30 @@ const tracks = [
 const archiveItems = [
   [
     "01",
+    "BioLitGraph",
+    "Biomedical literature mining and evidence graphs",
+    "/build/biolitgraph",
+  ],
+  [
+    "02",
     "QTL Analysis Toolkit",
     "Research software",
     "/research/research-software",
   ],
   [
-    "02",
+    "03",
     "Unified Genome Explorer",
     "Local-first genomics tooling",
     "/research/research-software",
   ],
   [
-    "03",
+    "04",
     "PhyloPlayground",
     "Scientific education and visualization",
     "/research/research-software",
   ],
-  ["04", "Observatorium", "Supporting software project", "/archive"],
-  ["05", "Moonwater Angler", "Game engineering archive", "/archive"],
+  ["05", "Observatorium", "Supporting software project", "/archive"],
+  ["06", "Moonwater Angler", "Game engineering archive", "/archive"],
 ] as const;
 
 export default function HomePage() {
@@ -108,7 +114,6 @@ export default function HomePage() {
           </div>
         </div>
       </section>
-
 
       <section
         className={`${styles.section} ${styles.editorial}`}
@@ -179,7 +184,7 @@ export default function HomePage() {
                 className={`${styles.mediaPlate} ${styles.phonePlate}`}
                 data-label="HEARTLINE"
                 role="img"
-                aria-label="Abstract public-safe HEARTLINE mobile interface study"
+                aria-label="Abstract public-safe study representing the HEARTLINE mobile interface"
               />
             }
             metadata={[
@@ -343,7 +348,7 @@ export default function HomePage() {
                 className={styles.mediaPlate}
                 data-label="Flooded"
                 role="img"
-                aria-label="Abstract blue book-cover study for Flooded"
+                aria-label="Abstract public-safe book-cover study for Flooded"
               />
             }
             metadata={[
@@ -379,20 +384,9 @@ export default function HomePage() {
               <div
                 className={styles.productMock}
                 role="img"
-                aria-label="Synthetic public-safe Taaqat recovery dashboard study"
+                aria-label="Public-safe study of the Taaqat recovery dashboard"
               >
-                <span className={styles.mockLabel}>
-                  Recovery map / synthetic demo
-                </span>
-                <strong className={styles.mockMetric}>72%</strong>
-                <span className={styles.mockSubline}>
-                  Ready today · Push 81 · Pull 76 · Legs 64
-                </span>
-                <div className={styles.mockBars} aria-hidden="true">
-                  <span style={{ width: "81%" }} />
-                  <span style={{ width: "76%" }} />
-                  <span style={{ width: "64%" }} />
-                </div>
+                Offline recovery dashboard study
               </div>
               <p>
                 An offline-first fitness platform with 172 bundled exercises,
@@ -409,18 +403,9 @@ export default function HomePage() {
               <div
                 className={styles.productMock}
                 role="img"
-                aria-label="Synthetic public-safe Nivala nutrition dashboard study"
+                aria-label="Public-safe study of the Nivala nutrition dashboard"
               >
-                <span className={styles.mockLabel}>Today / synthetic demo</span>
-                <strong className={styles.mockMetric}>1,840</strong>
-                <span className={styles.mockSubline}>
-                  kcal · Daal · Roti · Chai · Chicken karahi
-                </span>
-                <div className={styles.mockLedger} aria-hidden="true">
-                  <span>Protein 108g</span>
-                  <span>Fiber 31g</span>
-                  <span>Local backup ✓</span>
-                </div>
+                Nutrition dashboard study · synthetic demo data
               </div>
               <p>
                 A privacy-first nutrition tracker built around 278 Pakistani
@@ -432,63 +417,6 @@ export default function HomePage() {
                 Read the Nivala case study
               </ButtonLink>
             </article>
-          </div>
-        </div>
-      </section>
-
-      <section
-        className={`${styles.section} ${styles.deeperWork}`}
-        id="deeper-work"
-        aria-labelledby="deeper-work-title"
-      >
-        <div className={styles.inner}>
-          <div className={styles.sectionHeader}>
-            <p className={styles.eyebrow}>Selected deeper work</p>
-            <h2 id="deeper-work-title">Three systems worth a closer look.</h2>
-            <p>
-              Beyond the flagship sequence: a desktop governance system,
-              evidence-linked scientific software, and ongoing computational
-              genomics research.
-            </p>
-          </div>
-          <div className={styles.deeperGrid}>
-            <Link className={styles.deeperCard} href="/build/aegis">
-              <span className={styles.deeperIndex}>01 / Build</span>
-              <strong>AEGIS</strong>
-              <span>Controlled document intelligence &amp; governance</span>
-              <p>
-                Local-first Windows software for deterministic change evidence,
-                trusted baselines, human governance, and auditable document
-                history.
-              </p>
-              <small>
-                Python · FastAPI · React · TypeScript · Tauri · SQLite →
-              </small>
-            </Link>
-            <Link className={styles.deeperCard} href="/build/biolitgraph">
-              <span className={styles.deeperIndex}>02 / Build ↔ Research</span>
-              <strong>BioLitGraph</strong>
-              <span>Biomedical literature graphs with evidence attached</span>
-              <p>
-                Scientific software that normalizes biomedical entities into
-                explorable networks while preserving a route back to source
-                papers.
-              </p>
-              <small>PubMed · PubTator · NetworkX · Evidence export →</small>
-            </Link>
-            <Link className={styles.deeperCard} href="/research/ichthyology">
-              <span className={styles.deeperIndex}>03 / Research</span>
-              <strong>Fundulus Genomics</strong>
-              <span>Chromosome-scale comparative genomics</span>
-              <p>
-                Ongoing lab research using synteny and correspondence matrices
-                to compare chromosome-scale assemblies without overstating
-                unfinished findings.
-              </p>
-              <small>
-                Python · Synteny · 24 pseudochromosomes · Research reporting →
-              </small>
-            </Link>
           </div>
         </div>
       </section>
@@ -535,7 +463,7 @@ export default function HomePage() {
           <div
             className={styles.photoFallback}
             role="img"
-            aria-label="Designed community illustration used instead of participant photography"
+            aria-label="Public-safe community study; participant imagery withheld"
           />
           <div className={styles.humanCopy}>
             <StampedLabel tone="write">Human / Community</StampedLabel>
@@ -567,37 +495,26 @@ export default function HomePage() {
         <div className={styles.inner}>
           <div className={styles.sectionHeader}>
             <p className={styles.eyebrow}>Professional documents</p>
-            <h2 id="resumes-title">Three paths. One body of work.</h2>
+            <h2 id="resumes-title">Two paths. One body of work.</h2>
             <p>
-              Choose the résumé that matches the role: engineering, machine
-              learning, or computational biology. All three lead back to the
+              Choose the rÃ©sumÃ© that matches the role. Both lead back to the
               same systems-minded practice.
             </p>
           </div>
           <div className={styles.resumeGrid}>
             <ResumeTile
-              description="Best for software engineering, mobile, backend, product engineering, and interactive systems roles."
-              href="/resume"
-              label="Engineering résumé"
-              title="Software Engineering Résumé"
+              description="For computational biology, bioinformatics, research engineering, data science, and scientific software roles."
+              href="/resume#computational-biology"
+              title="Computational Biology / Bioinformatics RÃ©sumÃ©"
+              tone="research"
+              updatedAt="August 2026"
+            />
+            <ResumeTile
+              description="For software engineering, mobile development, backend systems, product engineering, and interactive software roles."
+              href="/resume#software-engineering"
+              title="Software Engineering RÃ©sumÃ©"
               tone="build"
-              updatedAt="August 10, 2026"
-            />
-            <ResumeTile
-              description="Best for machine learning, research engineering, scientific computing, data science, and applied AI roles."
-              href="/resume"
-              label="ML / Research résumé"
-              title="Machine Learning / Research Engineering Résumé"
-              tone="research"
-              updatedAt="August 10, 2026"
-            />
-            <ResumeTile
-              description="Best for bioinformatics, computational genomics, scientific software, and biological research roles."
-              href="/resume"
-              label="Bioinformatics résumé"
-              title="Computational Biology / Bioinformatics Résumé"
-              tone="research"
-              updatedAt="August 10, 2026"
+              updatedAt="August 2026"
             />
           </div>
         </div>
