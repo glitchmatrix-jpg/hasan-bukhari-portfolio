@@ -5,6 +5,7 @@ import { projects } from "../../src/content/portfolio";
 const routes = [
   "/",
   "/build",
+  "/build/aegis",
   "/research",
   "/write",
   "/about",
