@@ -11,6 +11,7 @@ const requiredRouteFiles = [
   "src/routes/resume.tsx",
   "src/routes/contact.tsx",
   "src/routes/archive.tsx",
+  "src/routes/build/aegis.tsx",
   "src/routes/build/heartline.tsx",
   "src/routes/research/cancershift.tsx",
   "src/routes/build/to-ash-again.tsx",
@@ -24,6 +25,7 @@ const requiredRouteFiles = [
 ];
 
 const expectedProjectIds = [
+  "aegis",
   "heartline",
   "to-ash-again",
   "taaqat",
@@ -40,6 +42,7 @@ const allowedPublicAssets = [
   "biolitgraph-egfr.png",
   "hasan-bukhari-computational-biology.pdf",
   "hasan-bukhari-software-engineering.pdf",
+  "project/aegis-architecture.svg",
   "project/biolitgraph-graph.png",
   "project/biolitgraph-search.png",
   "project/biolitgraph-timeline.png",
