@@ -3,8 +3,7 @@ name: Deploy GitHub Pages
 on:
   push:
     branches:
-      - agent/lovable-import
-      - design/homepage-refinement
+      - main
   workflow_dispatch:
 
 permissions:
