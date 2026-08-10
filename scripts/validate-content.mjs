@@ -91,7 +91,13 @@ const bannedPublicCopy = [
   "There is no publisher",
 ];
 
-const staleResumeCopy = ["Two résumés", "two résumés", "Both files"];
+const staleResumeCopy = [
+  "Two résumés",
+  "two résumés",
+  "Both files",
+  "Two one-page PDFs",
+  "two one-page PDFs",
+];
 
 const missingRoutes = requiredRouteFiles.filter((file) => !existsSync(join(root, file)));
 if (missingRoutes.length) {
