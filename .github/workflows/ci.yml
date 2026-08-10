@@ -3,7 +3,7 @@ on:
   pull_request:
     branches: [main, develop]
   push:
-    branches: [main, develop]
+    branches: [main, develop, portfolio/recruiter-polish-v1]
 permissions:
   contents: read
 concurrency:
