@@ -15,7 +15,10 @@ const person = {
   ],
   knowsAbout: [
     "Software engineering",
+    "Machine learning",
     "Computational biology",
+    "Bioinformatics",
+    "Scientific software",
     "Game development",
     "Poetry",
   ],
