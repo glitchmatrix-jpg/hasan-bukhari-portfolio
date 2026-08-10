@@ -45,15 +45,17 @@ test.describe("release-candidate navigation", () => {
     page,
   }) => {
     await page.goto("/");
+    const snapshot = page.locator('section[aria-labelledby="snapshot-title"]');
+    await expect(snapshot).toBeVisible();
     await expect(
-      page.getByRole("heading", {
+      snapshot.getByRole("heading", {
         name: "Software Engineering + Computational Biology",
       }),
     ).toBeVisible();
     await expect(
-      page.getByText(/University of Southern Mississippi/),
+      snapshot.getByText(/University of Southern Mississippi/),
     ).toBeVisible();
-    await expect(page.getByText("Three résumé paths")).toBeVisible();
+    await expect(snapshot.getByText("Three résumé paths")).toBeVisible();
     await expect(
       page.getByRole("heading", { name: "Enter the worlds" }),
     ).toBeVisible();
