@@ -52,7 +52,9 @@ export function Archive() {
                 <div className="mt-3 flex-1 sm:mt-0">
                   <p className="measure text-[0.8rem] leading-relaxed">{entry.summary}</p>
                   <div className="mt-2.5 flex flex-wrap items-center gap-3">
-                    <span className="meta text-[0.58rem] text-muted-foreground">{entry.status}</span>
+                    <span className="meta text-[0.58rem] text-muted-foreground">
+                      {entry.status}
+                    </span>
                     <span className="patch">{getWorld(entry.world).title}</span>
                   </div>
                 </div>

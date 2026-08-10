@@ -372,13 +372,19 @@ function AegisVisual({ compact }: { compact?: boolean }) {
       className="visual-aegis"
       compact={compact}
     >
-      <div className="bg-white p-4 sm:p-6">
-        <img
-          src={sitePath("/assets/project/aegis-architecture.svg")}
-          alt="AEGIS architecture from controlled libraries through monitoring, trusted identity, retained versions, format-aware parsing, deterministic diffing, governance, FastAPI, and the React and Tauri desktop interface."
-          loading={compact ? "lazy" : "eager"}
-          className="w-full object-contain"
-        />
+      <div className="grid min-h-[24rem] place-items-center bg-cola p-4 sm:p-7 lg:p-10">
+        <div className="paper-card relative w-full rotate-[0.35deg] p-3 sm:p-5">
+          <span className="regmark right-3 top-3" aria-hidden="true" />
+          <img
+            src={sitePath("/assets/project/aegis-architecture.svg")}
+            alt="AEGIS architecture from controlled libraries through monitoring, trusted identity, retained versions, format-aware parsing, deterministic diffing, governance, FastAPI, and the React and Tauri desktop interface."
+            loading={compact ? "lazy" : "eager"}
+            className="w-full object-contain"
+          />
+          <p className="meta mt-3 border-t border-blackcherry/20 pt-3 text-blackcherry/70">
+            System architecture · deterministic evidence before governance
+          </p>
+        </div>
       </div>
     </Frame>
   );
