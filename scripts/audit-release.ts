@@ -14,6 +14,10 @@ for (const project of projects) {
   }
 }
 
+if (!existsSync("src/app/build/aegis/page.tsx")) {
+  failures.push("Missing route source: src/app/build/aegis/page.tsx");
+}
+
 for (const route of [
   "sitemap.ts",
   "robots.ts",
@@ -40,8 +44,9 @@ for (const source of [
   "src/components/home/RecruiterSnapshot.tsx",
   "src/components/home/RecruiterSnapshot.module.css",
 ]) {
-  if (!existsSync(source))
+  if (!existsSync(source)) {
     failures.push(`Missing recruiter-speed source: ${source}`);
+  }
 }
 
 const releaseSources = [
@@ -66,7 +71,7 @@ for (const source of releaseSources) {
   }
 }
 
-console.log(`Source audit: ${projects.length} project routes checked.`);
+console.log(`Source audit: ${projects.length + 1} project routes checked.`);
 if (failures.length) {
   failures.forEach((failure) => console.error(failure));
   process.exitCode = 1;
