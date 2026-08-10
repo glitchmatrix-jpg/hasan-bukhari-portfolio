@@ -9,7 +9,12 @@ const coreRoutes = [
   "/about",
   "/resume",
   "/contact",
+  "/archive",
+  "/research/research-software",
+  "/accessibility",
+  "/privacy",
 ];
+
 test.describe("release-candidate navigation", () => {
   for (const route of [
     ...coreRoutes,
@@ -33,6 +38,20 @@ test.describe("release-candidate navigation", () => {
     });
   }
 
+  test("homepage exposes a fast recruiter read without replacing the editorial flow", async ({
+    page,
+  }) => {
+    await page.goto("/");
+    await expect(
+      page.getByRole("heading", {
+        name: "Software Engineering + Computational Biology",
+      }),
+    ).toBeVisible();
+    await expect(page.getByText(/University of Southern Mississippi/)).toBeVisible();
+    await expect(page.getByText("Three résumé paths")).toBeVisible();
+    await expect(page.getByRole("heading", { name: "Enter the worlds" })).toBeVisible();
+  });
+
   test("reduced motion removes retained entrance animations", async ({
     page,
   }) => {
@@ -48,20 +67,26 @@ test.describe("release-candidate navigation", () => {
     );
   });
 
-  test("résumé route is honest while verified files are absent", async ({
+  test("résumé route exposes three verified downloadable documents", async ({
     page,
   }) => {
     await page.goto("/resume");
-    await expect(page.getByText("Download pending verified PDF")).toHaveCount(
-      2,
-    );
+    const downloadLinks = page.getByRole("link", { name: /download.*résumé/i });
+    await expect(downloadLinks).toHaveCount(3);
     await expect(
-      page.getByRole("link", { name: /download.*résumé/i }),
-    ).toHaveCount(0);
+      page.locator('a[href="/resumes/Hasan_Bukhari_Software_Engineering_Resume.pdf"]'),
+    ).toHaveCount(1);
+    await expect(
+      page.locator('a[href="/resumes/Hasan_Bukhari_Machine_Learning_Resume.pdf"]'),
+    ).toHaveCount(1);
+    await expect(
+      page.locator('a[href="/resumes/Hasan_Bukhari_Bioinformatics_Resume.pdf"]'),
+    ).toHaveCount(1);
   });
 
-  test("unknown routes return the failure state", async ({ page }) => {
+  test("unknown routes return the portfolio failure state", async ({ page }) => {
     const response = await page.goto("/this-route-does-not-exist");
     expect(response?.status()).toBe(404);
+    await expect(page.getByRole("heading", { name: "This page left the issue." })).toBeVisible();
   });
 });
