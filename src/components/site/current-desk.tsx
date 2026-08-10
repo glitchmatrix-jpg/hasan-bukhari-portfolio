@@ -10,13 +10,12 @@ export function CurrentDesk() {
     <section className="border-t border-border py-16 lg:py-20" aria-labelledby="current-desk-title">
       <div className="shell grid-editorial gap-y-10">
         <div className="col-span-4 lg:col-span-4">
-          <p className="meta text-rose">Current desk</p>
+          <p className="meta text-rose">Current desk · August 2026</p>
           <h2 id="current-desk-title" className="display mt-4 text-4xl lg:text-5xl">
             Work still in motion.
           </h2>
           <p className="measure mt-5 text-base leading-relaxed text-muted-foreground">
-            A small, honest snapshot of what is active now—not a feed, not a productivity
-            performance.
+            A dated snapshot of what is active now—not a feed, not a productivity performance.
           </p>
         </div>
 
