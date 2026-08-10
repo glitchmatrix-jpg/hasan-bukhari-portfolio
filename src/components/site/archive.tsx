@@ -41,16 +41,18 @@ export function Archive() {
             <li key={entry.id} className="border-t border-border last:border-b">
               <a
                 href={sitePath(entry.route)}
-                className="flex flex-col py-6 transition-colors hover:text-cherry sm:flex-row sm:items-start sm:gap-6"
+                className="flex flex-col py-5 transition-colors hover:text-cherry sm:flex-row sm:items-start sm:gap-5 lg:py-[1.15rem]"
               >
-                <div className="flex items-baseline gap-4 sm:w-[16rem] sm:shrink-0">
+                <div className="flex items-baseline gap-4 sm:w-[15rem] sm:shrink-0">
                   <span className="meta text-cherry">{String(index + 5).padStart(2, "0")}</span>
-                  <span className="display text-3xl lg:text-[2.25rem]">{entry.title}</span>
+                  <span className="display text-[1.85rem] leading-none lg:text-[2rem]">
+                    {entry.title}
+                  </span>
                 </div>
                 <div className="mt-3 flex-1 sm:mt-0">
-                  <p className="measure text-sm leading-relaxed">{entry.summary}</p>
-                  <div className="mt-3 flex flex-wrap items-center gap-3">
-                    <span className="meta text-muted-foreground">{entry.status}</span>
+                  <p className="measure text-[0.8rem] leading-relaxed">{entry.summary}</p>
+                  <div className="mt-2.5 flex flex-wrap items-center gap-3">
+                    <span className="meta text-[0.58rem] text-muted-foreground">{entry.status}</span>
                     <span className="patch">{getWorld(entry.world).title}</span>
                   </div>
                 </div>
@@ -60,15 +62,17 @@ export function Archive() {
         </ol>
 
         <figure className="col-span-4 border-t border-border pt-7 lg:col-span-8 lg:col-start-5">
-          <img
-            src={sitePath("/assets/biolitgraph-egfr.png")}
-            alt="BioLitGraph demonstration network connecting normalized EGFR-related entities to source evidence."
-            loading="lazy"
-            className="w-full border border-border object-contain"
-          />
-          <figcaption className="meta mt-3 text-muted-foreground">
-            BioLitGraph · project-authored demonstration output
-          </figcaption>
+          <div className="max-w-[48rem]">
+            <img
+              src={sitePath("/assets/biolitgraph-egfr.png")}
+              alt="BioLitGraph demonstration network connecting normalized EGFR-related entities to source evidence."
+              loading="lazy"
+              className="w-full border border-border object-contain"
+            />
+            <figcaption className="meta mt-3 text-muted-foreground">
+              BioLitGraph · project-authored demonstration output
+            </figcaption>
+          </div>
         </figure>
       </div>
     </section>
