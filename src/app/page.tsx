@@ -46,30 +46,24 @@ const tracks = [
 const archiveItems = [
   [
     "01",
-    "BioLitGraph",
-    "Biomedical literature mining and evidence graphs",
-    "/build/biolitgraph",
-  ],
-  [
-    "02",
     "QTL Analysis Toolkit",
     "Research software",
     "/research/research-software",
   ],
   [
-    "03",
+    "02",
     "Unified Genome Explorer",
     "Local-first genomics tooling",
     "/research/research-software",
   ],
   [
-    "04",
+    "03",
     "PhyloPlayground",
     "Scientific education and visualization",
     "/research/research-software",
   ],
-  ["05", "Observatorium", "Supporting software project", "/archive"],
-  ["06", "Moonwater Angler", "Game engineering archive", "/archive"],
+  ["04", "Observatorium", "Supporting software project", "/archive"],
+  ["05", "Moonwater Angler", "Game engineering archive", "/archive"],
 ] as const;
 
 export default function HomePage() {
@@ -417,6 +411,56 @@ export default function HomePage() {
                 Read the Nivala case study
               </ButtonLink>
             </article>
+          </div>
+        </div>
+      </section>
+
+      <section
+        className={`${styles.section} ${styles.deeperWork}`}
+        id="deeper-work"
+        aria-labelledby="deeper-work-title"
+      >
+        <div className={styles.inner}>
+          <div className={styles.sectionHeader}>
+            <p className={styles.eyebrow}>Selected deeper work</p>
+            <h2 id="deeper-work-title">Three systems worth a closer look.</h2>
+            <p>
+              Beyond the flagship sequence: a desktop governance system,
+              evidence-linked scientific software, and ongoing computational
+              genomics research.
+            </p>
+          </div>
+          <div className={styles.deeperGrid}>
+            <Link className={styles.deeperCard} href="/build/aegis">
+              <span className={styles.deeperIndex}>01 / Build</span>
+              <strong>AEGIS</strong>
+              <span>Controlled document intelligence &amp; governance</span>
+              <p>
+                Local-first Windows software for deterministic change evidence,
+                trusted baselines, human governance, and auditable document history.
+              </p>
+              <small>Python · FastAPI · React · TypeScript · Tauri · SQLite →</small>
+            </Link>
+            <Link className={styles.deeperCard} href="/build/biolitgraph">
+              <span className={styles.deeperIndex}>02 / Build ↔ Research</span>
+              <strong>BioLitGraph</strong>
+              <span>Biomedical literature graphs with evidence attached</span>
+              <p>
+                Scientific software that normalizes biomedical entities into
+                explorable networks while preserving a route back to source papers.
+              </p>
+              <small>PubMed · PubTator · NetworkX · Evidence export →</small>
+            </Link>
+            <Link className={styles.deeperCard} href="/research/ichthyology">
+              <span className={styles.deeperIndex}>03 / Research</span>
+              <strong>Fundulus Genomics</strong>
+              <span>Chromosome-scale comparative genomics</span>
+              <p>
+                Ongoing lab research using synteny and correspondence matrices to
+                compare chromosome-scale assemblies without overstating unfinished findings.
+              </p>
+              <small>Python · Synteny · 24 pseudochromosomes · Research reporting →</small>
+            </Link>
           </div>
         </div>
       </section>
