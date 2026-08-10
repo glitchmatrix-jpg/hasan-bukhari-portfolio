@@ -170,7 +170,7 @@ export function mountRelicScene(host: HTMLDivElement, pointerTarget: HTMLDivElem
 
     renderer.setSize(width, height, false);
     camera.aspect = aspect;
-    camera.position.z = aspect < 0.82 ? 9.4 : aspect < 1.05 ? 8.85 : 8.15;
+    camera.position.z = aspect < 0.82 ? 9.5 : aspect < 1.05 ? 9.0 : 8.45;
     camera.updateProjectionMatrix();
     renderer.render(scene, camera);
   };
@@ -191,7 +191,7 @@ export function mountRelicScene(host: HTMLDivElement, pointerTarget: HTMLDivElem
       const elapsed = clock.getElapsedTime();
       if (!reducedMotion) {
         group.rotation.y += (pointer.x * 0.2 - 0.22 - group.rotation.y) * 0.055;
-        group.rotation.x += (-pointer.y * 0.12 - 0.05 - group.rotation.x) * 0.055;
+        group.rotation.x += (pointer.y * 0.12 - 0.05 - group.rotation.x) * 0.055;
         group.position.y = Math.sin(elapsed * 0.72) * 0.055;
         waveform.children.forEach((child, index) => {
           child.scale.y = 0.76 + Math.sin(elapsed * 2.4 + index * 0.72) * 0.24;
