@@ -41,8 +41,9 @@ export function Relic() {
         <span className="relic-fallback__signal" />
       </div>
       <div ref={mount} className="relic-mount" />
-      <figcaption className="meta relic-caption">
-        Fig. 00 — realtime identity object
+      <figcaption className="meta relic-caption flex flex-wrap gap-x-4 gap-y-1">
+        <span>Fig. 00 — realtime identity object</span>
+        <span className="text-rose/80">Move to inspect</span>
         <span className="sr-only"> {RELIC_DESCRIPTION}</span>
       </figcaption>
     </figure>
