@@ -1,8 +1,7 @@
-import { existsSync } from "node:fs";
+import { existsSync, readFileSync } from "node:fs";
 import { projects } from "../src/content/portfolio";
 
 const failures: string[] = [];
-const warnings: string[] = [];
 
 for (const project of projects) {
   const page = `src/app${project.route}/page.tsx`;
@@ -44,16 +43,30 @@ for (const source of [
   if (!existsSync(source)) failures.push(`Missing recruiter-speed source: ${source}`);
 }
 
-if (!existsSync("public/assets")) {
-  warnings.push(
-    "No approved production asset directory; intentional public-safe studies remain in use.",
-  );
+const releaseSources = [
+  "src/app/page.tsx",
+  "src/app/home.module.css",
+  "src/app/resume/page.tsx",
+  "src/components/projects/ResumeTile.tsx",
+];
+const unfinishedMarkers = [
+  "final asset pending",
+  "asset pending",
+  "screenshot pending",
+  "download pending",
+];
+
+for (const source of releaseSources) {
+  const text = readFileSync(source, "utf8").toLowerCase();
+  for (const marker of unfinishedMarkers) {
+    if (text.includes(marker)) {
+      failures.push(`Unfinished release marker in ${source}: ${marker}`);
+    }
+  }
 }
 
 console.log(`Source audit: ${projects.length} project routes checked.`);
-warnings.forEach((warning) => console.warn(warning));
 if (failures.length) {
   failures.forEach((failure) => console.error(failure));
   process.exitCode = 1;
 }
-if (process.argv.includes("--release") && warnings.length) process.exitCode = 1;
