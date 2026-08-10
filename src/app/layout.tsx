@@ -15,11 +15,11 @@ const previewBasePath =
 export const metadata: Metadata = {
   metadataBase: new URL("https://hasanbukhari.dev"),
   title: {
-    default: "Hasan Bukhari — Build, Research, Write",
+    default: "Hasan Bukhari — Software Engineering + Computational Biology",
     template: "%s — Hasan Bukhari",
   },
   description:
-    "Software engineering, computational biology research, interactive systems, writing, and community leadership by Hasan Bukhari.",
+    "Portfolio of Hasan Bukhari: software engineering, computational biology, machine learning, scientific software, interactive systems, writing, and community leadership at the University of Southern Mississippi.",
   applicationName: "Hasan Bukhari — Build · Research · Write",
   authors: [{ name: "Hasan Bukhari", url: "https://hasanbukhari.dev" }],
   creator: "Hasan Bukhari",
@@ -32,24 +32,24 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     url: "/",
-    title: "Hasan Bukhari — Build, Research, Write",
+    title: "Hasan Bukhari — Software Engineering + Computational Biology",
     description:
-      "Software engineering, computational biology, interactive systems, writing, and community leadership.",
+      "Software engineering, computational biology, machine learning, interactive systems, writing, and community leadership.",
     siteName: "Hasan Bukhari — Build · Research · Write",
     images: [
       {
         url: "/opengraph-image",
         width: 1200,
         height: 630,
-        alt: "Hasan Bukhari — Build, Research, Write",
+        alt: "Hasan Bukhari — Software Engineering + Computational Biology",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Hasan Bukhari — Build, Research, Write",
+    title: "Hasan Bukhari — Software Engineering + Computational Biology",
     description:
-      "Software engineering, computational biology, interactive systems, writing, and community leadership.",
+      "Software engineering, computational biology, machine learning, interactive systems, writing, and community leadership.",
     images: ["/opengraph-image"],
   },
   formatDetection: { email: false, address: false, telephone: false },
