@@ -4,7 +4,7 @@ import { StampedLabel } from "@/components/zine/StampedLabel";
 interface Props {
   title: string;
   description: string;
-  href?: string;
+  href: string;
   updatedAt: string;
   fileSize?: string;
   label?: string;
@@ -44,13 +44,7 @@ export function ResumeTile({
           </div>
         ) : null}
       </dl>
-      {href ? (
-        <ButtonLink href={href}>Download {title}</ButtonLink>
-      ) : (
-        <p role="status">
-          <strong>Download pending verified PDF</strong>
-        </p>
-      )}
+      <ButtonLink href={href}>Download {title}</ButtonLink>
     </article>
   );
 }
