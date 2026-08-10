@@ -24,6 +24,12 @@ const requiredRouteFiles = [
   "src/routes/write/student-poets-association.tsx",
 ];
 
+const requiredResumeFiles = [
+  "public/resumes/Hasan_Bukhari_Software_Engineering_Resume.pdf",
+  "public/resumes/Hasan_Bukhari_Machine_Learning_Resume.pdf",
+  "public/resumes/Hasan_Bukhari_Bioinformatics_Resume.pdf",
+];
+
 const expectedProjectIds = [
   "aegis",
   "heartline",
@@ -70,6 +76,14 @@ function listPublicAssets(directory, prefix = "") {
   });
 }
 
+function listSourceFiles(directory) {
+  return readdirSync(directory, { withFileTypes: true }).flatMap((entry) => {
+    const path = join(directory, entry.name);
+    if (entry.isDirectory()) return listSourceFiles(path);
+    return /\.(ts|tsx|js|mjs|css)$/.test(entry.name) ? [path] : [];
+  });
+}
+
 const bannedPublicCopy = [
   "The first open mic had nine people",
   "there was no regular place to read work out loud",
@@ -77,9 +91,21 @@ const bannedPublicCopy = [
   "There is no publisher",
 ];
 
+const staleResumeCopy = ["Two résumés", "two résumés", "Both files"];
+
 const missingRoutes = requiredRouteFiles.filter((file) => !existsSync(join(root, file)));
 if (missingRoutes.length) {
   throw new Error(`Missing required route files:\n${missingRoutes.join("\n")}`);
+}
+
+const missingResumes = requiredResumeFiles.filter((file) => !existsSync(join(root, file)));
+if (missingResumes.length) {
+  throw new Error(`Missing required résumé PDFs:\n${missingResumes.join("\n")}`);
+}
+
+for (const file of requiredResumeFiles) {
+  const signature = readFileSync(join(root, file)).subarray(0, 5).toString("utf8");
+  if (signature !== "%PDF-") throw new Error(`Résumé is not a PDF: ${file}`);
 }
 
 const portfolio = readFileSync(join(root, "src/content/portfolio.ts"), "utf8");
@@ -90,16 +116,18 @@ if (JSON.stringify(actualProjectIds) !== JSON.stringify(expectedProjectIds)) {
   );
 }
 
-const sourceFiles = [
-  "src/content/portfolio.ts",
-  "src/components/site/hero.tsx",
-  "src/components/site/human-section.tsx",
-  "src/routes/about.tsx",
-].map((file) => readFileSync(join(root, file), "utf8"));
+const sourceFiles = listSourceFiles(join(root, "src"));
+const sourceText = sourceFiles.map((file) => readFileSync(file, "utf8"));
 
 for (const phrase of bannedPublicCopy) {
-  if (sourceFiles.some((source) => source.includes(phrase))) {
+  if (sourceText.some((source) => source.includes(phrase))) {
     throw new Error(`Unsupported public copy returned: ${phrase}`);
+  }
+}
+
+for (const phrase of staleResumeCopy) {
+  if (sourceText.some((source) => source.includes(phrase))) {
+    throw new Error(`Stale résumé copy returned: ${phrase}`);
   }
 }
 
@@ -110,11 +138,15 @@ if (JSON.stringify(publicAssets) !== JSON.stringify([...allowedPublicAssets].sor
   );
 }
 
-const sourceTree = sourceFiles.join("\n") + readFileSync(join(root, "src/styles.css"), "utf8");
+const sourceTree = sourceText.join("\n");
 if (sourceTree.includes("/__l5e/")) {
   throw new Error("Lovable-hosted asset path found in the public source tree.");
 }
 
+if (!sourceTree.includes("/build/aegis")) {
+  throw new Error("AEGIS route is missing from the public source tree.");
+}
+
 console.log(
-  `Validated ${requiredRouteFiles.length} routes, ${actualProjectIds.length} projects, and ${publicAssets.length} public assets.`,
+  `Validated ${requiredRouteFiles.length} routes, ${actualProjectIds.length} projects, ${requiredResumeFiles.length} résumé PDFs, and ${publicAssets.length} public assets.`,
 );
