@@ -1,7 +1,6 @@
 import Link from "next/link";
 
 import { HomeActSelector } from "@/components/game/HomeActSelector";
-import { RecruiterSnapshot } from "@/components/home/RecruiterSnapshot";
 import { ProjectSpread } from "@/components/projects/ProjectSpread";
 import { ResumeTile } from "@/components/projects/ResumeTile";
 import { ResearchMetric } from "@/components/research/ResearchMetric";
@@ -110,7 +109,6 @@ export default function HomePage() {
         </div>
       </section>
 
-      <RecruiterSnapshot />
 
       <section
         className={`${styles.section} ${styles.editorial}`}
