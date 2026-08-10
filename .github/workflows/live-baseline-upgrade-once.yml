@@ -6,6 +6,7 @@ on:
       - portfolio/live-baseline-v1
     paths:
       - scripts/complete-live-baseline-upgrade.py
+      - scripts/validate-content.mjs
       - .github/workflows/live-baseline-upgrade-once.yml
 
 permissions:
