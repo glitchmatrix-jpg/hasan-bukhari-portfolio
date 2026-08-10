@@ -37,8 +37,8 @@ const tracks = [
   },
   {
     number: "05",
-    title: "RÃ©sumÃ©s",
-    description: "Two professional paths through one body of work",
+    title: "Résumés",
+    description: "Three professional paths through one body of work",
     href: "#resumes",
   },
 ] as const;
@@ -78,12 +78,12 @@ export default function HomePage() {
       <section className={styles.hero} aria-labelledby="home-title">
         <div className={`${styles.inner} ${styles.heroGrid}`}>
           <div className={`${styles.heroCopy} motion-hero-copy`}>
-            <p className={styles.issueLabel}>Hasan Bukhari â€” Issue 01</p>
+            <p className={styles.issueLabel}>Hasan Bukhari — Issue 01</p>
             <h1 className={styles.heroTitle} id="home-title">
               <span>Hasan</span>
               <span>Bukhari</span>
             </h1>
-            <p className={styles.kicker}>Build Â· Research Â· Write</p>
+            <p className={styles.kicker}>Build · Research · Write</p>
             <p className={styles.heroStatement}>
               I build systems, study signals, and write about what survives.
             </p>
@@ -95,7 +95,7 @@ export default function HomePage() {
             <div className={styles.actions}>
               <ButtonLink href="#editorial">Explore the issue</ButtonLink>
               <ButtonLink href="#resumes" variant="secondary">
-                View rÃ©sumÃ©s
+                View résumés
               </ButtonLink>
               <ButtonLink href="#contact" variant="text">
                 Contact
@@ -130,11 +130,11 @@ export default function HomePage() {
             Each begins with the same question: how do complex systems become
             understandable, useful, or alive? I work across mobile products,
             computational biology, interactive systems, poetry, and creative
-            community with the same commitmentsâ€”clear structure, honest
+            community with the same commitments—clear structure, honest
             evidence, and human meaning.
           </p>
           <p className={styles.editorialBody}>
-            <Link href="/about">Read the full introduction â†’</Link>
+            <Link href="/about">Read the full introduction →</Link>
           </p>
         </div>
       </section>
@@ -495,26 +495,37 @@ export default function HomePage() {
         <div className={styles.inner}>
           <div className={styles.sectionHeader}>
             <p className={styles.eyebrow}>Professional documents</p>
-            <h2 id="resumes-title">Two paths. One body of work.</h2>
+            <h2 id="resumes-title">Three paths. One body of work.</h2>
             <p>
-              Choose the rÃ©sumÃ© that matches the role. Both lead back to the
+              Choose the résumé that matches the role: engineering, machine
+              learning, or computational biology. All three lead back to the
               same systems-minded practice.
             </p>
           </div>
           <div className={styles.resumeGrid}>
             <ResumeTile
-              description="For computational biology, bioinformatics, research engineering, data science, and scientific software roles."
-              href="/resume#computational-biology"
-              title="Computational Biology / Bioinformatics RÃ©sumÃ©"
-              tone="research"
-              updatedAt="August 2026"
+              description="Best for software engineering, mobile, backend, product engineering, and interactive systems roles."
+              href="/resume"
+              label="Engineering résumé"
+              title="Software Engineering Résumé"
+              tone="build"
+              updatedAt="August 10, 2026"
             />
             <ResumeTile
-              description="For software engineering, mobile development, backend systems, product engineering, and interactive software roles."
-              href="/resume#software-engineering"
-              title="Software Engineering RÃ©sumÃ©"
-              tone="build"
-              updatedAt="August 2026"
+              description="Best for machine learning, research engineering, scientific computing, data science, and applied AI roles."
+              href="/resume"
+              label="ML / Research résumé"
+              title="Machine Learning / Research Engineering Résumé"
+              tone="research"
+              updatedAt="August 10, 2026"
+            />
+            <ResumeTile
+              description="Best for bioinformatics, computational genomics, scientific software, and biological research roles."
+              href="/resume"
+              label="Bioinformatics résumé"
+              title="Computational Biology / Bioinformatics Résumé"
+              tone="research"
+              updatedAt="August 10, 2026"
             />
           </div>
         </div>
@@ -532,7 +543,7 @@ export default function HomePage() {
           </div>
           <div className={styles.contactSheet}>
             <p className={styles.meta}>
-              Hasan Bukhari Â· Build Â· Research Â· Write
+              Hasan Bukhari · Build · Research · Write
             </p>
             <a href="mailto:hasan.bukhari25@gmail.com">
               hasan.bukhari25@gmail.com
@@ -549,7 +560,7 @@ export default function HomePage() {
               rel="noreferrer"
               target="_blank"
             >
-              GitHub â€” PurplePoet25{" "}
+              GitHub — PurplePoet25{" "}
               <span className="sr-only">(opens in a new tab)</span>
             </a>
             <a
@@ -557,10 +568,10 @@ export default function HomePage() {
               rel="noreferrer"
               target="_blank"
             >
-              GitHub â€” glitchmatrix-jpg{" "}
+              GitHub — glitchmatrix-jpg{" "}
               <span className="sr-only">(opens in a new tab)</span>
             </a>
-            <Link href="/contact">Open the contact page â†’</Link>
+            <Link href="/contact">Open the contact page →</Link>
           </div>
         </div>
       </section>
