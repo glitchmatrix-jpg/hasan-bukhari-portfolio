@@ -8,7 +8,7 @@ const sheets = [
       "Software engineering, mobile development, backend systems, product engineering, and interactive software.",
     url: sitePath("/resumes/Hasan_Bukhari_Software_Engineering_Resume.pdf"),
     file: "Hasan_Bukhari_Software_Engineering_Resume.pdf",
-    posture: "sm:-rotate-[0.6deg] sm:translate-y-2",
+    posture: "lg:-rotate-[0.6deg] lg:translate-y-2",
   },
   {
     index: "B",
@@ -17,7 +17,7 @@ const sheets = [
       "Machine learning, research engineering, scientific computing, data science, and applied AI.",
     url: sitePath("/resumes/Hasan_Bukhari_Machine_Learning_Resume.pdf"),
     file: "Hasan_Bukhari_Machine_Learning_Resume.pdf",
-    posture: "sm:rotate-[0.35deg] sm:-translate-y-2",
+    posture: "lg:rotate-[0.35deg] lg:-translate-y-2",
   },
   {
     index: "C",
@@ -25,7 +25,7 @@ const sheets = [
     scope: "Computational biology, bioinformatics, genomics, scientific software, and research.",
     url: sitePath("/resumes/Hasan_Bukhari_Bioinformatics_Resume.pdf"),
     file: "Hasan_Bukhari_Bioinformatics_Resume.pdf",
-    posture: "sm:-rotate-[0.25deg] sm:translate-y-3",
+    posture: "lg:-rotate-[0.25deg] lg:translate-y-3",
   },
 ] as const;
 
@@ -60,7 +60,7 @@ export function Resumes({ headingLevel = "h2" }: { headingLevel?: "h1" | "h2" })
   return (
     <section
       id="resumes"
-      className="stage-bone bg-background py-24 text-foreground lg:py-28"
+      className="stage-bone bg-background py-20 text-foreground sm:py-24 lg:py-28"
       aria-labelledby="resumes-title"
     >
       <div className="shell grid-editorial gap-y-12">
@@ -76,11 +76,11 @@ export function Resumes({ headingLevel = "h2" }: { headingLevel?: "h1" | "h2" })
           </p>
         </div>
 
-        <div className="col-span-4 grid gap-6 py-2 sm:grid-cols-3 lg:col-span-8 lg:col-start-5">
-          {sheets.map((sheet) => (
+        <div className="col-span-4 grid gap-6 py-2 md:grid-cols-2 lg:col-span-8 lg:col-start-5 lg:grid-cols-3">
+          {sheets.map((sheet, index) => (
             <article
               key={sheet.title}
-              className={`relative flex min-h-[23rem] flex-col justify-between border border-border p-6 shadow-sm transition-transform duration-200 hover:-translate-y-1 hover:rotate-0 ${sheet.posture}`}
+              className={`relative flex min-h-[22rem] flex-col justify-between border border-border p-5 shadow-sm transition-transform duration-200 hover:-translate-y-1 hover:rotate-0 sm:p-6 lg:min-h-[23rem] ${index === 2 ? "md:col-span-2 lg:col-span-1" : ""} ${sheet.posture}`}
               style={{
                 background: "color-mix(in oklab, var(--blackcherry) 4%, var(--bone))",
                 boxShadow: "0 30px 60px -45px oklch(0 0 0 / 0.6)",
