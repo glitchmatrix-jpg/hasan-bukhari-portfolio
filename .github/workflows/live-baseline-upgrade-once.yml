@@ -43,9 +43,9 @@ jobs:
         run: |
           npm ci
           npm run validate
+          npm run build
           npm run typecheck
           npm run lint
-          npm run build
 
       - name: Commit native upgrade
         run: |
