@@ -34,7 +34,7 @@ export function SiteNav() {
               <Link
                 to={item.href}
                 activeProps={{ "aria-current": "page" }}
-                className="meta text-muted-foreground transition-colors hover:text-foreground aria-[current=page]:text-foreground"
+                className="meta border-b border-transparent pb-1 text-muted-foreground transition-colors hover:text-foreground aria-[current=page]:border-cherry aria-[current=page]:text-foreground"
               >
                 {item.label}
               </Link>
@@ -73,7 +73,11 @@ export function SiteNav() {
                 {items.map((item) => (
                   <li key={item.label} className="rule-top">
                     <Dialog.Close asChild>
-                      <Link to={item.href} className="flex items-baseline gap-4 py-5">
+                      <Link
+                        to={item.href}
+                        activeProps={{ "aria-current": "page" }}
+                        className="flex items-baseline gap-4 py-5 aria-[current=page]:text-rose"
+                      >
                         <span className="meta text-cherry">{item.index}</span>
                         <span className="display text-4xl sm:text-5xl">{item.label}</span>
                       </Link>
