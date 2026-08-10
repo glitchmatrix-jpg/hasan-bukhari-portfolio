@@ -1,5 +1,6 @@
 import AxeBuilder from "@axe-core/playwright";
 import { expect, test } from "@playwright/test";
+import { projects } from "../../src/content/portfolio";
 
 const routes = [
   "/",
@@ -9,6 +10,11 @@ const routes = [
   "/about",
   "/resume",
   "/contact",
+  "/archive",
+  "/research/research-software",
+  "/accessibility",
+  "/privacy",
+  ...projects.map((project) => project.route),
 ];
 
 for (const route of routes) {
