@@ -3,6 +3,7 @@ import { getWorld } from "@/content/site";
 import { sitePath } from "@/lib/site-path";
 
 const supportingIds = [
+  "aegis",
   "taaqat",
   "nivala",
   "a17",
@@ -26,7 +27,7 @@ export function Archive() {
             The rest of the shelf.
           </h2>
           <p className="mt-5 text-sm leading-relaxed text-muted-foreground">
-            Six more projects. Each line says what is public and nothing more.
+            Seven more projects. Each line says what is public and nothing more.
           </p>
           <div className="mt-8">
             <a href={sitePath("/archive")} className="action">
