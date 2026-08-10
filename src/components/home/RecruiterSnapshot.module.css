@@ -1,0 +1,125 @@
+.snapshot {
+  position: relative;
+  padding: clamp(2.5rem, 5vw, 4.5rem) var(--gutter);
+  color: var(--color-global-ink);
+  background: var(--color-global-dirty-cream);
+  border-block: 3px solid var(--color-global-ink);
+}
+
+.inner {
+  width: min(100%, var(--container-wide));
+  margin-inline: auto;
+}
+
+.masthead {
+  display: grid;
+  grid-template-columns: minmax(0, 1.35fr) minmax(16rem, 0.65fr);
+  gap: 1rem clamp(2rem, 6vw, 6rem);
+  align-items: end;
+  padding-bottom: clamp(1.5rem, 3vw, 2.5rem);
+  border-bottom: 2px solid currentColor;
+}
+
+.kicker,
+.label {
+  margin: 0;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.11em;
+  text-transform: uppercase;
+}
+
+.kicker {
+  grid-column: 1 / -1;
+}
+
+.masthead h2 {
+  margin: 0;
+  max-width: 13ch;
+  font-family: var(--font-display);
+  font-size: clamp(2.8rem, 6vw, 6.8rem);
+  line-height: 0.82;
+  letter-spacing: -0.025em;
+  text-transform: uppercase;
+}
+
+.masthead > p:last-child {
+  margin: 0;
+  max-width: 36rem;
+  font-family: var(--font-serif);
+  font-size: clamp(1.1rem, 1.8vw, 1.45rem);
+  line-height: 1.25;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1.3fr 1fr 0.8fr;
+  border-bottom: 2px solid currentColor;
+}
+
+.block {
+  display: grid;
+  gap: 1rem;
+  align-content: start;
+  min-height: 11rem;
+  padding: clamp(1.25rem, 3vw, 2rem);
+  border-right: 2px solid currentColor;
+}
+
+.block:first-child {
+  padding-left: 0;
+}
+
+.block:last-child {
+  padding-right: 0;
+  border-right: 0;
+}
+
+.links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem 1rem;
+}
+
+.links a,
+.primaryLink {
+  width: fit-content;
+  color: inherit;
+  font-weight: 850;
+  text-decoration-thickness: 0.12em;
+  text-underline-offset: 0.16em;
+}
+
+.primaryLink {
+  font-family: var(--font-serif);
+  font-size: clamp(1.2rem, 2vw, 1.7rem);
+  line-height: 1.15;
+}
+
+@media (max-width: 60rem) {
+  .masthead,
+  .grid {
+    grid-template-columns: 1fr;
+  }
+
+  .block,
+  .block:first-child,
+  .block:last-child {
+    min-height: auto;
+    padding: 1.4rem 0;
+    border-right: 0;
+    border-bottom: 2px solid currentColor;
+  }
+
+  .block:last-child {
+    border-bottom: 0;
+  }
+}
+
+@media (forced-colors: active) {
+  .snapshot {
+    color: CanvasText;
+    background: Canvas;
+  }
+}
