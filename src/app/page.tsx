@@ -1,6 +1,7 @@
 import Link from "next/link";
 
 import { HomeActSelector } from "@/components/game/HomeActSelector";
+import { RecruiterSnapshot } from "@/components/home/RecruiterSnapshot";
 import { ProjectSpread } from "@/components/projects/ProjectSpread";
 import { ResumeTile } from "@/components/projects/ResumeTile";
 import { ResearchMetric } from "@/components/research/ResearchMetric";
@@ -109,6 +110,8 @@ export default function HomePage() {
         </div>
       </section>
 
+      <RecruiterSnapshot />
+
       <section
         className={`${styles.section} ${styles.editorial}`}
         id="editorial"
@@ -178,7 +181,7 @@ export default function HomePage() {
                 className={`${styles.mediaPlate} ${styles.phonePlate}`}
                 data-label="HEARTLINE"
                 role="img"
-                aria-label="Abstract public-safe placeholder for the HEARTLINE mobile interface"
+                aria-label="Abstract public-safe HEARTLINE mobile interface study"
               />
             }
             metadata={[
@@ -342,7 +345,7 @@ export default function HomePage() {
                 className={styles.mediaPlate}
                 data-label="Flooded"
                 role="img"
-                aria-label="Abstract blue book-cover placeholder for Flooded"
+                aria-label="Abstract blue book-cover study for Flooded"
               />
             }
             metadata={[
@@ -378,9 +381,16 @@ export default function HomePage() {
               <div
                 className={styles.productMock}
                 role="img"
-                aria-label="Public-safe placeholder for the Taaqat recovery dashboard"
+                aria-label="Synthetic public-safe Taaqat recovery dashboard study"
               >
-                Recovery dashboard asset pending
+                <span className={styles.mockLabel}>Recovery map / synthetic demo</span>
+                <strong className={styles.mockMetric}>72%</strong>
+                <span className={styles.mockSubline}>Ready today · Push 81 · Pull 76 · Legs 64</span>
+                <div className={styles.mockBars} aria-hidden="true">
+                  <span style={{ width: "81%" }} />
+                  <span style={{ width: "76%" }} />
+                  <span style={{ width: "64%" }} />
+                </div>
               </div>
               <p>
                 An offline-first fitness platform with 172 bundled exercises,
@@ -397,9 +407,16 @@ export default function HomePage() {
               <div
                 className={styles.productMock}
                 role="img"
-                aria-label="Public-safe placeholder for the Nivala nutrition dashboard"
+                aria-label="Synthetic public-safe Nivala nutrition dashboard study"
               >
-                Synthetic-data screenshot pending
+                <span className={styles.mockLabel}>Today / synthetic demo</span>
+                <strong className={styles.mockMetric}>1,840</strong>
+                <span className={styles.mockSubline}>kcal · Daal · Roti · Chai · Chicken karahi</span>
+                <div className={styles.mockLedger} aria-hidden="true">
+                  <span>Protein 108g</span>
+                  <span>Fiber 31g</span>
+                  <span>Local backup ✓</span>
+                </div>
               </div>
               <p>
                 A privacy-first nutrition tracker built around 278 Pakistani
@@ -507,7 +524,7 @@ export default function HomePage() {
           <div
             className={styles.photoFallback}
             role="img"
-            aria-label="Event photograph placeholder pending photographer and participant rights review"
+            aria-label="Designed community illustration used instead of participant photography"
           />
           <div className={styles.humanCopy}>
             <StampedLabel tone="write">Human / Community</StampedLabel>
