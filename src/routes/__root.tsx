@@ -26,9 +26,11 @@ function NotFoundComponent() {
   return (
     <div className="flex min-h-screen items-center justify-center bg-background px-4">
       <div className="max-w-md text-center">
-        <p className="meta text-muted-foreground">Error 404</p>
+        <p className="meta text-cherry">Error 404 · missing page</p>
         <h1 className="display mt-4 text-5xl">That page isn't here.</h1>
-        <p className="mt-3 text-sm text-muted-foreground">The link is either old or mistyped.</p>
+        <p className="mt-3 text-sm text-muted-foreground">
+          The link is either old, mistyped, or no longer part of this issue.
+        </p>
         <div className="mt-8">
           <Link to="/" className="action">
             Back to the homepage
@@ -75,21 +77,22 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
+      { name: "theme-color", content: "#1b0d12" },
       { title: "Hasan Bukhari — Build · Research · Write" },
       {
         name: "description",
         content:
-          "Hasan Bukhari builds Android and backend software, studies biological signals in computational biology, and writes poems and games.",
+          "Hasan Bukhari builds software and scientific systems across software engineering, machine learning, computational biology, games, and writing.",
       },
       { name: "author", content: "Hasan Bukhari" },
       { property: "og:title", content: "Hasan Bukhari — Build · Research · Write" },
       {
         property: "og:description",
         content:
-          "Android and backend software, leakage-controlled multicancer classification, a four-act Pygame platformer, and a poetry collection in progress.",
+          "Software engineering, computational biology, machine learning, interactive systems, games, and writing by Hasan Bukhari.",
       },
       { property: "og:type", content: "website" },
-      { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:card", content: "summary" },
     ],
     links: [
       { rel: "stylesheet", href: appCss },
