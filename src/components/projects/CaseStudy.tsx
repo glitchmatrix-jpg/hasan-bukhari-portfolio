@@ -33,7 +33,7 @@ export function CaseStudy({ project }: { project: ProjectRecord }) {
     "@context": "https://schema.org",
     "@type": project.world === "build" ? "SoftwareApplication" : "CreativeWork",
     name: project.title,
-    url: `https://hasanbukhari.dev\${project.route}`,
+    url: `https://hasanbukhari.dev${project.route}`,
     abstract: project.summary,
     author: { "@type": "Person", name: "Hasan Bukhari" },
     keywords: project.facts.join(", "),
@@ -44,7 +44,7 @@ export function CaseStudy({ project }: { project: ProjectRecord }) {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
-          __html: JSON.stringify(schema).replaceAll("<", "\\\\u003c"),
+          __html: JSON.stringify(schema).replaceAll("<", "\\u003c"),
         }}
       />
       <article className={`case-study case-study--${project.world}`}>
@@ -156,7 +156,7 @@ export function CaseStudy({ project }: { project: ProjectRecord }) {
                 <Link href={item.route as Route}>
                   <span>{String(index + 1).padStart(2, "0")}</span>
                   <strong>{item.title}</strong>
-                  <small>{item.world} ÃƒÂ¢Ã¢â‚¬Â Ã¢â‚¬â„¢</small>
+                  <small>{item.world} →</small>
                 </Link>
               </li>
             ))}
