@@ -23,6 +23,7 @@ jobs:
       - run: npm ci
       - name: Update stable Next patch line
         run: npm install --save-exact next@16.2.12 @next/mdx@16.2.12 eslint-config-next@16.2.12
+      - run: npm run format:write
       - run: npm run validate
       - run: npm run release:gate
       - run: npm run build
@@ -31,6 +32,6 @@ jobs:
       - run: |
           git config user.name "glitchmatrix-jpg"
           git config user.email "extraextra335@gmail.com"
-          git add package.json package-lock.json
+          git add -A
           git commit -m "chore: update Next.js stable patch line to 16.2.12"
           git push origin HEAD:portfolio/recruiter-polish-v1
