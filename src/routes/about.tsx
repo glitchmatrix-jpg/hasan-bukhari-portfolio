@@ -36,8 +36,8 @@ function AboutPage() {
               <p className="display mt-6 text-3xl text-rose lg:text-5xl">Mississippi now.</p>
             </div>
             <p className="measure col-span-4 text-sm leading-relaxed text-muted-foreground lg:col-span-4 lg:col-start-9">
-              {profile.statement} I study computer science at Southern Miss, minor in biology, and
-              expect to graduate in December 2028.
+              {profile.statement} I study computer science at Southern Miss, with minors in
+              biological sciences and political science, and expect to graduate in December 2028.
             </p>
           </div>
         </header>
@@ -50,7 +50,7 @@ function AboutPage() {
             {[
               ["From", profile.origin],
               ["Studies", profile.degree],
-              ["Minor", profile.minor],
+              ["Minors", profile.minor],
               ["University", profile.university],
               ["Expected graduation", profile.expectedGraduation],
               ["GPA", profile.gpa],
