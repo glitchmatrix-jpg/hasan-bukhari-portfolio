@@ -22,6 +22,7 @@ export default function ResumePage() {
         <ResumeTile
           description="For software engineering, mobile development, backend systems, product engineering, and interactive software roles."
           fileSize="131 KB"
+          href="/resumes/Hasan_Bukhari_Software_Engineering_Resume.pdf"
           label="Engineering résumé"
           title="Software Engineering Résumé"
           tone="build"
@@ -30,6 +31,7 @@ export default function ResumePage() {
         <ResumeTile
           description="For machine learning, research engineering, scientific computing, data science, and applied AI roles."
           fileSize="130 KB"
+          href="/resumes/Hasan_Bukhari_Machine_Learning_Resume.pdf"
           label="ML / Research résumé"
           title="Machine Learning / Research Engineering Résumé"
           tone="research"
@@ -38,6 +40,7 @@ export default function ResumePage() {
         <ResumeTile
           description="For computational biology, bioinformatics, genomics, scientific software, and research roles."
           fileSize="129 KB"
+          href="/resumes/Hasan_Bukhari_Bioinformatics_Resume.pdf"
           label="Bioinformatics résumé"
           title="Computational Biology / Bioinformatics Résumé"
           tone="research"
@@ -45,9 +48,8 @@ export default function ResumePage() {
         />
       </div>
       <p className="document-note">
-        Verified résumé PDFs are staged for this branch. Download buttons will
-        be enabled as soon as the three binary files are committed to the public
-        résumé asset paths.
+        Each résumé is a targeted one-page PDF. Choose the path that best matches
+        the role; the underlying project record is shared across all three.
       </p>
     </div>
   );
