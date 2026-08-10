@@ -4,16 +4,23 @@ const sheets = [
   {
     index: "A",
     title: "Software engineering",
-    scope: "Mobile development, backend systems, product engineering, interactive software.",
-    url: sitePath("/assets/hasan-bukhari-software-engineering.pdf"),
+    scope: "Software engineering, mobile development, backend systems, product engineering, and interactive software.",
+    url: sitePath("/resumes/Hasan_Bukhari_Software_Engineering_Resume.pdf"),
     file: "Hasan_Bukhari_Software_Engineering_Resume.pdf",
   },
   {
     index: "B",
+    title: "ML / research engineering",
+    scope: "Machine learning, research engineering, scientific computing, data science, and applied AI.",
+    url: sitePath("/resumes/Hasan_Bukhari_Machine_Learning_Resume.pdf"),
+    file: "Hasan_Bukhari_Machine_Learning_Resume.pdf",
+  },
+  {
+    index: "C",
     title: "Computational biology",
-    scope: "Bioinformatics, research engineering, scientific computing, data analysis.",
-    url: sitePath("/assets/hasan-bukhari-computational-biology.pdf"),
-    file: "Hasan_Bukhari_Computational_Biology_Resume.pdf",
+    scope: "Computational biology, bioinformatics, genomics, scientific software, and research.",
+    url: sitePath("/resumes/Hasan_Bukhari_Bioinformatics_Resume.pdf"),
+    file: "Hasan_Bukhari_Bioinformatics_Resume.pdf",
   },
 ] as const;
 
@@ -51,19 +58,19 @@ export function Resumes({ headingLevel = "h2" }: { headingLevel?: "h1" | "h2" })
       aria-labelledby="resumes-title"
     >
       <div className="shell grid-editorial gap-y-12">
-        <div className="col-span-4 lg:col-span-4">
+        <div className="col-span-4 lg:col-span-3">
           <Heading id="resumes-title" className="display text-5xl lg:text-6xl">
-            Two résumés.
+            Three résumés.
             <br />
             One person.
           </Heading>
           <p className="measure mt-5 text-sm leading-relaxed text-muted-foreground">
-            Same work, ordered for two readers. Both are one page and were updated in August 2026:
-            one for product and software roles, one for computational biology.
+            Same body of work, ordered for three readers. Each is one page and was updated in August
+            2026: software engineering, ML / research engineering, and computational biology.
           </p>
         </div>
 
-        <div className="col-span-4 grid gap-6 sm:grid-cols-2 lg:col-span-7 lg:col-start-6">
+        <div className="col-span-4 grid gap-5 sm:grid-cols-3 lg:col-span-8 lg:col-start-5">
           {sheets.map((sheet) => (
             <article
               key={sheet.title}
