@@ -1,0 +1,35 @@
+name: Remove recruiter snapshot once
+
+on:
+  push:
+    branches: [portfolio/recruiter-polish-v1]
+    paths:
+      - .github/workflows/remove-recruiter-snapshot-once.yml
+
+permissions:
+  contents: write
+
+jobs:
+  rollback:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: portfolio/recruiter-polish-v1
+      - name: Restore editorial homepage flow
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          p = Path('src/app/page.tsx')
+          s = p.read_text(encoding='utf-8')
+          s = s.replace('import { RecruiterSnapshot } from "@/components/home/RecruiterSnapshot";\n', '')
+          s = s.replace('\n      <RecruiterSnapshot />\n', '\n')
+          p.write_text(s, encoding='utf-8')
+          PY
+      - name: Commit rollback
+        run: |
+          git config user.name "glitchmatrix-jpg"
+          git config user.email "extraextra335@gmail.com"
+          git add src/app/page.tsx
+          git commit -m "fix: restore editorial homepage flow"
+          git push origin HEAD:portfolio/recruiter-polish-v1
