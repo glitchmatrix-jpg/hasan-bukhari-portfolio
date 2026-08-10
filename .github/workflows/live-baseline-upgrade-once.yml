@@ -39,9 +39,13 @@ jobs:
           node-version: 24
           cache: npm
 
-      - name: Validate build
+      - name: Install and format touched files
         run: |
           npm ci
+          npx prettier --write src/components/site/resumes.tsx src/components/site/current-desk.tsx src/components/site/selected-work-index.tsx src/components/site/archive.tsx src/components/site/hero.tsx src/routes/about.tsx src/routes/build/aegis.tsx src/content/site.ts src/content/portfolio.ts src/components/projects/project-visual.tsx scripts/validate-content.mjs
+
+      - name: Validate build
+        run: |
           npm run validate
           npm run build
           npm run typecheck
@@ -51,6 +55,6 @@ jobs:
         run: |
           git config user.name "glitchmatrix-jpg"
           git config user.email "extraextra335@gmail.com"
-          git add public/resumes public/assets/project/aegis-architecture.svg src/content/portfolio.ts src/components/projects/project-visual.tsx src/routeTree.gen.ts
+          git add public/resumes public/assets/project/aegis-architecture.svg src scripts/validate-content.mjs
           git commit -m "feat: complete native AEGIS and resume upgrade"
           git push origin HEAD:portfolio/live-baseline-v1
