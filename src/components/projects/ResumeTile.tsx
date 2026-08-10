@@ -7,21 +7,25 @@ interface Props {
   href?: string;
   updatedAt: string;
   fileSize?: string;
+  label?: string;
   tone: "build" | "research";
 }
+
 export function ResumeTile({
   description,
   fileSize,
   href,
+  label,
   title,
   tone,
   updatedAt,
 }: Props) {
+  const resumeLabel =
+    label ?? (tone === "research" ? "Research résumé" : "Engineering résumé");
+
   return (
     <article className={`resume-tile resume-tile--${tone}`}>
-      <StampedLabel tone={tone}>
-        {tone === "research" ? "Research résumé" : "Engineering résumé"}
-      </StampedLabel>
+      <StampedLabel tone={tone}>{resumeLabel}</StampedLabel>
       <h2 className="resume-tile__title">{title}</h2>
       <p>{description}</p>
       <dl className="resume-tile__metadata">
