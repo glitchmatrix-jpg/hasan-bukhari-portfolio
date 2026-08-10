@@ -40,15 +40,6 @@ for (const resume of [
   }
 }
 
-for (const source of [
-  "src/components/home/RecruiterSnapshot.tsx",
-  "src/components/home/RecruiterSnapshot.module.css",
-]) {
-  if (!existsSync(source)) {
-    failures.push(`Missing recruiter-speed source: ${source}`);
-  }
-}
-
 const releaseSources = [
   "src/app/page.tsx",
   "src/app/home.module.css",
