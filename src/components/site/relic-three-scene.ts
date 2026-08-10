@@ -166,8 +166,11 @@ export function mountRelicScene(host: HTMLDivElement, pointerTarget: HTMLDivElem
     const rect = host.getBoundingClientRect();
     const width = Math.max(1, Math.round(rect.width));
     const height = Math.max(1, Math.round(rect.height));
+    const aspect = width / height;
+
     renderer.setSize(width, height, false);
-    camera.aspect = width / height;
+    camera.aspect = aspect;
+    camera.position.z = aspect < 0.82 ? 9.4 : aspect < 1.05 ? 8.85 : 8.15;
     camera.updateProjectionMatrix();
     renderer.render(scene, camera);
   };
