@@ -1,6 +1,7 @@
 import { ImageResponse } from "next/og";
 export const dynamic = "force-static";
-export const alt = "Hasan Bukhari — Software Engineering + Computational Biology";
+export const alt =
+  "Hasan Bukhari — Software Engineering + Computational Biology";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 export default function Image() {
@@ -53,7 +54,8 @@ export default function Image() {
       >
         <span>BUILD · RESEARCH · WRITE</span>
         <span style={{ maxWidth: 430, textAlign: "right", fontSize: 22 }}>
-          Software Engineering + Computational Biology · University of Southern Mississippi
+          Software Engineering + Computational Biology · University of Southern
+          Mississippi
         </span>
       </div>
     </div>,

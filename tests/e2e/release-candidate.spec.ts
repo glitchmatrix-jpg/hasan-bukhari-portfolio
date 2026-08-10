@@ -49,21 +49,30 @@ test.describe("release-candidate navigation", () => {
         name: "Software Engineering + Computational Biology",
       }),
     ).toBeVisible();
-    await expect(page.getByText(/University of Southern Mississippi/)).toBeVisible();
+    await expect(
+      page.getByText(/University of Southern Mississippi/),
+    ).toBeVisible();
     await expect(page.getByText("Three résumé paths")).toBeVisible();
-    await expect(page.getByRole("heading", { name: "Enter the worlds" })).toBeVisible();
+    await expect(
+      page.getByRole("heading", { name: "Enter the worlds" }),
+    ).toBeVisible();
   });
 
-  test("internal navigation and résumé assets resolve", async ({ page, request }) => {
+  test("internal navigation and résumé assets resolve", async ({
+    page,
+    request,
+  }) => {
     const hrefs = new Set<string>();
 
     for (const route of coreRoutes) {
       await page.goto(route);
-      const routeHrefs = await page.locator('a[href]').evaluateAll((links) =>
-        links
-          .map((link) => link.getAttribute("href"))
-          .filter((href): href is string => Boolean(href)),
-      );
+      const routeHrefs = await page
+        .locator("a[href]")
+        .evaluateAll((links) =>
+          links
+            .map((link) => link.getAttribute("href"))
+            .filter((href): href is string => Boolean(href)),
+        );
       for (const href of routeHrefs) {
         if (href.startsWith("/") && !href.startsWith("//")) {
           hrefs.add(href.split("#")[0] || "/");
@@ -73,7 +82,9 @@ test.describe("release-candidate navigation", () => {
 
     for (const href of hrefs) {
       const response = await request.get(href);
-      expect(response.status(), `Broken internal link: ${href}`).toBeLessThan(400);
+      expect(response.status(), `Broken internal link: ${href}`).toBeLessThan(
+        400,
+      );
     }
   });
 
@@ -88,7 +99,9 @@ test.describe("release-candidate navigation", () => {
       }),
     ).toBeVisible();
     const hasOverflow = await page.evaluate(
-      () => document.documentElement.scrollWidth > document.documentElement.clientWidth,
+      () =>
+        document.documentElement.scrollWidth >
+        document.documentElement.clientWidth,
     );
     expect(hasOverflow).toBe(false);
   });
@@ -124,17 +137,25 @@ test.describe("release-candidate navigation", () => {
     const downloadLinks = page.getByRole("link", { name: /download.*résumé/i });
     await expect(downloadLinks).toHaveCount(3);
     await expect(
-      page.locator('a[href="/resumes/Hasan_Bukhari_Software_Engineering_Resume.pdf"]'),
+      page.locator(
+        'a[href="/resumes/Hasan_Bukhari_Software_Engineering_Resume.pdf"]',
+      ),
     ).toHaveCount(1);
     await expect(
-      page.locator('a[href="/resumes/Hasan_Bukhari_Machine_Learning_Resume.pdf"]'),
+      page.locator(
+        'a[href="/resumes/Hasan_Bukhari_Machine_Learning_Resume.pdf"]',
+      ),
     ).toHaveCount(1);
     await expect(
-      page.locator('a[href="/resumes/Hasan_Bukhari_Bioinformatics_Resume.pdf"]'),
+      page.locator(
+        'a[href="/resumes/Hasan_Bukhari_Bioinformatics_Resume.pdf"]',
+      ),
     ).toHaveCount(1);
   });
 
-  test("unknown routes return the portfolio failure state", async ({ page }) => {
+  test("unknown routes return the portfolio failure state", async ({
+    page,
+  }) => {
     const response = await page.goto("/this-route-does-not-exist");
     expect(response?.status()).toBe(404);
     await expect(

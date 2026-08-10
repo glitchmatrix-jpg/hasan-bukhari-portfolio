@@ -48,8 +48,9 @@ export default function ResumePage() {
         />
       </div>
       <p className="document-note">
-        Each résumé is a targeted one-page PDF. Choose the path that best matches
-        the role; the underlying project record is shared across all three.
+        Each résumé is a targeted one-page PDF. Choose the path that best
+        matches the role; the underlying project record is shared across all
+        three.
       </p>
     </div>
   );

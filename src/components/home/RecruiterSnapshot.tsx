@@ -15,10 +15,12 @@ export function RecruiterSnapshot() {
       <div className={styles.inner}>
         <div className={styles.masthead}>
           <p className={styles.kicker}>Fast read / before the rabbit hole</p>
-          <h2 id="snapshot-title">Software Engineering + Computational Biology</h2>
+          <h2 id="snapshot-title">
+            Software Engineering + Computational Biology
+          </h2>
           <p>
-            Hasan Bukhari · University of Southern Mississippi · Build, research,
-            and scientific software.
+            Hasan Bukhari · University of Southern Mississippi · Build,
+            research, and scientific software.
           </p>
         </div>
 

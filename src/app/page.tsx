@@ -383,9 +383,13 @@ export default function HomePage() {
                 role="img"
                 aria-label="Synthetic public-safe Taaqat recovery dashboard study"
               >
-                <span className={styles.mockLabel}>Recovery map / synthetic demo</span>
+                <span className={styles.mockLabel}>
+                  Recovery map / synthetic demo
+                </span>
                 <strong className={styles.mockMetric}>72%</strong>
-                <span className={styles.mockSubline}>Ready today · Push 81 · Pull 76 · Legs 64</span>
+                <span className={styles.mockSubline}>
+                  Ready today · Push 81 · Pull 76 · Legs 64
+                </span>
                 <div className={styles.mockBars} aria-hidden="true">
                   <span style={{ width: "81%" }} />
                   <span style={{ width: "76%" }} />
@@ -411,7 +415,9 @@ export default function HomePage() {
               >
                 <span className={styles.mockLabel}>Today / synthetic demo</span>
                 <strong className={styles.mockMetric}>1,840</strong>
-                <span className={styles.mockSubline}>kcal · Daal · Roti · Chai · Chicken karahi</span>
+                <span className={styles.mockSubline}>
+                  kcal · Daal · Roti · Chai · Chicken karahi
+                </span>
                 <div className={styles.mockLedger} aria-hidden="true">
                   <span>Protein 108g</span>
                   <span>Fiber 31g</span>
@@ -454,9 +460,12 @@ export default function HomePage() {
               <span>Controlled document intelligence &amp; governance</span>
               <p>
                 Local-first Windows software for deterministic change evidence,
-                trusted baselines, human governance, and auditable document history.
+                trusted baselines, human governance, and auditable document
+                history.
               </p>
-              <small>Python · FastAPI · React · TypeScript · Tauri · SQLite →</small>
+              <small>
+                Python · FastAPI · React · TypeScript · Tauri · SQLite →
+              </small>
             </Link>
             <Link className={styles.deeperCard} href="/build/biolitgraph">
               <span className={styles.deeperIndex}>02 / Build ↔ Research</span>
@@ -464,7 +473,8 @@ export default function HomePage() {
               <span>Biomedical literature graphs with evidence attached</span>
               <p>
                 Scientific software that normalizes biomedical entities into
-                explorable networks while preserving a route back to source papers.
+                explorable networks while preserving a route back to source
+                papers.
               </p>
               <small>PubMed · PubTator · NetworkX · Evidence export →</small>
             </Link>
@@ -473,10 +483,13 @@ export default function HomePage() {
               <strong>Fundulus Genomics</strong>
               <span>Chromosome-scale comparative genomics</span>
               <p>
-                Ongoing lab research using synteny and correspondence matrices to
-                compare chromosome-scale assemblies without overstating unfinished findings.
+                Ongoing lab research using synteny and correspondence matrices
+                to compare chromosome-scale assemblies without overstating
+                unfinished findings.
               </p>
-              <small>Python · Synteny · 24 pseudochromosomes · Research reporting →</small>
+              <small>
+                Python · Synteny · 24 pseudochromosomes · Research reporting →
+              </small>
             </Link>
           </div>
         </div>
