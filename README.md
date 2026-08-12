@@ -1,68 +1,122 @@
-# Hasan Bukhari — Portfolio
+<div align="center">
 
-<p align="center">
-  <a href="https://glitchmatrix-jpg.github.io/hasan-bukhari-portfolio/"><strong>View the live portfolio</strong></a>
-  &nbsp;·&nbsp;
-  <a href="https://github.com/glitchmatrix-jpg/hasan-bukhari-portfolio">GitHub Repository</a>
-  &nbsp;·&nbsp;
-  <a href="https://www.linkedin.com/in/hasan-bukhari">LinkedIn</a>
-</p>
+# Hasan Bukhari
+
+### Software · Computational Biology · Research · Writing
+
+Computer Science student at the University of Southern Mississippi.
+
+I build software, study biological signals, and occasionally end up making games or writing poetry instead.
+
+<br>
+
+[**View the live portfolio ↗**](https://glitchmatrix-jpg.github.io/hasan-bukhari-portfolio/)
+&nbsp;&nbsp;·&nbsp;&nbsp;
+[GitHub](https://github.com/glitchmatrix-jpg)
+&nbsp;&nbsp;·&nbsp;&nbsp;
+[LinkedIn](https://www.linkedin.com/in/hasan-bukhari)
+
+</div>
 
 ---
 
-## About
+## About this portfolio
 
-This repository is my personal portfolio. It is where I keep the projects, research, and creative work that I have spent the most time on and learned the most from.
+This repository is my personal portfolio: the place where I keep the projects, research, and creative work that I have spent the most time on and learned the most from.
 
-I'm **Hasan Bukhari**, a Computer Science student at the University of Southern Mississippi. Most of my work sits somewhere between software engineering, computational biology, machine learning, scientific software, and, occasionally, things that have absolutely nothing to do with code.
+Most of what I do sits somewhere between **software engineering, computational biology, machine learning, scientific software, and creative work**.
 
-The site is split into three sections because that is honestly the easiest way to make sense of everything I do.
+The site is split into three parts because that is honestly the easiest way to make sense of everything.
+
+<br>
+
+<table>
+<tr>
+<td width="33%" valign="top">
 
 ### 01 — Build
 
-This is where most of my software projects live.
+Software projects, tools, mobile apps, and one very persistent game project.
 
-Some are fairly technical systems, some are mobile apps, and one is a game I have been working on for a while.
+**Projects**
+- AEGIS
+- HEARTLINE
+- Taaqat
+- Nivala
+- BioLitGraph
+- To Ash Again
 
-Projects include:
-
-- **AEGIS** — a local-first platform for controlled-document monitoring, change evidence, and governance
-- **HEARTLINE** — a native Android lyric companion with synchronized lyrics and offline support
-- **Taaqat** — an offline-first fitness app
-- **Nivala** — a privacy-first nutrition tracker built around Pakistani food
-- **BioLitGraph** — a biomedical literature-mining tool that turns papers and entities into explorable evidence networks
-- **To Ash Again** — a four-act narrative platformer built in Python and Pygame
+</td>
+<td width="33%" valign="top">
 
 ### 02 — Research
 
-This section contains my computational biology and genomics work.
+Computational biology and genomics, with a lot of attention to evaluation, generalization, and limitations.
 
-A lot of what interests me here is not just whether a model works, but whether it still works when the data, cohort, platform, or evaluation setting changes.
+**Projects**
+- CancerShift
+- A17
+- Comparative Fundulus Genomics
 
-Projects include:
-
-- **CancerShift** — evaluating a multicancer classifier across different studies and sequencing platforms
-- **A17 — Predicting Chromatin Contact Maps from Epigenomic Signals**
-- **Comparative Fundulus Genomics** — ongoing chromosome-scale comparative genomics research
-
-I try to be careful about how I present research here. If something is ongoing, unpublished, exploratory, or limited in some important way, I say so.
+</td>
+<td width="33%" valign="top">
 
 ### 03 — Write
 
-Not everything I make involves Python or TypeScript.
+The creative side of what I do when I am not staring at code or genomic data.
 
-This section is for the creative side of my work, including:
+**Work**
+- *Flooded*
+- Student Poets Association
 
-- **Flooded** — a poetry collection currently in development
-- **Student Poets Association** — the creative-writing community I founded at Southern Miss
+</td>
+</tr>
+</table>
 
 ---
 
-## How I Built the Portfolio
+## What I work on
+
+### AEGIS
+A local-first platform for controlled-document monitoring, deterministic change evidence, and governance.
+
+### HEARTLINE
+A native Android lyric companion with synchronized lyrics, offline support, active-media integration, and shareable lyric cards.
+
+### Taaqat
+An offline-first fitness app with a bundled exercise library, recovery-aware planning, logging, analytics, and local persistence.
+
+### Nivala
+A privacy-first nutrition tracker built around Pakistani food, including English, Urdu, and Roman Urdu aliases.
+
+### BioLitGraph
+A biomedical literature-mining tool that turns papers, normalized entities, and source evidence into explorable networks.
+
+### To Ash Again
+A four-act narrative platformer built in Python and Pygame, with multiple characters, abilities, levels, bosses, dialogue, progression, and save-state systems.
+
+### CancerShift
+An independent computational-biology project testing whether a multicancer classifier still performs when the study, sequencing platform, and patient cohort change.
+
+### A17 — Predicting Chromatin Contact Maps from Epigenomic Signals
+A residual neural-network project studying whether epigenomic signals can predict Hi-C contact structure on chromosomes held out from model development.
+
+### Comparative Fundulus Genomics
+Ongoing undergraduate research comparing chromosome-scale *Fundulus* assemblies through synteny, chromosome correspondence, and technical reporting.
+
+### Flooded
+A poetry collection currently in development, including the writing itself as well as the physical and visual design of the book.
+
+### Student Poets Association
+The creative-writing community I founded at Southern Miss, built around open mics, showcases, collaborative programming, and giving student writers somewhere to share their work.
+
+---
+
+## How I built the portfolio
 
 I did not really want this to feel like a résumé stretched into a website.
 
-Instead, I wanted each project to have enough space to explain what I was actually trying to do, what worked, what did not, and what I learned from it.
+I wanted each project to have enough room to explain what I was actually trying to do, what worked, what did not, and what I learned from it.
 
 Most project pages are built around questions like:
 
@@ -79,7 +133,7 @@ I use the same approach for software projects too. If something is a release can
 
 ---
 
-## Selected Work
+## Selected work
 
 | Project | Area | Focus |
 | --- | --- | --- |
@@ -94,44 +148,46 @@ I use the same approach for software projects too. If something is a release can
 | **To Ash Again** | Game Development | Python, Pygame, narrative systems, progression |
 | **Flooded** | Writing | Poetry and book design |
 
-You can see the full portfolio here:
+> The full portfolio has individual pages for the projects above, including implementation details, research context, findings, limitations, and related work.
 
-**[glitchmatrix-jpg.github.io/hasan-bukhari-portfolio](https://glitchmatrix-jpg.github.io/hasan-bukhari-portfolio/)**
+### [→ Open the full portfolio](https://glitchmatrix-jpg.github.io/hasan-bukhari-portfolio/)
 
 ---
 
-## Tech Stack
+## A few rules I try to follow
+
+I wanted the portfolio to be useful, but I also wanted it to be accurate.
+
+**Do not make a project sound more finished than it is.**  
+If something is still in development, I say that.
+
+**Do not hide the limitations.**  
+Especially in research, a result without context can be very misleading.
+
+**Do not publish things just because they would look impressive.**  
+Private repositories, unpublished lab results, personal data, third-party content, and unapproved material stay private.
+
+**Negative results are still results.**  
+If an experiment failed or a method did not work the way I hoped, that is usually still worth documenting.
+
+**Explain the reasoning, not just the stack.**  
+Knowing that something uses React, Python, or PyTorch is useful, but I am usually more interested in why a particular decision was made.
+
+---
+
+## Tech stack
 
 The portfolio itself is built with:
 
-### Core
-
-- **React 19**
-- **TypeScript**
-- **TanStack Start**
-- **TanStack Router**
-- **Vite**
-- **Tailwind CSS 4**
-
-### Interface
-
-- **Radix UI**
-- **Lucide**
-- **Three.js**
-- **Recharts**
-- Custom responsive layout and typography
-
-### Development
-
-- ESLint
-- Prettier
-- TypeScript type checking
-- Content validation scripts
-- npm / Bun compatible tooling
+| | |
+| --- | --- |
+| **Core** | React 19 · TypeScript · TanStack Start · TanStack Router · Vite · Tailwind CSS 4 |
+| **Interface** | Radix UI · Lucide · Three.js · Recharts · custom responsive layout and typography |
+| **Development** | ESLint · Prettier · TypeScript type checking · content validation scripts · npm / Bun |
 
 ---
 
-## Project Structure
+## Project structure
 
 ```text
 hasan-bukhari-portfolio/
@@ -148,13 +204,13 @@ hasan-bukhari-portfolio/
 │   ├── start.ts
 │   └── styles.css
 │
-├── docs/                # Supporting documentation / static output
-├── scripts/             # Validation and development utilities
+├── docs/
+├── scripts/
 ├── package.json
 └── README.md
 ```
 
-Most of the portfolio content is kept separate from the UI under:
+Most of the portfolio content is kept separate from the UI:
 
 ```text
 src/content/
@@ -169,11 +225,9 @@ Keeping the content in one place also makes it easier to update the portfolio wi
 
 ---
 
-## Running Locally
+## Running locally
 
 ### Requirements
-
-You will need:
 
 - Node.js
 - npm
@@ -211,29 +265,15 @@ npm run preview
 
 ---
 
-## Quality Checks
-
-There are a few scripts I use to make sure I have not quietly broken something while updating the site.
-
-Run linting:
+## Quality checks
 
 ```bash
 npm run lint
-```
-
-Run the TypeScript checks:
-
-```bash
 npm run typecheck
-```
-
-Validate the portfolio content:
-
-```bash
 npm run validate
 ```
 
-Format the codebase:
+Format the codebase with:
 
 ```bash
 npm run format
@@ -241,34 +281,11 @@ npm run format
 
 ---
 
-## A Few Rules I Try to Follow
-
-I wanted the portfolio to be useful, but I also wanted it to be accurate.
-
-So I try to stick to a few fairly simple rules.
-
-**Do not make a project sound more finished than it is.**  
-If something is still in development, I say that.
-
-**Do not hide the limitations.**  
-Especially in research, a result without context can be very misleading.
-
-**Do not publish things just because they would look impressive.**  
-Private repositories, unpublished lab results, personal data, third-party content, and unapproved material stay private.
-
-**Negative results are still results.**  
-If an experiment failed or a method did not work the way I hoped, that is usually still worth documenting.
-
-**Explain the reasoning, not just the stack.**  
-Knowing that something uses React, Python, or PyTorch is useful, but I am usually more interested in why a particular decision was made.
-
----
-
-## About Me
+## About me
 
 I'm currently studying Computer Science at the **University of Southern Mississippi**, and my academic interests mostly sit around:
 
-`software engineering` · `machine learning` · `computational biology` · `bioinformatics` · `genomics` · `data science`
+**software engineering · machine learning · computational biology · bioinformatics · genomics · data science**
 
 I tend to bounce between fields a lot.
 
@@ -282,8 +299,6 @@ I also write poetry and make games, mostly because apparently I was not interest
 
 ## Contact
 
-**Hasan Bukhari**
-
 - **Portfolio:** [glitchmatrix-jpg.github.io/hasan-bukhari-portfolio](https://glitchmatrix-jpg.github.io/hasan-bukhari-portfolio/)
 - **Repository:** [github.com/glitchmatrix-jpg/hasan-bukhari-portfolio](https://github.com/glitchmatrix-jpg/hasan-bukhari-portfolio)
 - **LinkedIn:** [linkedin.com/in/hasan-bukhari](https://www.linkedin.com/in/hasan-bukhari)
@@ -291,8 +306,12 @@ I also write poetry and make games, mostly because apparently I was not interest
 - **Additional research & game projects:** [@PurplePoet25](https://github.com/PurplePoet25)
 - **Email:** [hasan.bukhari25@gmail.com](mailto:hasan.bukhari25@gmail.com)
 
----
+<br>
 
-<p align="center">
-  <sub>Built and maintained by Hasan Bukhari.</sub>
-</p>
+<div align="center">
+
+Built and maintained by **Hasan Bukhari**.
+
+[**Visit the portfolio ↗**](https://glitchmatrix-jpg.github.io/hasan-bukhari-portfolio/)
+
+</div>
